@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200..700;1,9..40,200..700&family=DM+Serif+Display:ital@0;1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-orange-50: #FFF4EC;
+  --color-orange-100: #FFE4CC;
+  --color-orange-200: #FFC499;
+  --color-orange-300: #FF9F66;
+  --color-orange-400: #FF7A33;
+  --color-orange-500: #E8650A;
+  --color-orange-600: #CC5508;
+  --color-orange-700: #A84406;
+  --color-orange-800: #843304;
+  --color-orange-900: #602202;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "DM Serif Display", Georgia, serif;
+}
+
+:root {
+  --orange: #E8650A;
+  --orange-light: #F07828;
+  --grey-dark: #1A1A1A;
+  --grey-mid: #4A4A4A;
+  --grey-light: #8A8A8A;
+  --grey-subtle: #F7F7F7;
+  --white: #FFFFFF;
+  --font-apple: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--grey-dark);
+  font-family: var(--font-apple);
+  -webkit-font-smoothing: antialiased;
+}
+
+.heading-display {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-family: var(--font-apple);
+}
+
+.heading-xl {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-family: var(--font-apple);
+}
+
+.heading-lg {
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.text-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--grey-mid);
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--orange);
+}
+
+.card-base {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.card-base:hover {
+  box-shadow: 0 8px 40px rgba(232, 101, 10, 0.13), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-color: rgba(232, 101, 10, 0.25);
+  transform: translateY(-4px);
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+  font-weight: 500;
+  padding: 0.8rem 2.2rem;
+  border-radius: 100px;
+  font-size: 0.9375rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--orange-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(232, 101, 10, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--grey-dark);
+  font-weight: 500;
+  padding: 0.8rem 2.2rem;
+  border-radius: 100px;
+  font-size: 0.9375rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: rgba(232, 101, 10, 0.04);
+}
+
+.section {
+  padding: 7rem 0;
+}
+
+.section-sm {
+  padding: 4rem 0;
+}
+
+.container-main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.divider {
+  width: 36px;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.stat-number {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--grey-dark);
+  line-height: 1;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--grey-mid);
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--orange);
+}
+
+.nav-link.active {
+  color: var(--orange);
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.9rem;
+  background: rgba(232, 101, 10, 0.07);
+  border: 1px solid rgba(232, 101, 10, 0.15);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--orange);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.65s ease forwards;
+  opacity: 0;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.animate-delay-5 {
+  animation-delay: 0.5s;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--grey-light);
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--orange);
+}
+
+.product-card-img {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  height: 240px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+@media (max-width: 1024px) {
+  .product-card-img {
+    height: 230px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-card-img {
+    height: 260px;
+  }
+}
+.product-card-img:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+}
+
+.product-card-img-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.product-card-img:hover .product-card-img-bg {
+  transform: scale(1.06);
+}
+
+.product-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.45) 50%, rgba(0, 0, 0, 0.05) 100%);
+  transition: background 0.35s ease;
+}
+
+.product-card-img:hover .product-card-img-overlay {
+  background: linear-gradient(to top, rgba(232, 101, 10, 0.92) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.product-card-img-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 22px;
+  z-index: 2;
+}

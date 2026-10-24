@@ -1,0 +1,1065 @@
+// "use client";
+// import { useState } from "react";
+// import Image from "next/image";
+// import Link from "next/link";
+// import { FiArrowRight, FiArrowLeft, FiChevronRight } from "react-icons/fi";
+
+// // ─────────────────────────────────────────────
+// // DATA
+// // ─────────────────────────────────────────────
+// const ballsData = {
+//   categories: [
+//     {
+//       id: "ferrous",
+//       label: "Ferrous Metals",
+//       image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
+//       imageAlt: "Ferrous metal balls — chrome steel, stainless steel, carbon steel",
+//       description:
+//         "Precision-engineered ferrous metal balls manufactured from chrome steel, stainless steel, and carbon steel. Built to DIN 5401, ISO 3290, and ABMA Std 10 standards, these balls deliver outstanding hardness, wear resistance, and dimensional accuracy for demanding bearing, valve, and industrial applications.",
+//       products: [
+//         { id: "ball-f-001", name: "Low Carbon Steel Ball – Aisi 1010", slug: "low-carbon-steel-ball-aisi-1010", image: "/images/Ball/Metallic_Ball/low_Carbon.avif", imageAlt: "Low carbon steel ball AISI 1010", material: "Carbon Steel (AISI 1010)", hasPdf: true },
+
+//         { id: "ball-f-002", name: "High Carbon Chrome Alloy Ball – Aisi 52100", slug: "high-carbon-chrome-alloy-ball-aisi-52100", image: "/images/Ball/Metallic_Ball/High_Carbon.webp", imageAlt: "High carbon chrome alloy ball AISI 52100", material: "Chrome Steel (AISI 52100 / 100Cr6)", hasPdf: true },
+
+//         { id: "ball-f-003", name: "High Carbon Steel Ball (Through Hardened)", slug: "high-carbon-steel-ball-through-hardened", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "High carbon steel ball through hardened", material: "Carbon Steel (SAE 1085 / SAE 1045)", hasPdf: true },
+
+//         { id: "ball-f-004", name: "Stainless Steel – Aisi 440c", slug: "stainless-steel-ball-440c", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 440C ball", material: "Stainless Steel (AISI 440C)", hasPdf: true },
+
+//         { id: "ball-f-005", name: "Stainless Steel – Aisi 420, 420C", slug: "stainless-steel-ball-420", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 420 ball", material: "Stainless Steel (AISI 420 / 420C)", hasPdf: true },
+
+//         { id: "ball-f-006", name: "Stainless Steel Aisi 302, 304, 304L", slug: "stainless-steel-ball-304", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 304 ball", material: "Stainless Steel (AISI 302 / 304 / 304L)", hasPdf: true },
+
+//         { id: "ball-f-007", name: "Stainless Steel Aisi 316, 316L", slug: "stainless-steel-ball-316", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 316 ball", material: "Stainless Steel (AISI 316 / 316L)", hasPdf: true },
+
+//         { id: "ball-f-008", name: "AISI S-2 Tool Steel Balls", slug: "aisi-s2-tool-steel-ball", image: "/images/Ball/Metallic_Ball/AISI_2_Steel_Ball.png", imageAlt: "AISI S-2 tool steel ball", material: "Tool Steel (AISI S-2)", hasPdf: true },
+//         { id: "ball-f-009", name: "Dimensional Conversion Chart", slug: "dimensional-conversion-chart", image: "/images/Ball/Metallic_Ball/AISI_2_Steel_Ball.png", imageAlt: "Dimensional conversion chart", material: "Conversion Chart", hasPdf: true },
+//         { id: "ball-f-010", name: "Technical Data", slug: "technical-data", image: "/images/Ball/Metallic_Ball/AISI_2_Steel_Ball.png", imageAlt: "Technical data", material: "Data", hasPdf: true },
+//       ],
+//       applications: [
+//         { label: "Aerosol Pumps", image: "/images/applications/aerosol-pumps.jpg", imageAlt: "Aerosol pumps application" },
+//         { label: "Automotive Door Assembly", image: "/images/applications/automotive-door.jpg", imageAlt: "Automotive door assembly" },
+//         { label: "Ball Bearings", image: "/images/applications/ball-bearings.jpg", imageAlt: "Ball bearings" },
+//         { label: "Ball Pen", image: "/images/applications/ball-pen.jpg", imageAlt: "Ball pen" },
+//         { label: "Ball Screw", image: "/images/applications/ball-screw.jpg", imageAlt: "Ball screw" },
+//         { label: "Ball Transfer Unit", image: "/images/applications/ball-transfer-unit.jpg", imageAlt: "Ball transfer unit" },
+//         { label: "Ball Valves", image: "/images/applications/ball-valves.jpg", imageAlt: "Ball valves" },
+//         { label: "Bicycles", image: "/images/applications/bicycles.jpg", imageAlt: "Bicycles" },
+//         { label: "Bobbin Holder", image: "/images/applications/bobbin-holder.jpg", imageAlt: "Bobbin holder" },
+//         { label: "Body Jewellery", image: "/images/applications/body-jewellery.jpg", imageAlt: "Body jewellery" },
+//         { label: "Castor Wheels", image: "/images/applications/castor-wheels.jpg", imageAlt: "Castor wheels" },
+//         { label: "Cosmetics", image: "/images/applications/cosmetics.jpg", imageAlt: "Cosmetics" },
+//         { label: "Gas Regulator", image: "/images/applications/gas-regulator.jpg", imageAlt: "Gas regulator" },
+//         { label: "Household Appliances", image: "/images/applications/household-appliances.jpg", imageAlt: "Household appliances" },
+//         { label: "Jewellery", image: "/images/applications/jewellery.jpg", imageAlt: "Jewellery" },
+//         { label: "Linear Motion Bearing", image: "/images/applications/linear-motion-bearing.jpg", imageAlt: "Linear motion bearing" },
+//         { label: "Rod End", image: "/images/applications/rod-end.jpg", imageAlt: "Rod end" },
+//         { label: "Steering Column", image: "/images/applications/steering-column.jpg", imageAlt: "Steering column" },
+//         { label: "Safety Belts", image: "/images/applications/safety-belts.jpg", imageAlt: "Safety belts" },
+//         { label: "Toys", image: "/images/applications/toys.jpg", imageAlt: "Toys" },
+//         { label: "Watches", image: "/images/applications/watches.jpg", imageAlt: "Watches" },
+//         { label: "Wind Mill Bearing", image: "/images/applications/windmill-bearing.jpg", imageAlt: "Wind mill bearing" },
+//       ],
+//     },
+//     {
+//       id: "non-ferrous",
+//       label: "Non Ferrous Metals",
+//       image: "/images/Ball/Metallic_Ball/Non_Ferous_Ball.jpg",
+//       imageAlt: "Non-ferrous metal balls — brass, copper, titanium, ceramic",
+//       description:
+//         "Our non-ferrous ball range covers brass, copper, titanium, tungsten carbide, and a full suite of high-performance nickel superalloys including Hastelloy, Inconel, and Monel. Each grade is selected for its unique combination of corrosion resistance, temperature performance, and mechanical properties — from lightweight titanium implants to extreme-duty tungsten carbide valve seats.",
+//       products: [
+//         { id: "ball-nf-001", name: "Alloy 20 Balls", slug: "alloy-20-balls", image: "/images/Ball/Metallic_Ball/alloy.jfif", imageAlt: "Alloy 20 ball", material: "Alloy 20 (Carpenter 20)", hasPdf: true },
+//         { id: "ball-nf-002", name: "Brass Balls", slug: "brass-balls", image: "/images/Ball/Metallic_Ball/Brass_Ball.avif", imageAlt: "Brass ball C36000", material: "Brass (C36000 / C26000)", hasPdf: true },
+//         { id: "ball-nf-003", name: "Copper Balls", slug: "copper-balls", image: "/images/Ball/Metallic_Ball/Copper_Ball.jpg", imageAlt: "Copper ball", material: "Copper (C11000 / ETP)", hasPdf: true },
+//         { id: "ball-nf-004", name: "Titanium Alloys", slug: "titanium-alloy-balls", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Titanium alloy ball", material: "Titanium (Grade 2 / Grade 5 Ti-6Al-4V)", hasPdf: true },
+//         { id: "ball-nf-005", name: "Tungsten Carbide Cobalt Binder", slug: "tungsten-carbide-cobalt-binder-balls", image: "/images/Ball/Metallic_Ball/Tungsten.jpg", imageAlt: "Tungsten carbide cobalt binder ball", material: "Tungsten Carbide + Cobalt Binder (WC-Co)", hasPdf: true },
+//         { id: "ball-nf-006", name: "Tungsten Carbide Nickel Binder", slug: "tungsten-carbide-nickel-binder-balls", image: "/images/Ball/Metallic_Ball/Tungsten_Nickel.avif", imageAlt: "Tungsten carbide nickel binder ball", material: "Tungsten Carbide + Nickel Binder (WC-Ni)", hasPdf: true },
+//         { id: "ball-nf-007", name: "Hastelloy C276 Alloy Balls", slug: "hastelloy-c276-balls", image: "/images/Ball/Metallic_Ball/Hastelloy_Balls.avif", imageAlt: "Hastelloy C276 ball", material: "Hastelloy C276 (UNS N10276)", hasPdf: true },
+//         { id: "ball-nf-008", name: "Inconel 825 Alloy Balls", slug: "inconel-825-balls", image: "/images/Ball/Metallic_Ball/innocel_ball.png", imageAlt: "Inconel 825 ball", material: "Inconel 825 (UNS N08825)", hasPdf: true },
+//         { id: "ball-nf-009", name: "Inconel 625 Alloy Balls", slug: "inconel-625-balls", image: "/images/Ball/Metallic_Ball/Inconel_625.png", imageAlt: "Inconel 625 ball", material: "Inconel 625 (UNS N06625)", hasPdf: true },
+//         { id: "ball-nf-010", name: "Monel K 400 Alloy Balls", slug: "monel-k400-balls", image: "/images/Ball/Metallic_Ball/Monel_K_400.avif", imageAlt: "Monel K400 ball", material: "Monel 400 (UNS N04400)", hasPdf: true },
+//         { id: "ball-nf-011", name: "Monel K 500 Alloy Balls", slug: "monel-k500-balls", image: "/images/Ball/Metallic_Ball/Monel_K_500.webp", imageAlt: "Monel K500 ball", material: "Monel K500 (UNS N05500)", hasPdf: true },
+//         { id: "ball-nf-012", name: "Dimensional Conversion Chart", slug: "non-ferous-dimensional-chart", image: "/images/Ball/Metallic_Ball/Monel_K_500.webp", imageAlt: "Dimensional conversion chart", material: "Chart", hasPdf: false },
+//         { id: "ball-nf-013", name: "Technical Data", slug: "non-ferous-technical-data", image: "/images/Ball/Metallic_Ball/Monel_K_500.webp", imageAlt: "Technical data", material: "Data", hasPdf: false },
+//       ],
+//       applications: [
+//         { label: "Aerosol Pumps", image: "/images/applications/aerosol-pumps.jpg", imageAlt: "Aerosol pumps application" },
+//         { label: "Automotive Door Assembly", image: "/images/applications/automotive-door.jpg", imageAlt: "Automotive door assembly" },
+//         { label: "Ball Bearings", image: "/images/applications/ball-bearings.jpg", imageAlt: "Ball bearings" },
+//         { label: "Ball Pen", image: "/images/applications/ball-pen.jpg", imageAlt: "Ball pen" },
+//         { label: "Ball Screw", image: "/images/applications/ball-screw.jpg", imageAlt: "Ball screw" },
+//         { label: "Ball Transfer Unit", image: "/images/applications/ball-transfer-unit.jpg", imageAlt: "Ball transfer unit" },
+//         { label: "Ball Valves", image: "/images/applications/ball-valves.jpg", imageAlt: "Ball valves" },
+//         { label: "Bicycles", image: "/images/applications/bicycles.jpg", imageAlt: "Bicycles" },
+//         { label: "Bobbin Holder", image: "/images/applications/bobbin-holder.jpg", imageAlt: "Bobbin holder" },
+//         { label: "Body Jewellery", image: "/images/applications/body-jewellery.jpg", imageAlt: "Body jewellery" },
+//         { label: "Castor Wheels", image: "/images/applications/castor-wheels.jpg", imageAlt: "Castor wheels" },
+//         { label: "Cosmetics", image: "/images/applications/cosmetics.jpg", imageAlt: "Cosmetics" },
+//         { label: "Gas Regulator", image: "/images/applications/gas-regulator.jpg", imageAlt: "Gas regulator" },
+//         { label: "Household Appliances", image: "/images/applications/household-appliances.jpg", imageAlt: "Household appliances" },
+//         { label: "Jewellery", image: "/images/applications/jewellery.jpg", imageAlt: "Jewellery" },
+//         { label: "Linear Motion Bearing", image: "/images/applications/linear-motion-bearing.jpg", imageAlt: "Linear motion bearing" },
+//         { label: "Rod End", image: "/images/applications/rod-end.jpg", imageAlt: "Rod end" },
+//         { label: "Steering Column", image: "/images/applications/steering-column.jpg", imageAlt: "Steering column" },
+//         { label: "Safety Belts", image: "/images/applications/safety-belts.jpg", imageAlt: "Safety belts" },
+//         { label: "Toys", image: "/images/applications/toys.jpg", imageAlt: "Toys" },
+//         { label: "Watches", image: "/images/applications/watches.jpg", imageAlt: "Watches" },
+//         { label: "Wind Mill Bearing", image: "/images/applications/windmill-bearing.jpg", imageAlt: "Wind mill bearing" },
+//       ],
+//     },
+//   ],
+// };
+
+// // ─────────────────────────────────────────────
+// // Helpers
+// // ─────────────────────────────────────────────
+
+// // Slugs that are "resource" documents, not real products
+// const RESOURCE_SLUGS = new Set([
+//   "dimensional-conversion-chart",
+//   "technical-data",
+//   "non-ferous-dimensional-chart",
+//   "non-ferous-technical-data",
+// ]);
+
+// function getProductPdfPath(slug: string) {
+//   return `/pdfs/balls/metallic/${slug}.pdf`;
+// }
+
+// // ─────────────────────────────────────────────
+// // APPLICATION LIST COMPONENT
+// // ─────────────────────────────────────────────
+// function ApplicationList({
+//   applications,
+// }: {
+//   applications: { label: string; image: string; imageAlt: string }[];
+// }) {
+//   return (
+//     <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-2 gap-x-4 list-none p-0 m-0">
+//       {applications.map((app) => (
+//         <li
+//           key={app.label}
+//           className="flex items-center gap-2 py-2 border-b border-gray-100 text-sm text-gray-700"
+//         >
+//           <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shrink-0" />
+//           {app.label}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+// // ─────────────────────────────────────────────
+// // RESOURCE DOC CARD COMPONENT
+// // ─────────────────────────────────────────────
+// function ResourceDocCard({
+//   name,
+//   slug,
+//   hasPdf,
+// }: {
+//   name: string;
+//   slug: string;
+//   hasPdf: boolean;
+// }) {
+//   const isChart = name.toLowerCase().includes("chart");
+
+//   const ChartIcon = () => (
+//     <svg
+//       width="22"
+//       height="22"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="#EA5C0F"
+//       strokeWidth="1.6"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       aria-hidden="true"
+//     >
+//       <rect x="3" y="3" width="18" height="18" rx="2" />
+//       <line x1="3" y1="9" x2="21" y2="9" />
+//       <line x1="3" y1="15" x2="21" y2="15" />
+//       <line x1="9" y1="3" x2="9" y2="21" />
+//       <line x1="15" y1="3" x2="15" y2="21" />
+//     </svg>
+//   );
+
+//   const FileIcon = () => (
+//     <svg
+//       width="22"
+//       height="22"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="#EA5C0F"
+//       strokeWidth="1.6"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       aria-hidden="true"
+//     >
+//       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+//       <polyline points="14 2 14 8 20 8" />
+//       <line x1="8" y1="13" x2="16" y2="13" />
+//       <line x1="8" y1="17" x2="12" y2="17" />
+//     </svg>
+//   );
+
+//   return (
+//     <div className="flex items-start gap-4 bg-white border border-gray-100 rounded-xl px-5 py-4 hover:border-orange-200 hover:shadow-sm transition-all duration-200">
+//       {/* Icon */}
+//       <div className="w-11 h-11 rounded-lg bg-orange-50 flex items-center justify-center shrink-0">
+//         {isChart ? <ChartIcon /> : <FileIcon />}
+//       </div>
+
+//       {/* Content */}
+//       <div className="flex flex-col flex-1 min-w-0">
+//         <p className="text-sm font-semibold text-gray-800 mb-0.5 leading-snug">{name}</p>
+//         <p className="text-xs text-gray-400 mb-3">
+//           {isChart
+//             ? "Inch ↔ metric size cross-reference table"
+//             : "Material properties, tolerances & grades"}
+//         </p>
+
+//         {hasPdf ? (
+//           <a
+//             href={getProductPdfPath(slug)}
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="self-start flex items-center gap-1.5 text-[0.7rem] font-semibold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-full border border-orange-200 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-200 no-underline"
+//           >
+//             Download PDF
+//             <FiArrowRight size={10} />
+//           </a>
+//         ) : (
+//           <span className="self-start text-[0.7rem] font-semibold text-gray-400 bg-gray-100 px-3 py-1.5 rounded-full">
+//             Coming soon
+//           </span>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// // ─────────────────────────────────────────────
+// // PAGE COMPONENT
+// // ─────────────────────────────────────────────
+// export default function BallsPage() {
+//   const { categories } = ballsData;
+//   const [activeIndex, setActiveIndex] = useState(0);
+
+//   const activeCategory = categories[activeIndex];
+
+//   // Split products from resource docs
+//   const regularProducts = activeCategory.products.filter(
+//     (p) => !RESOURCE_SLUGS.has(p.slug)
+//   );
+//   const resourceDocs = activeCategory.products.filter((p) =>
+//     RESOURCE_SLUGS.has(p.slug)
+//   );
+
+//   const prev = () =>
+//     setActiveIndex((i) => (i - 1 + categories.length) % categories.length);
+//   const next = () => setActiveIndex((i) => (i + 1) % categories.length);
+
+//   return (
+//     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+//       {/* ── Breadcrumb ── */}
+//       <nav className="flex items-center gap-1.5 text-sm text-gray-400 mb-8">
+//         <Link href="/" className="hover:text-orange-500 transition-colors no-underline">Home</Link>
+//         <FiChevronRight size={13} />
+//         <Link href="/products" className="hover:text-orange-500 transition-colors no-underline">Products</Link>
+//         <FiChevronRight size={13} />
+//         <span className="font-medium">Balls</span>
+//         <FiChevronRight size={13} />
+//         <span className="text-gray-800 font-medium">Metallic Balls</span>
+//       </nav>
+
+//       {/* ══════════════════════════════════
+//           SECTION 1 — Category Slider
+//       ══════════════════════════════════ */}
+//       <section className="relative mb-14">
+
+//         {/* Tab pills */}
+//         <div className="flex flex-wrap gap-2 mb-5">
+//           {categories.map((cat, i) => (
+//             <button
+//               key={cat.id}
+//               onClick={() => setActiveIndex(i)}
+//               className={`px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold border-none cursor-pointer transition-all duration-200
+//                 ${i === activeIndex
+//                   ? "bg-orange-500 text-white shadow-sm"
+//                   : "bg-gray-100 text-gray-500 hover:bg-orange-50 hover:text-orange-500"
+//                 }`}
+//             >
+//               {cat.label}
+//             </button>
+//           ))}
+//         </div>
+
+//         {/* Slide card */}
+//         <div className="flex flex-col sm:flex-row rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-white min-h-[280px] sm:min-h-[380px]">
+
+//           {/* Left — Full bleed image */}
+//           <div className="relative w-full sm:w-1/2 h-52 sm:h-auto bg-gray-100 shrink-0">
+//             <Image
+//               src={activeCategory.image}
+//               alt={activeCategory.imageAlt}
+//               fill
+//               className="object-cover"
+//               priority
+//             />
+//           </div>
+
+//           {/* Right — Title + description */}
+//           <div className="flex flex-col justify-center w-full sm:w-1/2 px-6 py-7 sm:px-10 sm:py-10 bg-white">
+//             <span className="text-xs font-semibold uppercase tracking-widest text-orange-500 mb-3">
+//               Precision Engineered
+//             </span>
+//             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-4 sm:mb-5">
+//               {activeCategory.label}
+//             </h1>
+//             <p className="text-gray-500 text-sm leading-relaxed">
+//               {activeCategory.description}
+//             </p>
+//             <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-100 flex items-center gap-6 sm:gap-8">
+//               <div>
+//                 <p className="text-xl sm:text-2xl font-bold text-orange-500">{regularProducts.length}</p>
+//                 <p className="text-xs text-gray-400 mt-0.5">Variants</p>
+//               </div>
+//               {/* <div>
+//                 <p className="text-xl sm:text-2xl font-bold text-orange-500">{activeCategory.applications.length}</p>
+//                 <p className="text-xs text-gray-400 mt-0.5">Applications</p>
+//               </div> */}
+//               <div>
+//                 <p className="text-xl sm:text-2xl font-bold text-orange-500">ISO</p>
+//                 <p className="text-xs text-gray-400 mt-0.5">9001:2015</p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Prev / Next arrows */}
+//         <button
+//           onClick={prev}
+//           className="absolute left-[-14px] sm:left-[-18px] top-[calc(50%+36px)] sm:top-[calc(50%+20px)] -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-gray-200 shadow flex items-center justify-center text-gray-600 hover:text-orange-500 hover:border-orange-300 transition-all cursor-pointer z-10"
+//           aria-label="Previous category"
+//         >
+//           <FiArrowLeft size={14} />
+//         </button>
+//         <button
+//           onClick={next}
+//           className="absolute right-[-14px] sm:right-[-18px] top-[calc(50%+36px)] sm:top-[calc(50%+20px)] -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-gray-200 shadow flex items-center justify-center text-gray-600 hover:text-orange-500 hover:border-orange-300 transition-all cursor-pointer z-10"
+//           aria-label="Next category"
+//         >
+//           <FiArrowRight size={14} />
+//         </button>
+
+//         {/* Slide indicator dots */}
+//         <div className="flex justify-center gap-2 mt-4">
+//           {categories.map((_, i) => (
+//             <button
+//               key={i}
+//               onClick={() => setActiveIndex(i)}
+//               className={`h-1.5 rounded-full border-none cursor-pointer transition-all duration-200 p-0
+//                 ${i === activeIndex ? "w-6 bg-orange-500" : "w-1.5 bg-gray-300"}`}
+//             />
+//           ))}
+//         </div>
+//       </section>
+
+//       {/* ══════════════════════════════════
+//           SECTION 2 — Products Grid
+//       ══════════════════════════════════ */}
+//       <section className="mb-10">
+//         <div className="flex items-center justify-between mb-6">
+//           <h2 className="text-xl font-bold text-gray-900">
+//             {activeCategory.label} — Products
+//           </h2>
+//           <span className="text-sm text-gray-400">
+//             {regularProducts.length} variants
+//           </span>
+//         </div>
+
+//         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+//           {regularProducts.map((product) => (
+//             <div
+//               key={product.id}
+//               className="group flex flex-col rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-md hover:border-orange-200 transition-all duration-200"
+//             >
+//               <div className="relative aspect-square bg-gray-50">
+//                 <Image
+//                   src={product.image}
+//                   alt={product.imageAlt}
+//                   fill
+//                   className="object-cover group-hover:scale-105 transition-transform duration-300"
+//                 />
+//               </div>
+//               <div className="flex flex-col p-3 flex-1">
+//                 <p className="text-[0.75rem] text-gray-400 mb-0.5 line-clamp-1">
+//                   {product.material.split("(")[0].trim()}
+//                 </p>
+//                 <h3 className="text-sm font-semibold text-gray-800 leading-snug mb-3 line-clamp-2 flex-1">
+//                   {product.name}
+//                 </h3>
+//                 {product.hasPdf && (
+//                   <Link
+//                     href={`/products/balls/metallic-balls/${product.slug}`}
+//                     className="flex items-center justify-center gap-1 w-full py-1.5 rounded-full border border-orange-400 text-orange-500 text-xs font-semibold hover:bg-orange-500 hover:text-white transition-all duration-200 no-underline"
+//                   >
+//                     View Details
+//                     <FiArrowRight size={11} />
+//                   </Link>
+//                 )}
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </section>
+
+//       {/* ══════════════════════════════════
+//           SECTION 3 — Resources & Technical Documents
+//       ══════════════════════════════════ */}
+//       {resourceDocs.length > 0 && (
+//         <section className="mb-14">
+//           {/* Section header */}
+//           <div className="flex items-center gap-3 mb-5">
+//             <div className="h-px flex-1 bg-gray-100" />
+//             <p className="text-[0.65rem] font-semibold uppercase tracking-widest text-gray-400 whitespace-nowrap">
+//               Resources &amp; Technical Documents
+//             </p>
+//             <div className="h-px flex-1 bg-gray-100" />
+//           </div>
+
+//           {/* Highlight banner */}
+//           {/* <div className="flex items-start gap-3 bg-orange-50 border border-orange-100 rounded-xl px-4 py-3 mb-5">
+//             <svg
+//               width="18"
+//               height="18"
+//               viewBox="0 0 24 24"
+//               fill="none"
+//               stroke="#EA5C0F"
+//               strokeWidth="1.7"
+//               strokeLinecap="round"
+//               strokeLinejoin="round"
+//               className="shrink-0 mt-0.5"
+//               aria-hidden="true"
+//             >
+//               <circle cx="12" cy="12" r="10" />
+//               <line x1="12" y1="8" x2="12" y2="12" />
+//               <line x1="12" y1="16" x2="12.01" y2="16" />
+//             </svg>
+//             <p className="text-xs text-orange-700 leading-relaxed">
+//               Download our dimensional conversion charts and technical data sheets for complete
+//               material specifications, hardness values, tolerance grades, and size cross-references.
+//             </p>
+//           </div> */}
+
+//           {/* Doc cards */}
+//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+//             {resourceDocs.map((doc) => (
+//               <ResourceDocCard
+//                 key={doc.id}
+//                 name={doc.name}
+//                 slug={doc.slug}
+//                 hasPdf={doc.hasPdf}
+//               />
+//             ))}
+//           </div>
+//         </section>
+//       )}
+
+//       {/* ══════════════════════════════════
+//           SECTION 4 — Applications List
+//       ══════════════════════════════════ */}
+//       {/* <section className="bg-gray-50 rounded-2xl px-4 py-7 sm:px-8 sm:py-10">
+//         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-6 sm:mb-8">
+//           Applications
+//         </h2>
+//         <ApplicationList applications={activeCategory.applications} />
+//       </section> */}
+
+//     </main>
+//   );
+// }
+
+
+
+
+
+// // "use client";
+// // import Image from "next/image";
+// // import Link from "next/link";
+// // import { notFound, useParams } from "next/navigation";
+// // import { FiArrowRight, FiChevronRight, FiDownload } from "react-icons/fi";
+// // import { getBallProductDetail } from "@/lib/data/ball-product-details";
+
+// // // ─────────────────────────────────────────────
+// // // Helpers
+// // // ─────────────────────────────────────────────
+// // function getProductPdfPath(slug: string) {
+// //   return `/pdfs/balls/metallic/${slug}.pdf`;
+// // }
+
+// // // ─────────────────────────────────────────────
+// // // SPEC TABLE COMPONENT
+// // // ─────────────────────────────────────────────
+// // function SpecTable({
+// //   title,
+// //   rows,
+// // }: {
+// //   title: string;
+// //   rows: { label: string; value: string }[];
+// // }) {
+// //   return (
+// //     <div>
+// //       <h2 className="text-sm font-semibold uppercase tracking-widest text-orange-500 mb-3">
+// //         {title}
+// //       </h2>
+// //       <div className="rounded-xl border border-gray-100 overflow-hidden">
+// //         {rows.map((row, i) => (
+// //           <div
+// //             key={row.label}
+// //             className={`flex items-center justify-between px-4 py-2.5 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50"
+// //               }`}
+// //           >
+// //             <span className="text-gray-500">{row.label}</span>
+// //             <span className="font-semibold text-gray-800">{row.value}</span>
+// //           </div>
+// //         ))}
+// //       </div>
+// //     </div>
+// //   );
+// // }
+
+// // // ─────────────────────────────────────────────
+// // // PAGE COMPONENT
+// // // ─────────────────────────────────────────────
+// // export default function BallProductDetailPage() {
+// //   const params = useParams<{ slug: string }>();
+// //   const slug = params.slug;
+// //   const product = getBallProductDetail(slug);
+
+// //   if (!product) {
+// //     notFound();
+// //   }
+
+// //   return (
+// //     <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+// //       {/* ── Breadcrumb ── */}
+// //       <nav className="flex flex-wrap items-center gap-1.5 text-sm text-gray-400 mb-8">
+// //         <Link href="/" className="hover:text-orange-500 transition-colors no-underline">Home</Link>
+// //         <FiChevronRight size={13} />
+// //         <Link href="/products" className="hover:text-orange-500 transition-colors no-underline">Products</Link>
+// //         <FiChevronRight size={13} />
+// //         <Link href="/products/balls" className="hover:text-orange-500 transition-colors no-underline">Balls</Link>
+// //         <FiChevronRight size={13} />
+// //         <Link
+// //           href="/products/balls/metallic-balls"
+// //           className="hover:text-orange-500 transition-colors no-underline"
+// //         >
+// //           Metallic Balls
+// //         </Link>
+// //         <FiChevronRight size={13} />
+// //         <span className="text-gray-800 font-medium">{product.name}</span>
+// //       </nav>
+
+// //       {/* ══════════════════════════════════
+// //           HERO — Image + Title + Quick facts
+// //       ══════════════════════════════════ */}
+// //       <section className="flex flex-col sm:flex-row rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-white mb-10">
+// //         <div className="relative w-full sm:w-2/5 h-56 sm:h-auto bg-gray-100 shrink-0">
+// //           <Image
+// //             src={product.image}
+// //             alt={product.imageAlt}
+// //             fill
+// //             className="object-cover"
+// //             priority
+// //           />
+// //         </div>
+// //         <div className="flex flex-col justify-center w-full sm:w-3/5 px-6 py-7 sm:px-10 sm:py-10">
+// //           <span className="text-xs font-semibold uppercase tracking-widest text-orange-500 mb-3">
+// //             {product.material}
+// //           </span>
+// //           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-4">
+// //             {product.name}
+// //           </h1>
+// //           <p className="text-gray-500 text-sm leading-relaxed mb-6">
+// //             {product.generalInfo}
+// //           </p>
+
+// //           <div className="flex flex-wrap items-center gap-6 pt-5 border-t border-gray-100 mb-6">
+// //             <div>
+// //               <p className="text-lg font-bold text-orange-500">{product.sizeRange}</p>
+// //               <p className="text-xs text-gray-400 mt-0.5">Size Range</p>
+// //             </div>
+// //             <div>
+// //               <p className="text-lg font-bold text-orange-500">{product.standardGrades}</p>
+// //               <p className="text-xs text-gray-400 mt-0.5">Standard Grades</p>
+// //             </div>
+// //           </div>
+
+// //           {product.hasPdf ? (
+// //             <a
+// //               href={getProductPdfPath(product.slug)}
+// //               target="_blank"
+// //               rel="noopener noreferrer"
+// //               className="self-start flex items-center gap-2 text-sm font-semibold text-white bg-orange-500 px-5 py-2.5 rounded-full hover:bg-orange-600 transition-all duration-200 no-underline"
+// //             >
+// //               Download Spec Sheet (PDF)
+// //               <FiDownload size={14} />
+// //             </a>
+// //           ) : (
+// //             <span className="self-start text-sm font-semibold text-gray-400 bg-gray-100 px-5 py-2.5 rounded-full">
+// //               PDF coming soon
+// //             </span>
+// //           )}
+// //         </div>
+// //       </section>
+
+// //       {/* ══════════════════════════════════
+// //           APPLICATIONS
+// //       ══════════════════════════════════ */}
+// //       <section className="mb-10">
+// //         <h2 className="text-sm font-semibold uppercase tracking-widest text-orange-500 mb-3">
+// //           Applications
+// //         </h2>
+// //         <p className="text-gray-600 text-sm leading-relaxed bg-gray-50 rounded-xl px-5 py-4">
+// //           {product.applications}
+// //         </p>
+// //       </section>
+
+// //       {/* ══════════════════════════════════
+// //           CHEMICAL COMPOSITION + MECHANICAL PROPERTIES
+// //       ══════════════════════════════════ */}
+// //       <section className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+// //         <SpecTable
+// //           title="Chemical Composition"
+// //           rows={product.chemicalComposition.map((c) => ({
+// //             label: c.element,
+// //             value: c.value,
+// //           }))}
+// //         />
+// //         <SpecTable
+// //           title="Mechanical Properties"
+// //           rows={product.mechanicalProperties.map((m) => ({
+// //             label: m.property,
+// //             value: m.value,
+// //           }))}
+// //         />
+// //       </section>
+
+// //       {/* ══════════════════════════════════
+// //           BACK LINK
+// //       ══════════════════════════════════ */}
+// //       <div className="flex justify-center">
+// //         <Link
+// //           href="/products/balls/metallic-balls"
+// //           className="flex items-center gap-2 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors no-underline"
+// //         >
+// //           <FiArrowRight size={14} className="rotate-180" />
+// //           Back to Metallic Balls
+// //         </Link>
+// //       </div>
+
+// //     </main>
+// //   );
+// // }
+
+
+
+
+
+
+
+
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { FiArrowRight, FiArrowLeft, FiChevronRight, FiEye } from "react-icons/fi";
+import { DataTableModal, DataTableColumn } from "./DataTableModal";
+import {
+  dimensionalConversionChart,
+  materialWeightFactors,
+  DimensionRow,
+} from "./dimensionalConversionChart";
+
+// ─────────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────────
+const ballsData = {
+  categories: [
+    {
+      id: "ferrous",
+      label: "Ferrous Metals",
+      image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
+      imageAlt: "Ferrous metal balls — chrome steel, stainless steel, carbon steel",
+      description:
+        "Precision-engineered ferrous metal balls manufactured from chrome steel, stainless steel, and carbon steel. Built to DIN 5401, ISO 3290, and ABMA Std 10 standards, these balls deliver outstanding hardness, wear resistance, and dimensional accuracy for demanding bearing, valve, and industrial applications.",
+      products: [
+        { id: "ball-f-001", name: "Low Carbon Steel Ball – Aisi 1010", slug: "low-carbon-steel-ball-aisi-1010", image: "/images/Ball/Metallic_Ball/low_Carbon.avif", imageAlt: "Low carbon steel ball AISI 1010", material: "Carbon Steel (AISI 1010)", hasPdf: true },
+        { id: "ball-f-002", name: "High Carbon Chrome Alloy Ball – Aisi 52100", slug: "high-carbon-chrome-alloy-ball-aisi-52100", image: "/images/Ball/Metallic_Ball/High_Carbon.webp", imageAlt: "High carbon chrome alloy ball AISI 52100", material: "Chrome Steel (AISI 52100 / 100Cr6)", hasPdf: true },
+        { id: "ball-f-003", name: "High Carbon Steel Ball (Through Hardened)", slug: "high-carbon-steel-ball-through-hardened", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "High carbon steel ball through hardened", material: "Carbon Steel (SAE 1085 / SAE 1045)", hasPdf: true },
+        { id: "ball-f-004", name: "Stainless Steel – Aisi 440c", slug: "stainless-steel-ball-440c", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 440C ball", material: "Stainless Steel (AISI 440C)", hasPdf: true },
+        { id: "ball-f-005", name: "Stainless Steel – Aisi 420, 420C", slug: "stainless-steel-ball-420", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 420 ball", material: "Stainless Steel (AISI 420 / 420C)", hasPdf: true },
+        { id: "ball-f-006", name: "Stainless Steel Aisi 302, 304, 304L", slug: "stainless-steel-ball-304", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 304 ball", material: "Stainless Steel (AISI 302 / 304 / 304L)", hasPdf: true },
+        { id: "ball-f-007", name: "Stainless Steel Aisi 316, 316L", slug: "stainless-steel-ball-316", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Stainless steel 316 ball", material: "Stainless Steel (AISI 316 / 316L)", hasPdf: true },
+        { id: "ball-f-008", name: "AISI S-2 Tool Steel Balls", slug: "aisi-s2-tool-steel-ball", image: "/images/Ball/Metallic_Ball/AISI_2_Steel_Ball.png", imageAlt: "AISI S-2 tool steel ball", material: "Tool Steel (AISI S-2)", hasPdf: true },
+        { id: "ball-f-009", name: "Dimensional Conversion Chart", slug: "dimensional-conversion-chart", image: "/images/Ball/Metallic_Ball/AISI_2_Steel_Ball.png", imageAlt: "Dimensional conversion chart", material: "Conversion Chart", hasPdf: true, docType: "dimensional-chart" as const },
+        { id: "ball-f-010", name: "Technical Data", slug: "technical-data", image: "/images/Ball/Metallic_Ball/AISI_2_Steel_Ball.png", imageAlt: "Technical data", material: "Data", hasPdf: true, docType: "technical-data" as const },
+      ],
+    },
+    {
+      id: "non-ferrous",
+      label: "Non Ferrous Metals",
+      image: "/images/Ball/Metallic_Ball/Non_Ferous_Ball.jpg",
+      imageAlt: "Non-ferrous metal balls — brass, copper, titanium, ceramic",
+      description:
+        "Our non-ferrous ball range covers brass, copper, titanium, tungsten carbide, and a full suite of high-performance nickel superalloys including Hastelloy, Inconel, and Monel. Each grade is selected for its unique combination of corrosion resistance, temperature performance, and mechanical properties — from lightweight titanium implants to extreme-duty tungsten carbide valve seats.",
+      products: [
+        { id: "ball-nf-001", name: "Alloy 20 Balls", slug: "alloy-20-balls", image: "/images/Ball/Metallic_Ball/alloy.jfif", imageAlt: "Alloy 20 ball", material: "Alloy 20 (Carpenter 20)", hasPdf: true },
+        { id: "ball-nf-002", name: "Brass Balls", slug: "brass-balls", image: "/images/Ball/Metallic_Ball/Brass_Ball.avif", imageAlt: "Brass ball C36000", material: "Brass (C36000 / C26000)", hasPdf: true },
+        { id: "ball-nf-003", name: "Copper Balls", slug: "copper-balls", image: "/images/Ball/Metallic_Ball/Copper_Ball.jpg", imageAlt: "Copper ball", material: "Copper (C11000 / ETP)", hasPdf: true },
+        { id: "ball-nf-004", name: "Titanium Alloys", slug: "titanium-alloy-balls", image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp", imageAlt: "Titanium alloy ball", material: "Titanium (Grade 2 / Grade 5 Ti-6Al-4V)", hasPdf: true },
+        { id: "ball-nf-005", name: "Tungsten Carbide Cobalt Binder", slug: "tungsten-carbide-cobalt-binder-balls", image: "/images/Ball/Metallic_Ball/Tungsten.jpg", imageAlt: "Tungsten carbide cobalt binder ball", material: "Tungsten Carbide + Cobalt Binder (WC-Co)", hasPdf: true },
+        { id: "ball-nf-006", name: "Tungsten Carbide Nickel Binder", slug: "tungsten-carbide-nickel-binder-balls", image: "/images/Ball/Metallic_Ball/Tungsten_Nickel.avif", imageAlt: "Tungsten carbide nickel binder ball", material: "Tungsten Carbide + Nickel Binder (WC-Ni)", hasPdf: true },
+        { id: "ball-nf-007", name: "Hastelloy C276 Alloy Balls", slug: "hastelloy-c276-balls", image: "/images/Ball/Metallic_Ball/Hastelloy_Balls.avif", imageAlt: "Hastelloy C276 ball", material: "Hastelloy C276 (UNS N10276)", hasPdf: true },
+        { id: "ball-nf-008", name: "Inconel 825 Alloy Balls", slug: "inconel-825-balls", image: "/images/Ball/Metallic_Ball/innocel_ball.png", imageAlt: "Inconel 825 ball", material: "Inconel 825 (UNS N08825)", hasPdf: true },
+        { id: "ball-nf-009", name: "Inconel 625 Alloy Balls", slug: "inconel-625-balls", image: "/images/Ball/Metallic_Ball/Inconel_625.png", imageAlt: "Inconel 625 ball", material: "Inconel 625 (UNS N06625)", hasPdf: true },
+        { id: "ball-nf-010", name: "Monel K 400 Alloy Balls", slug: "monel-k400-balls", image: "/images/Ball/Metallic_Ball/Monel_K_400.avif", imageAlt: "Monel K400 ball", material: "Monel 400 (UNS N04400)", hasPdf: true },
+        { id: "ball-nf-011", name: "Monel K 500 Alloy Balls", slug: "monel-k500-balls", image: "/images/Ball/Metallic_Ball/Monel_K_500.webp", imageAlt: "Monel K500 ball", material: "Monel K500 (UNS N05500)", hasPdf: true },
+        { id: "ball-nf-012", name: "Dimensional Conversion Chart", slug: "non-ferous-dimensional-chart", image: "/images/Ball/Metallic_Ball/Monel_K_500.webp", imageAlt: "Dimensional conversion chart", material: "Chart", hasPdf: false, docType: "dimensional-chart" as const },
+        { id: "ball-nf-013", name: "Technical Data", slug: "non-ferous-technical-data", image: "/images/Ball/Metallic_Ball/Monel_K_500.webp", imageAlt: "Technical data", material: "Data", hasPdf: false, docType: "technical-data" as const },
+      ],
+    },
+  ],
+};
+
+// ─────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────
+
+// Slugs that are "resource" documents, not real products
+const RESOURCE_SLUGS = new Set([
+  "dimensional-conversion-chart",
+  "technical-data",
+  "non-ferous-dimensional-chart",
+  "non-ferous-technical-data",
+]);
+
+function getProductPdfPath(slug: string) {
+  return `/pdfs/balls/metallic/${slug}.pdf`;
+}
+
+// Row shape used to render the Dimensional Conversion Chart table,
+// with the raw numbers formatted the way the print chart shows them.
+interface DisplayDimensionRow {
+  fraction: string;
+  inch: string;
+  mm: string;
+  weightKg: string;
+}
+
+function formatChartRows(rows: DimensionRow[]): DisplayDimensionRow[] {
+  return rows.map((r) => ({
+    fraction: r.fraction,
+    inch: r.inch.toFixed(4),
+    mm: r.mm.toFixed(3),
+    weightKg: r.weightKg < 1 ? r.weightKg.toFixed(4) : r.weightKg.toFixed(2),
+  }));
+}
+
+const dimensionColumns: DataTableColumn<DisplayDimensionRow>[] = [
+  { key: "fraction", label: "Inch Fraction", align: "left" },
+  { key: "inch", label: "Inch Decimal", align: "right" },
+  { key: "mm", label: "mm", align: "right" },
+  { key: "weightKg", label: "Kg / 1000 balls", align: "right" },
+];
+
+const dimensionChartFootnote =
+  "Weights are based on chrome alloy steel balls. Approximate weight for other materials: " +
+  materialWeightFactors.map((m) => `${m.material} ×${m.factor}`).join(" · ");
+
+// ─────────────────────────────────────────────
+// RESOURCE DOC CARD COMPONENT
+// ─────────────────────────────────────────────
+function ResourceDocCard({
+  name,
+  slug,
+  hasPdf,
+  docType,
+  onView,
+}: {
+  name: string;
+  slug: string;
+  hasPdf: boolean;
+  docType?: "dimensional-chart" | "technical-data";
+  onView: (docType: "dimensional-chart" | "technical-data") => void;
+}) {
+  const isChart = name.toLowerCase().includes("chart");
+  // A table popup is available whenever we have data behind this doc type.
+  // (Currently: the ferrous Dimensional Conversion Chart. Extend as more
+  // doc types get structured data.)
+  const canViewTable = docType === "dimensional-chart" && hasPdf;
+
+  const ChartIcon = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA5C0F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <line x1="3" y1="9" x2="21" y2="9" />
+      <line x1="3" y1="15" x2="21" y2="15" />
+      <line x1="9" y1="3" x2="9" y2="21" />
+      <line x1="15" y1="3" x2="15" y2="21" />
+    </svg>
+  );
+
+  const FileIcon = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA5C0F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="8" y1="13" x2="16" y2="13" />
+      <line x1="8" y1="17" x2="12" y2="17" />
+    </svg>
+  );
+
+  return (
+    <div className="flex items-start gap-4 bg-white border border-gray-100 rounded-xl px-5 py-4 hover:border-orange-200 hover:shadow-sm transition-all duration-200">
+      <div className="w-11 h-11 rounded-lg bg-orange-50 flex items-center justify-center shrink-0">
+        {isChart ? <ChartIcon /> : <FileIcon />}
+      </div>
+
+      <div className="flex flex-col flex-1 min-w-0">
+        <p className="text-sm font-semibold text-gray-800 mb-0.5 leading-snug">{name}</p>
+        <p className="text-xs text-gray-400 mb-3">
+          {isChart
+            ? "Inch ↔ metric size cross-reference table"
+            : "Material properties, tolerances & grades"}
+        </p>
+
+        {canViewTable ? (
+          <button
+            onClick={() => onView(docType!)}
+            className="self-start flex items-center gap-1.5 text-[0.7rem] font-semibold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-full border border-orange-200 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-200 cursor-pointer"
+          >
+            View Table
+            <FiEye size={11} />
+          </button>
+        ) : hasPdf ? (
+          <a
+            href={getProductPdfPath(slug)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start flex items-center gap-1.5 text-[0.7rem] font-semibold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-full border border-orange-200 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-200 no-underline"
+          >
+            Download PDF
+            <FiArrowRight size={10} />
+          </a>
+        ) : (
+          <span className="self-start text-[0.7rem] font-semibold text-gray-400 bg-gray-100 px-3 py-1.5 rounded-full">
+            Coming soon
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// PAGE COMPONENT
+// ─────────────────────────────────────────────
+export default function BallsPage() {
+  const { categories } = ballsData;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [openDoc, setOpenDoc] = useState<"dimensional-chart" | "technical-data" | null>(null);
+
+  const activeCategory = categories[activeIndex];
+
+  const regularProducts = activeCategory.products.filter((p) => !RESOURCE_SLUGS.has(p.slug));
+  const resourceDocs = activeCategory.products.filter((p) => RESOURCE_SLUGS.has(p.slug));
+
+  const prev = () => setActiveIndex((i) => (i - 1 + categories.length) % categories.length);
+  const next = () => setActiveIndex((i) => (i + 1) % categories.length);
+
+  const chartRows = formatChartRows(dimensionalConversionChart);
+
+  return (
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+      {/* ── Breadcrumb ── */}
+      <nav className="flex items-center gap-1.5 text-sm text-gray-400 mb-8">
+        <Link href="/" className="hover:text-orange-500 transition-colors no-underline">Home</Link>
+        <FiChevronRight size={13} />
+        <Link href="/products" className="hover:text-orange-500 transition-colors no-underline">Products</Link>
+        <FiChevronRight size={13} />
+        <span className="font-medium">Balls</span>
+        <FiChevronRight size={13} />
+        <span className="text-gray-800 font-medium">Metallic Balls</span>
+      </nav>
+
+      {/* ══════════════════════════════════
+          SECTION 1 — Category Slider
+      ══════════════════════════════════ */}
+      <section className="relative mb-14">
+        <div className="flex flex-wrap gap-2 mb-5">
+          {categories.map((cat, i) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveIndex(i)}
+              className={`px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold border-none cursor-pointer transition-all duration-200
+                ${i === activeIndex
+                  ? "bg-orange-500 text-white shadow-sm"
+                  : "bg-gray-100 text-gray-500 hover:bg-orange-50 hover:text-orange-500"
+                }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-white min-h-[280px] sm:min-h-[380px]">
+          <div className="relative w-full sm:w-1/2 h-52 sm:h-auto bg-gray-100 shrink-0">
+            <Image src={activeCategory.image} alt={activeCategory.imageAlt} fill className="object-cover" priority />
+          </div>
+
+          <div className="flex flex-col justify-center w-full sm:w-1/2 px-6 py-7 sm:px-10 sm:py-10 bg-white">
+            <span className="text-xs font-semibold uppercase tracking-widest text-orange-500 mb-3">
+              Precision Engineered
+            </span>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight mb-4 sm:mb-5">
+              {activeCategory.label}
+            </h1>
+            <p className="text-gray-500 text-sm leading-relaxed">{activeCategory.description}</p>
+            <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-100 flex items-center gap-6 sm:gap-8">
+              <div>
+                <p className="text-xl sm:text-2xl font-bold text-orange-500">{regularProducts.length}</p>
+                <p className="text-xs text-gray-400 mt-0.5">Variants</p>
+              </div>
+              <div>
+                <p className="text-xl sm:text-2xl font-bold text-orange-500">ISO</p>
+                <p className="text-xs text-gray-400 mt-0.5">9001:2015</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          onClick={prev}
+          className="absolute left-[-14px] sm:left-[-18px] top-[calc(50%+36px)] sm:top-[calc(50%+20px)] -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-gray-200 shadow flex items-center justify-center text-gray-600 hover:text-orange-500 hover:border-orange-300 transition-all cursor-pointer z-10"
+          aria-label="Previous category"
+        >
+          <FiArrowLeft size={14} />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-[-14px] sm:right-[-18px] top-[calc(50%+36px)] sm:top-[calc(50%+20px)] -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-gray-200 shadow flex items-center justify-center text-gray-600 hover:text-orange-500 hover:border-orange-300 transition-all cursor-pointer z-10"
+          aria-label="Next category"
+        >
+          <FiArrowRight size={14} />
+        </button>
+
+        <div className="flex justify-center gap-2 mt-4">
+          {categories.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`h-1.5 rounded-full border-none cursor-pointer transition-all duration-200 p-0
+                ${i === activeIndex ? "w-6 bg-orange-500" : "w-1.5 bg-gray-300"}`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════
+          SECTION 2 — Products Grid
+      ══════════════════════════════════ */}
+      <section className="mb-10">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold text-gray-900">{activeCategory.label} — Products</h2>
+          <span className="text-sm text-gray-400">{regularProducts.length} variants</span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {regularProducts.map((product) => (
+            <div
+              key={product.id}
+              className="group flex flex-col rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-md hover:border-orange-200 transition-all duration-200"
+            >
+              <div className="relative aspect-square bg-gray-50">
+                <Image src={product.image} alt={product.imageAlt} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+              </div>
+              <div className="flex flex-col p-3 flex-1">
+                <p className="text-[0.75rem] text-gray-400 mb-0.5 line-clamp-1">
+                  {product.material.split("(")[0].trim()}
+                </p>
+                <h3 className="text-sm font-semibold text-gray-800 leading-snug mb-3 line-clamp-2 flex-1">
+                  {product.name}
+                </h3>
+                {product.hasPdf && (
+                  <Link
+                    href={`/products/balls/metallic-balls/${product.slug}`}
+                    className="flex items-center justify-center gap-1 w-full py-1.5 rounded-full border border-orange-400 text-orange-500 text-xs font-semibold hover:bg-orange-500 hover:text-white transition-all duration-200 no-underline"
+                  >
+                    View Details
+                    <FiArrowRight size={11} />
+                  </Link>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════
+          SECTION 3 — Resources & Technical Documents
+      ══════════════════════════════════ */}
+      {resourceDocs.length > 0 && (
+        <section className="mb-14">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="h-px flex-1 bg-gray-100" />
+            <p className="text-[0.65rem] font-semibold uppercase tracking-widest text-gray-400 whitespace-nowrap">
+              Resources &amp; Technical Documents
+            </p>
+            <div className="h-px flex-1 bg-gray-100" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {resourceDocs.map((doc) => (
+              <ResourceDocCard
+                key={doc.id}
+                name={doc.name}
+                slug={doc.slug}
+                hasPdf={doc.hasPdf}
+                docType={doc.docType}
+                onView={setOpenDoc}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ══════════════════════════════════
+          Dimensional Conversion Chart — popup
+      ══════════════════════════════════ */}
+      <DataTableModal
+        isOpen={openDoc === "dimensional-chart"}
+        onClose={() => setOpenDoc(null)}
+        title="Dimensional Conversion Chart"
+        subtitle="Inch fraction ↔ decimal ↔ mm, with weight per 1000 balls"
+        columns={dimensionColumns}
+        rows={chartRows}
+        searchKeys={["fraction", "inch", "mm"]}
+        footnote={dimensionChartFootnote}
+        downloadHref={getProductPdfPath("dimensional-conversion-chart")}
+      />
+
+      {/* Technical Data popup would go here once structured data is available,
+          e.g.:
+          <DataTableModal
+            isOpen={openDoc === "technical-data"}
+            onClose={() => setOpenDoc(null)}
+            title="Technical Data"
+            columns={technicalDataColumns}
+            rows={technicalDataRows}
+          /> */}
+    </main>
+  );
+}
