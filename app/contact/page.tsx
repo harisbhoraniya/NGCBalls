@@ -21,6 +21,8 @@ const categories = Object.keys(categoryOptions);
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -45,9 +47,59 @@ export default function ContactPage() {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    const accessKey =
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+      "0e8459dc-4735-480a-aae4-f5ac44b839c3";
+
+    if (!accessKey) {
+      setErrorMessage(
+        "Web3Forms Access Key is not configured. Please add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local"
+      );
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append("access_key", accessKey);
+      formData.append("name", form.name);
+      formData.append("company", form.company || "N/A");
+      formData.append("email", form.email);
+      formData.append("phone", form.phone || "N/A");
+      formData.append("category", form.category);
+      formData.append("subCategory", form.subCategory);
+      formData.append("message", form.message);
+      formData.append(
+        "subject",
+        `New Inquiry from ${form.name} (${form.company || "Individual"}) - N Gandhi & Co`
+      );
+      formData.append("from_name", "N Gandhi & Co Website");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(
+          data.message || "Failed to submit inquiry. Please try again or email us directly at enquirybr@ngandhi.com."
+        );
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setErrorMessage("Network error. Please check your internet connection or email us directly at enquirybr@ngandhi.com.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const subCategoryOptions = form.category ? categoryOptions[form.category] : [];
@@ -62,7 +114,7 @@ export default function ContactPage() {
           <span className="text-caption mb-4 block">Contact Us</span>
           <h1 className="heading-display text-[#1A1A1A] max-w-2xl mb-6">
             Let&apos;s Build Something<br />
-            <p style={{ color: "var(--orange)" }}>Together</p>
+            <span style={{ color: "var(--orange)", display: "block" }}>Together</span>
           </h1>
           <p className="text-body max-w-xl">
             Whether you have a product inquiry, a custom requirement, or just want to explore how we can help — we&apos;re here to talk.
@@ -116,10 +168,21 @@ export default function ContactPage() {
                     <FiMail size={16} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#1A1A1A] mb-1 text-sm">Email</h4>
-                    <a href="mailto:enquirybr@ngandhi.com" className="text-sm text-gray-500 hover:text-orange-500 transition-colors">
-                      enquirybr@ngandhi.com
-                    </a>
+                    <h4 className="font-semibold text-[#1A1A1A] mb-2 text-sm">Email</h4>
+                    <div className="space-y-1.5">
+                      <div>
+                        <span className="block text-[0.7rem] text-gray-400 font-medium">NGC (Precision Balls &amp; Rollers):</span>
+                        <a href="mailto:enquirybr@ngandhi.com" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">
+                          enquirybr@ngandhi.com
+                        </a>
+                      </div>
+                      <div>
+                        <span className="block text-[0.7rem] text-gray-400 font-medium">NAMTPL (Advance Materials):</span>
+                        <a href="mailto:enquirymatl@ngandhi.com" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">
+                          enquirymatl@ngandhi.com
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -159,6 +222,7 @@ export default function ContactPage() {
                     <button
                       onClick={() => {
                         setSubmitted(false);
+                        setErrorMessage(null);
                         setForm({
                           name: "",
                           company: "",
@@ -179,7 +243,7 @@ export default function ContactPage() {
                     <div className="divider" />
                     <span className="text-caption mb-3 block">Inquiry Form</span>
                     <h2 className="heading-lg text-[#1A1A1A] mb-8">Send Us a Message</h2>
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={handleSubmit} suppressHydrationWarning className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                           <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
@@ -221,6 +285,7 @@ export default function ContactPage() {
                             onChange={handleChange}
                             required
                             placeholder="you@company.com"
+                            suppressHydrationWarning
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all"
                           />
                         </div>
@@ -298,8 +363,31 @@ export default function ContactPage() {
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all resize-none"
                         />
                       </div>
-                      <button type="submit" className="btn-primary w-full justify-center py-3.5 text-base">
-                        Submit Inquiry <FiSend size={16} />
+
+                      {errorMessage && (
+                        <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm leading-relaxed">
+                          {errorMessage}
+                        </div>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="btn-primary w-full justify-center py-3.5 text-base disabled:opacity-60 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            Sending Inquiry...
+                            <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                            </svg>
+                          </>
+                        ) : (
+                          <>
+                            Submit Inquiry <FiSend size={16} />
+                          </>
+                        )}
                       </button>
                     </form>
                   </>

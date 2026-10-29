@@ -2,7 +2,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowRight, FiArrowLeft, FiChevronRight } from "react-icons/fi";
+import { FiArrowRight, FiArrowLeft, FiChevronRight, FiMaximize2, FiLayers, FiFileText } from "react-icons/fi";
 
 // ─────────────────────────────────────────────
 // DATA
@@ -281,12 +281,163 @@ export default function RollersPage() {
       </section>
 
       {/* ══════════════════════════════════
-    SECTION 3 — Applications List
-══════════════════════════════════ */}
-      {/* ══════════════════════════════════
-          SECTION 3 — Applications
+          SECTION 3 — Technical Data Sheet & Size Range
       ══════════════════════════════════ */}
-      {/* <section className="mb-10 sm:mb-14">
+      <section className="mb-14">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="h-px flex-1 bg-gray-100" />
+          <p className="text-[0.65rem] font-semibold uppercase tracking-widest text-orange-500 whitespace-nowrap">
+            Technical Data Sheet &amp; Specifications
+          </p>
+          <div className="h-px flex-1 bg-gray-100" />
+        </div>
+
+        {/* 3 cards: Size Range, Materials & Hardness, Precision Standards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          {/* Card 1: Size Range */}
+          <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-xs flex flex-col">
+            <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 mb-4">
+              <FiMaximize2 size={18} />
+            </div>
+            <h3 className="text-base font-bold text-gray-900 mb-2">Size Range &amp; Profiles</h3>
+            <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+              Precision manufactured to exact diameters and lengths for radial, axial, and combined load duty.
+            </p>
+            <div className="space-y-2.5 text-xs text-gray-700 mt-auto pt-4 border-t border-gray-100">
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Diameter Range:</span>
+                <span className="font-medium text-gray-900">1.5 mm to 80 mm</span>
+              </div>
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Length Range:</span>
+                <span className="font-medium text-gray-900">3.0 mm to 120 mm</span>
+              </div>
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">End Profiles:</span>
+                <span className="font-medium text-gray-900 text-right">Flat, Rounded, Crowned</span>
+              </div>
+              <div className="flex justify-between py-1">
+                <span className="font-semibold text-gray-600">Custom Drawing:</span>
+                <span className="font-medium text-orange-600">Made to print</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Materials & Hardness */}
+          <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-xs flex flex-col">
+            <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 mb-4">
+              <FiLayers size={18} />
+            </div>
+            <h3 className="text-base font-bold text-gray-900 mb-2">Materials &amp; Hardness</h3>
+            <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+              Standard bearing alloy steels and stainless grades heat-treated for maximum wear resistance.
+            </p>
+            <div className="space-y-2.5 text-xs text-gray-700 mt-auto pt-4 border-t border-gray-100">
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Chrome Bearing Steel:</span>
+                <span className="font-medium text-gray-900">AISI 52100 (60–66 HRC)</span>
+              </div>
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Martensitic Stainless:</span>
+                <span className="font-medium text-gray-900">AISI 440C (58–63 HRC)</span>
+              </div>
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Austenitic Stainless:</span>
+                <span className="font-medium text-gray-900">AISI 304 / 316 (Passivated)</span>
+              </div>
+              <div className="flex justify-between py-1">
+                <span className="font-semibold text-gray-600">Carbon Steel:</span>
+                <span className="font-medium text-gray-900">Case / Through Hardened</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Quality & Standards */}
+          <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-xs flex flex-col">
+            <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 mb-4">
+              <FiFileText size={18} />
+            </div>
+            <h3 className="text-base font-bold text-gray-900 mb-2">Standards &amp; Quality</h3>
+            <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+              Manufactured to international bearing precision standards with in-house dimensional inspection.
+            </p>
+            <div className="space-y-2.5 text-xs text-gray-700 mt-auto pt-4 border-t border-gray-100">
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Tolerance Grades:</span>
+                <span className="font-medium text-gray-900">G1, G2, G3, G5</span>
+              </div>
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Standards:</span>
+                <span className="font-medium text-gray-900">DIN 5402, ISO 3096</span>
+              </div>
+              <div className="flex justify-between py-1 border-b border-gray-50">
+                <span className="font-semibold text-gray-600">Certification:</span>
+                <span className="font-medium text-gray-900">ISO 9001:2015</span>
+              </div>
+              <div className="flex justify-between py-1">
+                <span className="font-semibold text-gray-600">Batch Inspection:</span>
+                <span className="font-medium text-orange-600">100% Verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Technical Data Table */}
+        <div className="rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-xs">
+          <div className="px-6 py-4 bg-gray-50/70 border-b border-gray-100 flex flex-wrap items-center justify-between gap-2">
+            <h4 className="text-sm font-bold text-gray-900">Roller Specifications By Type</h4>
+            <span className="text-xs text-gray-400">Manufactured to ISO 3096 &amp; DIN 5402</span>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr className="border-b border-gray-100 bg-gray-50/40 text-gray-500 uppercase tracking-wider font-semibold">
+                  <th className="py-3 px-4">Roller Type</th>
+                  <th className="py-3 px-4">Standard Diameter Range</th>
+                  <th className="py-3 px-4">Standard Length Range</th>
+                  <th className="py-3 px-4">Primary Materials</th>
+                  <th className="py-3 px-4">Key Characteristics</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100 text-gray-700">
+                <tr className="hover:bg-orange-50/20 transition-colors">
+                  <td className="py-3.5 px-4 font-semibold text-gray-900">Cylindrical Rollers</td>
+                  <td className="py-3.5 px-4">Φ3.0 mm – Φ60.0 mm</td>
+                  <td className="py-3.5 px-4">5.0 mm – 100.0 mm</td>
+                  <td className="py-3.5 px-4">AISI 52100, 440C, Custom</td>
+                  <td className="py-3.5 px-4">High radial load capability, ground flat or rounded ends</td>
+                </tr>
+                <tr className="hover:bg-orange-50/20 transition-colors">
+                  <td className="py-3.5 px-4 font-semibold text-gray-900">Taper Rollers</td>
+                  <td className="py-3.5 px-4">Φ5.0 mm – Φ75.0 mm</td>
+                  <td className="py-3.5 px-4">8.0 mm – 110.0 mm</td>
+                  <td className="py-3.5 px-4">AISI 52100 Chrome Steel</td>
+                  <td className="py-3.5 px-4">Combined radial and heavy axial thrust load management</td>
+                </tr>
+                <tr className="hover:bg-orange-50/20 transition-colors">
+                  <td className="py-3.5 px-4 font-semibold text-gray-900">Needle Rollers</td>
+                  <td className="py-3.5 px-4">Φ1.5 mm – Φ6.0 mm</td>
+                  <td className="py-3.5 px-4">5.8 mm – 50.0 mm</td>
+                  <td className="py-3.5 px-4">AISI 52100, AISI 304/316</td>
+                  <td className="py-3.5 px-4">Compact radial cross-section, high capacity in limited space</td>
+                </tr>
+                <tr className="hover:bg-orange-50/20 transition-colors">
+                  <td className="py-3.5 px-4 font-semibold text-gray-900">Spherical Rollers</td>
+                  <td className="py-3.5 px-4">Φ10.0 mm – Φ80.0 mm</td>
+                  <td className="py-3.5 px-4">12.0 mm – 120.0 mm</td>
+                  <td className="py-3.5 px-4">Bearing Chrome Steel</td>
+                  <td className="py-3.5 px-4">Self-aligning barrel profile, shock resistant, heavy industrial duty</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════
+          SECTION 4 — Applications
+      ══════════════════════════════════ */}
+      <section className="mb-10 sm:mb-14">
         <h2 className="text-base sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">
           Applications
         </h2>
@@ -302,7 +453,7 @@ export default function RollersPage() {
             </div>
           ))}
         </div>
-      </section> */}
+      </section>
 
     </main>
   );

@@ -547,7 +547,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
 
   "tungsten-carbide-cobalt-binder-balls": {
     slug: "tungsten-carbide-cobalt-binder-balls",
-    name: "Tungsten Carbide Cobalt Binder",
+    name: "Tungsten Carbide Cobalt Binder Balls",
     category: "non-ferrous",
     image: "/images/Ball/Metallic_Ball/Tungsten.jpg",
     imageAlt: "Tungsten carbide cobalt binder ball",
@@ -707,7 +707,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
 
   "titanium-alloy-balls": {
     slug: "titanium-alloy-balls",
-    name: "Titanium Alloys",
+    name: "Titanium Alloys Balls",
     category: "non-ferrous",
     image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp",
     imageAlt: "Titanium alloy ball",
@@ -743,7 +743,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
 
   "tungsten-carbide-nickel-binder-balls": {
     slug: "tungsten-carbide-nickel-binder-balls",
-    name: "Tungsten Carbide Nickel Binder",
+    name: "Tungsten Carbide Nickel Binder Balls",
     category: "non-ferrous",
     image: "/images/Ball/Metallic_Ball/Tungsten_Nickel.avif",
     imageAlt: "Tungsten carbide nickel binder ball",

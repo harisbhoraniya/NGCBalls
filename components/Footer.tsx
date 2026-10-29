@@ -22,7 +22,13 @@ const products = [
   // { label: "Machine Components", href: "/products/machine-component/" },
 ];
 
-const contactItems = [
+interface ContactItem {
+  icon: React.ComponentType<{ size?: number; style?: React.CSSProperties }>;
+  content: React.ReactNode;
+  href?: string;
+}
+
+const contactItems: ContactItem[] = [
   {
     icon: FiPhone,
     content: <span style={{ fontSize: "0.875rem", color: "var(--grey-light)" }}>+91-22-68380200 (100 Lines)</span>,
@@ -32,12 +38,23 @@ const contactItems = [
   {
     icon: FiMail,
     content: (
-      <span style={{ fontSize: "0.875rem", color: "var(--grey-light)", display: "flex", alignItems: "center", gap: "4px" }}>
-         enquirybr@ngandhi.com
-        <FiArrowUpRight size={11} style={{ opacity: 0.5 }} />
-      </span>
+      <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+        <a
+          href="mailto:enquirybr@ngandhi.com"
+          className="contact-email-link"
+        >
+          enquirybr@ngandhi.com
+          <FiArrowUpRight size={11} style={{ opacity: 0.5 }} />
+        </a>
+        <a
+          href="mailto:enquirymatl@ngandhi.com"
+          className="contact-email-link"
+        >
+          enquirymatl@ngandhi.com
+          <FiArrowUpRight size={11} style={{ opacity: 0.5 }} />
+        </a>
+      </div>
     ),
-    href: "mailto: enquirybr@ngandhi.com",
   },
   {
     icon: FiMapPin,
@@ -127,6 +144,19 @@ export default function Footer() {
         .contact-row:hover .contact-icon-wrap svg { color: #fff !important; }
         .contact-row:hover span { color: var(--orange) !important; }
 
+        .contact-email-link {
+          font-size: 0.85rem;
+          color: var(--grey-light);
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          transition: color 0.2s ease;
+        }
+        .contact-email-link:hover {
+          color: var(--orange) !important;
+        }
+
         .social-btn {
           width: 36px; height: 36px; border-radius: 50%;
           background: #fff;
@@ -182,6 +212,7 @@ export default function Footer() {
                   priority
                   style={{
                     objectFit: "contain",
+                    width: "auto",
                     height: "auto",
                   }}
                 />

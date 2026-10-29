@@ -165,9 +165,14 @@ export default function ProductEnquiryModal({ isOpen, onClose }: ProductEnquiryM
                 </div>
                 <div>
                   <span className="block text-[0.65rem] font-medium text-gray-400 uppercase tracking-wider">Email</span>
-                  <a href="mailto:enquirybr@ngandhi.com" className="font-semibold text-gray-800 hover:text-orange-600 no-underline">
-                    enquirybr@ngandhi.com
-                  </a>
+                  <div className="flex flex-col">
+                    <a href="mailto:enquirybr@ngandhi.com" className="font-semibold text-gray-800 hover:text-orange-600 no-underline">
+                      enquirybr@ngandhi.com
+                    </a>
+                    <a href="mailto:enquirymatl@ngandhi.com" className="text-[0.7rem] text-gray-500 hover:text-orange-600 no-underline">
+                      enquirymatl@ngandhi.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
