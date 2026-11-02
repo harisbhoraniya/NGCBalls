@@ -34,11 +34,43 @@ const nonMetallicBallsData = {
     {
       id: "ceramic",
       label: "Ceramic Balls",
-      image: "/images/Ball/Non_Metallic_Ball/ceramic.jpg",
-      imageAlt: "Ceramic balls — alumina oxide, zirconia oxide, silicon nitride",
+      image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
+      imageAlt: "Ceramic balls — mixed alumina oxide, zirconia oxide, silicon nitride, ruby and sapphire",
       description:
-        "Ceramic balls are particularly suited to harsh environments. Their main advantages over steel is that they have a density of 40% lower than steel. Have 29% lower thermal expansion and are 150% harder. In certain high-speed applications their life is extended by as much as a hundred times. The three main materials used are Alumina Oxide, Zirconia Oxide and Silicon Nitride.",
+        "Ceramic balls are particularly suited to harsh environments. Their main advantages over steel is that they have a density 40% lower than steel, 29% lower thermal expansion, and are up to 150% harder. In high-speed applications their operating life is extended by as much as a hundred times. The primary materials used are Alumina Oxide (Al₂O₃), Zirconia Oxide (ZrO₂), Silicon Nitride (Si₃N₄), and single-crystal Sapphire & Ruby.",
       products: [
+        {
+          id: "ball-c-001",
+          name: "Silicon Nitride Balls (Si₃N₄)",
+          slug: "silicon-nitride-balls",
+          imageAlt: "Silicon Nitride ceramic balls",
+          material: "Silicon Nitride (Si₃N₄)",
+          hasPdf: true,
+        },
+        {
+          id: "ball-c-002",
+          name: "Alumina Oxide Balls (Al₂O₃)",
+          slug: "alumina-oxide-balls",
+          imageAlt: "Alumina Oxide ceramic balls",
+          material: "Alumina Oxide (99.5% Al₂O₃)",
+          hasPdf: true,
+        },
+        {
+          id: "ball-c-003",
+          name: "Zirconium Oxide Balls (ZrO₂)",
+          slug: "zirconium-oxide-balls",
+          imageAlt: "Zirconium Oxide ceramic balls",
+          material: "Zirconium Oxide (ZrO₂)",
+          hasPdf: true,
+        },
+        {
+          id: "ball-c-004",
+          name: "Sapphire & Ruby Balls",
+          slug: "sapphire-ruby-balls",
+          imageAlt: "Sapphire and Ruby single crystal ceramic balls",
+          material: "Single Crystal Al₂O₃",
+          hasPdf: true,
+        },
         {
           id: "ball-c-ref-002",
           name: "Dimensional Conversion Chart",
@@ -670,7 +702,7 @@ function ResourceDocCard({
   name: string;
   hasPdf: boolean;
   slug: string;
-  docType: "dimensional-chart" | "technical-data";
+  docType?: "dimensional-chart" | "technical-data";
   onView: (docType: "dimensional-chart" | "technical-data") => void;
 }) {
   const { subtitle, type } = getDocMeta(name);
@@ -687,7 +719,7 @@ function ResourceDocCard({
         <p className="text-sm font-semibold text-gray-800 mb-0.5 leading-snug">{name}</p>
         <p className="text-xs text-gray-400 mb-3">{subtitle}</p>
 
-        {canViewTable ? (
+        {canViewTable && docType ? (
           <button
             onClick={() => onView(docType)}
             className="self-start flex items-center gap-1.5 text-[0.7rem] font-semibold text-orange-500 bg-orange-50 px-3 py-1.5 rounded-full border border-orange-200 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-200 cursor-pointer"
@@ -1176,6 +1208,42 @@ export default function NonMetallicBallsPage() {
       </section>
 
       {/* ══════════════════════════════════
+          Individual Material Types & Grades
+      ══════════════════════════════════ */}
+      {activeCategory.products.filter((p) => !p.docType).length > 0 && (
+        <section className="mb-14">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="h-px flex-1 bg-gray-100" />
+            <p className="text-[0.65rem] font-semibold uppercase tracking-widest text-gray-400 whitespace-nowrap">
+              Individual Ceramic Grades &amp; Types
+            </p>
+            <div className="h-px flex-1 bg-gray-100" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {activeCategory.products
+              .filter((p) => !p.docType)
+              .map((prod) => (
+                <div key={prod.id} className="card-base p-5 bg-white border border-gray-100 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold text-orange-600 uppercase tracking-wider block mb-1">
+                      {prod.material}
+                    </span>
+                    <h4 className="text-sm font-bold text-gray-900 mb-2">
+                      {prod.name}
+                    </h4>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
+                    <span>ISO 3290-1 Spec</span>
+                    <span className="text-orange-500 font-semibold">DIN 5401</span>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </section>
+      )}
+
+      {/* ══════════════════════════════════
           SECTION 2 — Technical Data
           Material notes + property table (paired with chemical
           resistance side by side when both exist) + info tables —
@@ -1201,16 +1269,18 @@ export default function NonMetallicBallsPage() {
 
         {/* Doc cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {activeCategory.products.map((doc) => (
-            <ResourceDocCard
-              key={doc.id}
-              name={doc.name}
-              slug={doc.slug}
-              hasPdf={doc.hasPdf}
-              docType={doc.docType}
-              onView={setOpenDoc}
-            />
-          ))}
+          {activeCategory.products
+            .filter((doc): doc is typeof doc & { docType: "dimensional-chart" | "technical-data" } => Boolean(doc.docType))
+            .map((doc) => (
+              <ResourceDocCard
+                key={doc.id}
+                name={doc.name}
+                slug={doc.slug}
+                hasPdf={doc.hasPdf}
+                docType={doc.docType}
+                onView={setOpenDoc}
+              />
+            ))}
         </div>
       </section>
 

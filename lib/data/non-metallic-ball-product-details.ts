@@ -51,8 +51,8 @@ const sapphireRuby: NonMetallicBallProductDetail = {
   id: "ball-c-001",
   name: "Sapphire & Ruby Balls",
   slug: "sapphire-ruby-balls",
-  image: "/images/Ball/Non_Metallic_Ball/ceramic.jpg",
-  imageAlt: "Sapphire and ruby ceramic balls",
+  image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
+  imageAlt: "Sapphire and ruby mixed ceramic balls",
   material: "Sapphire / Ruby (Single Crystal Al₂O₃)",
   category: "ceramic",
   generalInfo:
@@ -116,8 +116,8 @@ const siliconNitride: NonMetallicBallProductDetail = {
   id: "ball-c-003",
   name: "Silicon Nitride Balls",
   slug: "silicon-nitride-balls",
-  image: "/images/Ball/Non_Metallic_Ball/ceramic.jpg",
-  imageAlt: "Silicon nitride ceramic balls",
+  image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
+  imageAlt: "Silicon nitride high-precision ceramic balls",
   material: "Silicon Nitride (Si₃N₄)",
   category: "ceramic",
   generalInfo:

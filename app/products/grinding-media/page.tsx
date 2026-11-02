@@ -9,28 +9,28 @@ import { FiArrowRight, FiArrowLeft, FiChevronRight } from "react-icons/fi";
 // ─────────────────────────────────────────────
 const grindingMedia = {
   page: {
-    title: "Non-Metallic Balls",
-    slug: "non-metallic-balls",
+    title: "Grinding Media",
+    slug: "grinding-media",
     metaDescription:
-      "Precision-engineered non-metallic balls in ceramic, glass, and plastic — manufactured to DIN, ISO, and ABMA standards for demanding industrial, chemical, and precision applications.",
+      "High-performance grinding and burnishing media including steel balls, ceramic beads, glass beads, and cast iron balls for polishing, milling, and fine grinding.",
   },
 
   categories: [
     {
-      id: "ceramic",
+      id: "grinding-media",
       label: "Grinding Media",
       image: "/images/grinding-media/grinding-media.jpg",
-      imageAlt: "Ceramic balls — alumina oxide, zirconia oxide, silicon nitride",
+      imageAlt: "Industrial grinding and burnishing media",
       description:
-        "Burnishing Media can be balls or peculiar shapes which are used for polishing the rough surfaces of many different metal components. The different shapes are designed to get into the varying crevices and contours of diverse metal products.",
+        "High-performance grinding and burnishing media engineered for surface polishing, deburring, ball milling, and fine particle dispersion across chemical, pharmaceutical, paints, minerals, and manufacturing industries.",
       products: [
         {
           id: "ball-c-ref-001",
-          name: "Steel Ball - Grinding Media",
+          name: "Burnishing Media",
           slug: "burnishing-media",
           image: "/images/grinding-media/grinding-media.jpg",
-          imageAlt: "Steel Ball - Grinding Media",
-          material: "Reference",
+          imageAlt: "Burnishing Media — Steel Balls & Shapes",
+          material: "Carbon Steel & Stainless Steel",
           grades: [],
         },
         {
@@ -39,7 +39,7 @@ const grindingMedia = {
           slug: "ceramic-ball-grinding-media",
           image: "/images/grinding-media/ceramic_ball_burnishing_media.jpg",
           imageAlt: "Ceramic Balls - Grinding Media",
-          material: "Reference",
+          material: "Zirconia & Alumina Oxide",
           grades: [],
         },
         {
@@ -48,7 +48,7 @@ const grindingMedia = {
           slug: "glass-ball-grinding-ball",
           image: "/images/grinding-media/glass_ball_burnishing_media.jpg",
           imageAlt: "Glass Balls - Grinding Media",
-          material: "Reference",
+          material: "Soda-Lime & Borosilicate",
           grades: [],
         },
         {
@@ -57,7 +57,7 @@ const grindingMedia = {
           slug: "cast-iron-ball-grinding-media",
           image: "/images/grinding-media/cast_iron_ball_grinding_media.jpg",
           imageAlt: "Cast Iron Ball - Grinding Media",
-          material: "Reference",
+          material: "Low, Medium & High Chrome",
           grades: [],
         },
       ],
@@ -69,7 +69,7 @@ const grindingMedia = {
 // ─────────────────────────────────────────────
 // PAGE COMPONENT
 // ─────────────────────────────────────────────
-export default function NonMetallicBallsPage() {
+export default function GrindingMediaPage() {
   const { categories } = grindingMedia;
   const [activeIndex, setActiveIndex] = useState(0);
 

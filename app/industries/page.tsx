@@ -20,9 +20,9 @@ const industries = [
   
   {
     name: "Consumer & Health Care",
-    desc: "Precision components for consumer products and medical devices requiring high accuracy and reliability.",
-    applications: ["Precision Balls", "Small Components", "Custom Parts", "Quality-Assured Products"],
-    image: "/images/Industries/healthcare.jfif",
+    desc: "Precision components for consumer products, pharmaceuticals, diagnostic systems, and medical devices requiring high accuracy and reliability.",
+    applications: ["Precision Balls", "Diagnostic Devices", "Fluid Control Parts", "Quality-Assured Components"],
+    image: "/images/medical.png",
   },
   {
     name: "Automobile",

@@ -9,12 +9,17 @@ const categoryOptions: Record<string, string[]> = {
   Ball: ["Metallic Ball", "Non Metallic Ball"],
   Rollers: ["Cylindrical Rollers", "Taper Rollers", "Needle Rollers", "Spherical Rollers"],
   "Grinding Media": [
-    "Steel Ball - Grinding Media",
+    "Burnishing Media",
     "Ceramic Balls - Grinding Media",
     "Glass Balls - Grinding Media",
     "Cast Iron Ball - Grinding Media",
   ],
-  "Ball Valve Components": ["Ball Valve Stem Pin", "Valve Balls", "Ball Valve Seat Rings"],
+  "Ball Valve Components": [
+    "Valve Balls",
+    "Ceramic Valve Balls",
+    "Ball Valve Stem Pin",
+    "Ball Valve Seat Rings",
+  ],
 };
 
 const categories = Object.keys(categoryOptions);
@@ -350,18 +355,24 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                          Message *
-                        </label>
+                        <div className="flex items-center justify-between mb-2">
+                          <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                            Message &amp; Technical Requirements *
+                          </label>
+                          <span className="text-[11px] text-gray-400">Drawings &amp; Specs welcome</span>
+                        </div>
                         <textarea
                           name="message"
                           value={form.message}
                           onChange={handleChange}
                           required
                           rows={5}
-                          placeholder="Tell us about your requirement — specifications, quantity, timeline..."
+                          placeholder="Tell us about your requirement — e.g. Material Grade (AISI 52100, 316L, Ceramic), Dimensions, Precision Tolerances (ISO Grade 10/24), Batch Quantities, Delivery Timeline..."
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all resize-none"
                         />
+                        <p className="text-[11px] text-gray-500 mt-1.5">
+                          For custom engineering, our technical sales team will review drawing specifications, tolerances, and metallurgical requirements.
+                        </p>
                       </div>
 
                       {errorMessage && (

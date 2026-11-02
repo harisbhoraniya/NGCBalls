@@ -51,6 +51,18 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
       material: "As per customer requirements",
     },
   },
+  "ceramic-valve-balls": {
+    slug: "ceramic-valve-balls",
+    name: "Ceramic Valve Balls",
+    image: "/images/ball-valve/ceramic_ball.png",
+    imageAlt: "Ceramic Valve Balls for Ball Valve Components",
+    material: "Zirconia Oxide (ZrO₂), Silicon Nitride (Si₃N₄), Alumina Oxide (Al₂O₃)",
+    details: {
+      types: "2 Way, 3 Way, Full Port, Reduced Port, V-Port, Cavity-Filled & Custom Ports",
+      sizes: '1/2" to 8" & Custom Sizes as per Drawing',
+      material: "High-purity Zirconia (ZrO₂), Silicon Nitride (Si₃N₄), Alumina (Al₂O₃) for abrasive slurries, high temperature, and extreme corrosion service",
+    },
+  },
 };
 
 export function getBallValveProductDetail(slug: string) {
