@@ -9,10 +9,10 @@ import { FiArrowRight, FiArrowLeft, FiChevronRight, FiMaximize2, FiLayers, FiFil
 // ─────────────────────────────────────────────
 const grindingMedia = {
   page: {
-    title: "Non-Metallic Balls",
-    slug: "non-metallic-balls",
+    title: "Rollers",
+    slug: "rollers",
     metaDescription:
-      "Precision-engineered non-metallic balls in ceramic, glass, and plastic — manufactured to DIN, ISO, and ABMA standards for demanding industrial, chemical, and precision applications.",
+      "Precision-engineered industrial rollers in cylindrical, taper, needle, and spherical profiles manufactured to DIN and ISO standards.",
   },
 
   categories: [
@@ -275,8 +275,8 @@ export default function RollersPage() {
         </div>
 
         {/* Note — sizes & materials made to the customer's requirement */}
-        <p className="italic text-xs sm:text-sm text-gray-400 text-center mt-4 sm:mt-5">
-          <span className="font-semibold not-italic">Note:</span> Size &amp; material as per your requirement / drawing.
+        <p className="italic text-xs sm:text-sm text-gray-500 text-center mt-4 sm:mt-5">
+          <span className="font-semibold not-italic text-gray-700">Note:</span> Size, material, and tolerances manufactured as per your requirement / drawing.
         </p>
       </section>
 

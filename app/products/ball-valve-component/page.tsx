@@ -14,7 +14,7 @@ const grindingMedia = {
     title: "Ball Valve Ball Components",
     slug: "ball-valve-component",
     metaDescription:
-      "Precision-engineered non-metallic balls in ceramic, glass, and plastic — manufactured to DIN, ISO, and ABMA standards for demanding industrial, chemical, and precision applications.",
+      "Precision-engineered ball valve components including valve balls, ceramic valve balls, stem pins, and seat rings manufactured to strict industrial valve standards.",
   },
 
   categories: [
@@ -22,7 +22,7 @@ const grindingMedia = {
       id: "ceramic",
       label: "Ball Valve Components",
       image: "/images/ball-valve/banner_image.jpg",
-      imageAlt: "Ceramic balls — alumina oxide, zirconia oxide, silicon nitride",
+      imageAlt: "Ball Valve Components — Precision valve balls, stem pins, and seat rings",
       description:
         "In the industrial valve and fluid control industry, a ball valve is a quarter-turn rotational motion valve that utilizes a bored, spherical ball to start, stop, or regulate fluid flow. When the port through the ball is aligned with the pipeline, the valve is open, allowing full, unobstructed flow with minimal pressure drop; when rotated 90 degrees, the solid side faces the flow, creating a positive, leak-tight shutoff.",
       products: [
@@ -49,6 +49,14 @@ const grindingMedia = {
           image: "/images/ball-valve/ball-valve-seat-ring.jpg",
           imageAlt: "Ball Valve Seat Rings",
           material: "As per customer requirements",
+        },
+        {
+          id: "ball-c-ref-004",
+          name: "Ceramic Valve Balls",
+          slug: "ceramic-valve-balls",
+          image: "/images/ball-valve/ceramic_ball.png",
+          imageAlt: "Ceramic Valve Balls",
+          material: "Alumina Oxide (Al2O3), Zirconia (ZrO2), Silicon Nitride (Si3N4)",
         },
       ],
     },

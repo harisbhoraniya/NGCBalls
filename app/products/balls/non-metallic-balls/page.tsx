@@ -34,7 +34,7 @@ const nonMetallicBallsData = {
     {
       id: "ceramic",
       label: "Ceramic Balls",
-      image: "/images/Ball/Non_Metallic_Ball/ceramic.jpg",
+      image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
       imageAlt: "Ceramic balls — alumina oxide, zirconia oxide, silicon nitride",
       description:
         "Ceramic balls are particularly suited to harsh environments. Their main advantages over steel is that they have a density of 40% lower than steel. Have 29% lower thermal expansion and are 150% harder. In certain high-speed applications their life is extended by as much as a hundred times. The three main materials used are Alumina Oxide, Zirconia Oxide and Silicon Nitride.",

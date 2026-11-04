@@ -10,7 +10,7 @@ const products = [
     desc: "High-quality metallic and non-metallic balls manufactured to exacting tolerances for use in bearings, valves, and mechanical assemblies. Available in stainless steel, chrome steel, ceramic, plastic, and glass variants.",
     items: ["Stainless Steel Balls", "Chrome Steel Balls", "Ceramic Balls", "Plastic Balls", "Glass Balls"],
     applications: "Bearings, valves, mechanical assemblies",
-    image: "/images/NGC.jpg",
+    image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
     href: "/products/balls",
     subLinks: [
       { label: "Metallic Balls", href: "/products/balls/metallic-balls" },

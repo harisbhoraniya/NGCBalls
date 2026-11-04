@@ -51,7 +51,7 @@ const heroSlides = [
     image: "/images/Banner_12.png",
     tag: "Built for High Loads",
     headline: ["Precision Rollers for", "Every Application"],
-    sub: "Cylindrical, needle, and taper rollers engineered to handle demanding load-bearing and high-speed applications.",
+    sub: "Taper, cylindrical, and spherical rollers engineered to handle demanding load-bearing and high-speed applications.",
   },
 ];
 
@@ -75,7 +75,7 @@ const products1 = [
     name: "Balls",
     href: "/products/balls",
     image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
-    desc: "Precision steel and alloy balls for bearings, valves, and mechanical systems. Ceramic, plastic, and polymer balls for specialized industrial applications.",
+    desc: "Steel and alloy balls for bearings, valves, and mechanical systems. Ceramic, plastic, and polymer balls for specialized industrial applications.",
   },
   // {
   //   name: "Non-Metallic Balls",
@@ -87,13 +87,13 @@ const products1 = [
     name: "Rollers",
     href: "/products/rollers",
     image: "/images/Rollers/rollers.png",
-    desc: "Cylindrical, needle, and taper rollers for high load-bearing applications.",
+    desc: "Taper, cylindrical, and spherical rollers for high load-bearing applications.",
   },
   {
     name: "Grinding Media",
     href: "/products/grinding-media",
     image: "/images/grinding-media/grinding-media.jpg",
-    desc: "Polishing and finishing solutions including nano particle grinding.",
+    desc: "Steel Ball burnishing and polishing solutions including nano particle grinding.",
   },
   {
     name: "Ball Valve Components",
@@ -117,7 +117,7 @@ const industries = [
   { image: "/images/Industries/Automotive.jpg", name: "Automobile" },
   { image: "/images/Industries/Aerospace_industry.jpg", name: "Aerospace" },
   { image: "/images/Industries/Paint.png", name: "Paint & Pigment" },
-  { image: "/images/Industries/healthcare.jfif", name: "Consumer & Health Care" },
+  { image: "/images/medical.png", name: "Consumer & Health Care" },
   { image: "/images/Industries/engineering_manufacturing.jpg", name: "Engineering & Manufacturing" },
   { image: "/images/textile.png", name: "Textile" },
   { image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80", name: "Renewable Energy" },

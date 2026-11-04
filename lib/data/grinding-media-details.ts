@@ -133,13 +133,13 @@ export interface GrindingMediaDetail {
 
 export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
   // ─────────────────────────────────────────────
-  // 1. STEEL BALL - GRINDING MEDIA (formerly "Burnishing Media")
+  // 1. BURNISHING MEDIA
   // ─────────────────────────────────────────────
   "burnishing-media": {
     slug: "burnishing-media",
-    name: "Steel Ball - Grinding Media",
-    image: "/images/grinding-media/glass_ball_burnishing_media.jpg",
-    imageAlt: "Steel Ball - Grinding Media",
+    name: "Burnishing Media",
+    image: "/images/grinding-media/grinding-media.jpg",
+    imageAlt: "Burnishing Media",
     material: "Grinding Media",
 
     generalInfo:
@@ -1195,7 +1195,20 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
           values: ["Cr 10-28%", "HRC 58-65"]
         }
       ]
-    }
+    },
+
+    compositionTable: {
+      gradeColumns: ["Low Chrome (<3%)", "Medium Chrome (3–10%)", "High Chrome (10–28%)"],
+      rows: [
+        { label: "Chromium (Cr)", values: ["< 3.0%", "3.0% – 10.0%", "10.0% – 28.0%"] },
+        { label: "Carbon (C)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
+        { label: "Silicon (Si)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
+        { label: "Manganese (Mn)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
+        { label: "Phosphorus (P)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
+        { label: "Sulfur (S)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
+      ],
+    },
+    remarks: "Note: Chemical composition percentages for C, Si, Mn, P, S are awaiting final verification from the client/assay certificate. Chromium ranges are as per technical standards.",
   },
 
 };

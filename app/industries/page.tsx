@@ -22,7 +22,7 @@ const industries = [
     name: "Consumer & Health Care",
     desc: "Precision components for consumer products and medical devices requiring high accuracy and reliability.",
     applications: ["Precision Balls", "Small Components", "Custom Parts", "Quality-Assured Products"],
-    image: "/images/Industries/healthcare.jfif",
+    image: "/images/medical.png",
   },
   {
     name: "Automobile",
@@ -52,7 +52,7 @@ const industries = [
     name: "Renewable Energy",
     desc: "Durable components for wind turbines, solar systems, and other clean energy infrastructure.",
     applications: ["Wind Turbine Bearings", "Precision Balls", "Rollers", "Fasteners"],
-    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80",
+    image: "/images/Industries/Renewable_Energy.png",
   },
   {
     name: "Oil & Gas",

@@ -39,6 +39,18 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
       material: "AISI 304/304L, AISI 316/316L, AISI 420/420C, AISI 440C, Hastelloy, K Monel 400/500, Inconel 725/825, Duplex, Stellite",
     },
   },
+  "ceramic-valve-balls": {
+    slug: "ceramic-valve-balls",
+    name: "Ceramic Valve Balls",
+    image: "/images/ball-valve/ceramic_ball.png",
+    imageAlt: "Ceramic Valve Balls",
+    material: "Alumina Oxide (Al2O3), Zirconia (ZrO2), Silicon Nitride (Si3N4)",
+    details: {
+      types: "Full Port, Reduced Port, V-Port, 2-Way, 3-Way",
+      sizes: '1/2" to 8" & As per Customer Requirement',
+      material: "Alumina Oxide (Al2O3), Zirconia (ZrO2), Silicon Nitride (Si3N4)",
+    },
+  },
   "ball-valve-seat-rings": {
     slug: "ball-valve-seat-rings",
     name: "Ball Valve Seat Rings",

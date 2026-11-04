@@ -16,12 +16,12 @@ const categoryOptions: Record<string, string[]> = {
   Ball: ["Metallic Ball", "Non Metallic Ball"],
   Rollers: ["Cylindrical Rollers", "Taper Rollers", "Needle Rollers", "Spherical Rollers"],
   "Grinding Media": [
-    "Steel Ball - Grinding Media",
+    "Burnishing Media",
     "Ceramic Balls - Grinding Media",
     "Glass Balls - Grinding Media",
     "Cast Iron Ball - Grinding Media",
   ],
-  "Ball Valve Components": ["Ball Valve Stem Pin", "Valve Balls", "Ball Valve Seat Rings"],
+  "Ball Valve Components": ["Ball Valve Stem Pin", "Valve Balls", "Ceramic Valve Balls", "Ball Valve Seat Rings"],
 };
 
 const categories = Object.keys(categoryOptions);

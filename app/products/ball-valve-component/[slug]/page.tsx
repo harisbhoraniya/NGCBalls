@@ -147,41 +147,6 @@ export default async function BallValveProductDetailPage({
       </section>
 
       {/* ══════════════════════════════════
-          SPEC CARDS — Types / Sizes / Material (detailed reference below hero)
-      ══════════════════════════════════ */}
-      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-        <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-orange-500 mb-2">
-            Types We Offer
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">{product.details.types}</p>
-        </div>
-
-        <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-orange-500 mb-2">
-            Sizes We Offer
-          </p>
-          <p className="text-sm text-gray-700 leading-relaxed">{product.details.sizes}</p>
-        </div>
-
-        <div className="rounded-xl bg-gray-50 border border-gray-100 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-orange-500 mb-3">
-            Material
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {product.details.material.split(",").map((m) => m.trim()).filter(Boolean).map((m, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white text-gray-700 border border-gray-200"
-              >
-                {m}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════
           BACK LINK
       ══════════════════════════════════ */}
       <div className="flex justify-center">

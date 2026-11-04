@@ -314,6 +314,11 @@ export default async function GrindingMediaDetailPage({
             rows={product.compositionTable.rows}
             rowHeaderLabel="Chemical"
           />
+          {product.remarks && (
+            <p className="text-xs text-gray-500 italic mt-3 text-center">
+              {product.remarks}
+            </p>
+          )}
         </section>
       )}
 

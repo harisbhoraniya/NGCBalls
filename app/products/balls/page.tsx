@@ -22,7 +22,7 @@ const ballCategories = [
     id: "non-metallic",
     label: "Non-Metallic Balls",
     href: "/products/balls/non-metallic-balls",
-    image: "/images/Ball/Non_Metallic_Ball/ceramic.jpg",
+    image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
     imageAlt: "Non-metallic balls — ceramic, glass, plastic",
     description:
       "Precision Ceramic, Glass, and Plastic balls available for applications requiring excellent chemical resistance, electrical insulation, low friction, and dimensional stability.",

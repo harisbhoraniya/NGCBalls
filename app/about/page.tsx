@@ -15,7 +15,7 @@ const products = [
   },
   {
     title: "Non-Metallic Ball",
-    image: "/images/Ball/Non_Metallic_Ball/ceramic.jpg",
+    image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
     href: "/products/balls/non-metallic-balls",
   },
   {

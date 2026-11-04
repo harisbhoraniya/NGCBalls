@@ -288,7 +288,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     hardness: [
       {
         key: "Hardness",
-        value: "60–67 HRc ",
+        value: "60–65 HRC",
       },
     ],
     mechanicalProperties: [
