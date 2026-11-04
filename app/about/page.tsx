@@ -228,40 +228,41 @@ function TestimonialSlider() {
 
 // ─────────────────────────────────────────────
 // CORPORATE VIDEO
-// Prepared for future corporate video integration with DNA team
 // ─────────────────────────────────────────────
 function CorporateVideo() {
+  const [playing, setPlaying] = useState(false);
+  // Replace with your actual YouTube video ID
+  const videoId = "S1Sq6X6FgEY";
+
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video bg-[#141414] border border-gray-800 flex flex-col items-center justify-center p-8 text-center">
-        {/* Subtle decorative glow */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-25"
-          style={{
-            background: "radial-gradient(circle at center, rgba(232,101,10,0.3) 0%, transparent 70%)",
-          }}
-        />
-
-        {/* Video Icon */}
-        <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center mb-5 text-orange-500 shadow-inner">
-          <FiPlay size={28} className="ml-1 opacity-90" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-md">
-          <span className="inline-block px-3 py-1 rounded-full text-[0.7rem] font-bold tracking-widest uppercase bg-orange-500/10 text-orange-400 border border-orange-500/20 mb-3">
-            Video Presentation
-          </span>
-          <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-            Official Corporate Film
-          </h3>
-          <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4">
-            Our corporate documentary showcasing facility operations, precision manufacturing lines, and quality assurance processes is currently in production.
-          </p>
-          <span className="text-[0.75rem] font-medium text-gray-500">
-            Integration ready for release upon post-production completion
-          </span>
-        </div>
+      <div className="relative rounded-2xl overflow-hidden shadow-md aspect-video bg-black">
+        {playing ? (
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+            title="N Gandhi & Co. Corporate Video"
+            frameBorder={0}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
+          <button
+            onClick={() => setPlaying(true)}
+            aria-label="Play corporate video"
+            className="absolute inset-0 w-full h-full flex items-center justify-center group cursor-pointer border-none p-0"
+          >
+            <Image
+              src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+              alt="Corporate video thumbnail"
+              fill
+              className="object-cover opacity-80 group-hover:opacity-70 transition-opacity duration-300"
+            />
+            <span className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-orange-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <FiPlay size={26} className="text-white ml-1" />
+            </span>
+          </button>
+        )}
       </div>
     </div>
   );

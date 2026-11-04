@@ -133,17 +133,17 @@ export interface GrindingMediaDetail {
 
 export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
   // ─────────────────────────────────────────────
-  // 1. BURNISHING MEDIA (Steel Balls & Shapes)
+  // 1. STEEL BALL - GRINDING MEDIA (formerly "Burnishing Media")
   // ─────────────────────────────────────────────
   "burnishing-media": {
     slug: "burnishing-media",
-    name: "Burnishing Media",
-    image: "/images/grinding-media/grinding-media.jpg",
-    imageAlt: "Burnishing Media - Steel Balls & Shapes",
-    material: "Grinding & Burnishing Media",
+    name: "Steel Ball - Grinding Media",
+    image: "/images/grinding-media/glass_ball_burnishing_media.jpg",
+    imageAlt: "Steel Ball - Grinding Media",
+    material: "Grinding Media",
 
     generalInfo:
-      "Burnishing media includes precision steel balls and specialty geometric shapes engineered for vibratory finishing, deburring, and polishing of metal components. The varied shapes—including balls, ball-cones, barrels, diagonals, pins, and ovals—are specifically designed to reach intricate crevices, internal contours, and surface recesses across diverse engineered components.",
+      "Steel balls used as grinding/burnishing media can be balls or peculiar shapes which are used for polishing the rough surfaces of many different metal components. The different shapes are designed to get into the varying crevices and contours of diverse metal products.",
 
     gradeTable: {
       columns: ["Type / Grade", "Hardness"],
@@ -1195,58 +1195,7 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
           values: ["Cr 10-28%", "HRC 58-65"]
         }
       ]
-    },
-
-    compositionTable: {
-      gradeColumns: ["Low Chrome Cast Iron", "Medium Chrome Cast Iron", "High Chrome Cast Iron"],
-      rows: [
-        {
-          label: "Carbon (C)",
-          values: [
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-          ],
-        },
-        {
-          label: "Chromium (Cr)",
-          values: ["< 3.0%", "3.0% – 10.0%", "10.0% – 28.0%"],
-        },
-        {
-          label: "Silicon (Si)",
-          values: [
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-          ],
-        },
-        {
-          label: "Manganese (Mn)",
-          values: [
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-          ],
-        },
-        {
-          label: "Phosphorus (P)",
-          values: [
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-          ],
-        },
-        {
-          label: "Sulfur (S)",
-          values: [
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-            "[Pending Client Confirmation]",
-          ],
-        },
-      ],
-    },
-    remarks: "* Chemical composition notice: Specific elemental percentages (C, Si, Mn, P, S) are subject to client confirmation and mill operating requirements. No unverified percentages are published.",
+    }
   },
 
 };

@@ -260,11 +260,15 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all bg-white"
                     >
                       <option value="">Select a product category</option>
-                      <option value="Precision Balls">Precision Balls (Metallic &amp; Non-Metallic)</option>
-                      <option value="Rollers">Precision Rollers (Cylindrical, Taper, Spherical)</option>
-                      <option value="Grinding Media">Grinding &amp; Burnishing Media</option>
-                      <option value="Ball Valve Components">Ball Valve Balls &amp; Components</option>
-                      <option value="Custom Engineering">Custom Manufacturing &amp; Tolerances</option>
+                      <option value="Precision Balls">Precision Balls (Metallic / Non-Metallic)</option>
+                      <option value="Rollers">Rollers</option>
+                      <option value="Fasteners">Fasteners</option>
+                      <option value="Springs">Springs</option>
+                      <option value="Grinding Media">Grinding Media</option>
+                      <option value="Ball Valve Components">Ball Valve Components</option>
+                      <option value="Measuring Instruments">Measuring Instruments</option>
+                      <option value="Machine Components">Machine Components</option>
+                      <option value="Other">Other / Custom</option>
                     </select>
                   </div>
 

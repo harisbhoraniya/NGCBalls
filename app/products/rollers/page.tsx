@@ -9,20 +9,20 @@ import { FiArrowRight, FiArrowLeft, FiChevronRight, FiMaximize2, FiLayers, FiFil
 // ─────────────────────────────────────────────
 const grindingMedia = {
   page: {
-    title: "Rollers",
-    slug: "rollers",
+    title: "Non-Metallic Balls",
+    slug: "non-metallic-balls",
     metaDescription:
-      "Precision-engineered industrial rollers including cylindrical, taper, needle, and spherical rollers designed for demanding load-bearing and high-speed applications.",
+      "Precision-engineered non-metallic balls in ceramic, glass, and plastic — manufactured to DIN, ISO, and ABMA standards for demanding industrial, chemical, and precision applications.",
   },
 
   categories: [
     {
-      id: "rollers",
+      id: "ceramic",
       label: "Rollers",
       image: "/images/Rollers/rollers.png",
-      imageAlt: "Precision industrial rollers — cylindrical, taper, needle, and spherical",
+      imageAlt: "Ceramic balls — alumina oxide, zirconia oxide, silicon nitride",
       description:
-        "In the precision bearing and motion industry, industrial rollers are high-performance rolling elements designed to minimize friction, optimize load distribution, and facilitate smooth rotational movement between moving parts. Unlike spherical balls, rollers utilize line contact rather than point contact, allowing them to support significantly higher radial and axial loads across demanding automotive, aerospace, railway, and heavy engineering applications.",
+        "In the precision bearing industry, industrial rollers are high-performance rolling elements designed to minimize friction, optimize load distribution, and facilitate smooth rotational movement between moving parts. Unlike spherical balls, rollers utilize line contact rather than point contact, allowing them to support significantly higher radial or axial loads across an array of demanding industrial applications.",
       products: [
         {
           id: "roller-001",
@@ -30,11 +30,8 @@ const grindingMedia = {
           slug: "cylindrical-rollers",
           image: "/images/Rollers/cylindrical_roller.png",
           imageAlt: "Cylindrical Rollers",
-          material: "AISI 52100 / AISI 440C / Custom",
-          description:
-            "Engineered for high radial load capacity and high-speed operation, featuring precision ground flat or rounded ends to eliminate edge stresses.",
-          applicationsText: "Electric motors, gearboxes, railway axle boxes, machine tools",
-          grades: ["G1", "G2", "G3"],
+          material: "As per requirement / drawing",
+          grades: [],
         },
         {
           id: "roller-002",
@@ -42,11 +39,8 @@ const grindingMedia = {
           slug: "taper-rollers",
           image: "/images/Rollers/taper_rollers.png",
           imageAlt: "Taper Rollers",
-          material: "Bearing Chrome Steel (AISI 52100)",
-          description:
-            "Conical geometry designed to manage severe combined radial and heavy unidirectional or bidirectional axial thrust loads simultaneously.",
-          applicationsText: "Wheel hubs, transmissions, industrial reducers, construction equipment",
-          grades: ["G1", "G2"],
+          material: "As per requirement / drawing",
+          grades: [],
         },
         {
           id: "roller-003",
@@ -54,11 +48,8 @@ const grindingMedia = {
           slug: "needle-rollers",
           image: "/images/Rollers/needle_rollers.png",
           imageAlt: "Needle Rollers",
-          material: "AISI 52100 / AISI 304 / 316",
-          description:
-            "Slender cylindrical rollers with high length-to-diameter ratios, delivering immense load capacity within exceptionally compact radial envelopes.",
-          applicationsText: "Universal joints, planetary gearsets, rocker arms, transmission shafts",
-          grades: ["G2", "G3", "G5"],
+          material: "As per requirement / drawing",
+          grades: [],
         },
         {
           id: "roller-004",
@@ -66,11 +57,8 @@ const grindingMedia = {
           slug: "spherical-rollers",
           image: "/images/Rollers/spherical_rollers.png",
           imageAlt: "Spherical Rollers",
-          material: "Bearing Chrome Steel / Custom Alloys",
-          description:
-            "Contoured barrel-shaped profile providing self-aligning capability to absorb shaft deflection, mounting misalignment, and shock loads.",
-          applicationsText: "Wind turbine mainshafts, vibrating screens, continuous casters, mining mills",
-          grades: ["G1", "G2", "G3"],
+          material: "As per requirement / drawing",
+          grades: [],
         },
       ],
       applications: [
@@ -260,40 +248,36 @@ export default function RollersPage() {
                   className="object-contain p-3 group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="flex flex-col p-3 sm:p-4 flex-1 text-left">
-                <p className="text-[0.68rem] text-orange-600 font-semibold mb-1">
-                  {product.material}
-                </p>
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-snug mb-2">
+              <div className="flex flex-col p-2.5 sm:p-3 flex-1 text-center items-center">
+                {/* <p className="text-[0.65rem] sm:text-[0.75rem] text-gray-400 mb-0.5 line-clamp-1">
+                  {product.material === "Reference" ? "Reference" : product.material.split("(")[0].trim()}
+                </p> */}
+                <h3 className="text-xs sm:text-sm font-semibold text-gray-800 leading-snug mb-2 sm:mb-3 line-clamp-2 flex-1">
                   {product.name}
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed mb-3">
-                  {product.description}
-                </p>
-                <div className="mt-auto pt-2 border-t border-gray-100">
-                  <span className="block text-[0.68rem] font-semibold text-gray-700 mb-0.5">Industrial Applications:</span>
-                  <span className="text-[0.7rem] text-gray-500 leading-tight block mb-2">{product.applicationsText}</span>
-                  {product.grades.length > 0 && (
-                    <div className="flex flex-wrap gap-1">
-                      {product.grades.map((g) => (
-                        <span key={g} className="text-[0.6rem] px-1.5 py-0.5 rounded bg-orange-50 text-orange-600 font-semibold">
-                          Grade {g}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                {product.grades.length > 0 && (
+                  <div className="flex flex-wrap justify-center gap-1 mb-1 sm:mb-2">
+                    {product.grades.slice(0, 3).map((g) => (
+                      <span key={g} className="text-[0.6rem] sm:text-[0.65rem] px-1 sm:px-1.5 py-0.5 rounded bg-orange-50 text-orange-500 font-semibold">
+                        {g}
+                      </span>
+                    ))}
+                    {product.grades.length > 3 && (
+                      <span className="text-[0.6rem] sm:text-[0.65rem] px-1 sm:px-1.5 py-0.5 rounded bg-gray-100 text-gray-400 font-semibold">
+                        +{product.grades.length - 3}
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
 
         {/* Note — sizes & materials made to the customer's requirement */}
-        <div className="rounded-xl bg-orange-50/60 border border-orange-200/50 p-4 sm:p-5 mt-6 text-center max-w-3xl mx-auto">
-          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed m-0">
-            <span className="font-bold text-orange-600">Product Note:</span> All rollers are manufactured in premium bearing alloy steel (AISI 52100 / 100Cr6, 60–66 HRC), martensitic stainless steel (AISI 440C), austenitic stainless (AISI 304/316), and custom grades. Diameters, lengths, end profiles (flat, rounded, or crowned), and tolerance grades (G1–G5 per DIN 5402 / ISO 3096) are supplied strictly to your engineering drawings and operational requirements.
-          </p>
-        </div>
+        <p className="italic text-xs sm:text-sm text-gray-400 text-center mt-4 sm:mt-5">
+          <span className="font-semibold not-italic">Note:</span> Size &amp; material as per your requirement / drawing.
+        </p>
       </section>
 
       {/* ══════════════════════════════════

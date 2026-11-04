@@ -11,18 +11,18 @@ import ConnectModal from "@/components/ConnectModal"; // adjust the import path 
 // ─────────────────────────────────────────────
 const grindingMedia = {
   page: {
-    title: "Ball Valve Balls & Components",
+    title: "Ball Valve Ball Components",
     slug: "ball-valve-component",
     metaDescription:
-      "Precision-engineered ball valve components including metallic valve balls, ceramic valve balls, stem pins, and seat rings for critical fluid control applications.",
+      "Precision-engineered non-metallic balls in ceramic, glass, and plastic — manufactured to DIN, ISO, and ABMA standards for demanding industrial, chemical, and precision applications.",
   },
 
   categories: [
     {
-      id: "ball-valve-components",
+      id: "ceramic",
       label: "Ball Valve Components",
       image: "/images/ball-valve/banner_image.jpg",
-      imageAlt: "Ball valve balls and precision components",
+      imageAlt: "Ceramic balls — alumina oxide, zirconia oxide, silicon nitride",
       description:
         "In the industrial valve and fluid control industry, a ball valve is a quarter-turn rotational motion valve that utilizes a bored, spherical ball to start, stop, or regulate fluid flow. When the port through the ball is aligned with the pipeline, the valve is open, allowing full, unobstructed flow with minimal pressure drop; when rotated 90 degrees, the solid side faces the flow, creating a positive, leak-tight shutoff.",
       products: [
@@ -49,14 +49,6 @@ const grindingMedia = {
           image: "/images/ball-valve/ball-valve-seat-ring.jpg",
           imageAlt: "Ball Valve Seat Rings",
           material: "As per customer requirements",
-        },
-        {
-          id: "ball-c-ref-004",
-          name: "Ceramic Valve Balls",
-          slug: "ceramic-valve-balls",
-          image: "/images/ball-valve/ceramic_ball.png",
-          imageAlt: "Ceramic Valve Balls",
-          material: "Zirconia (ZrO₂), Silicon Nitride (Si₃N₄), Alumina (Al₂O₃)",
         },
       ],
     },
