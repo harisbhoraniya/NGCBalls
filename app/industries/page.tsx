@@ -8,7 +8,7 @@ const industries = [
   {
     name: "Aerospace",
     desc: "High-precision components built to aerospace-grade tolerances and standards for critical applications.",
-    applications: ["High Precision Balls", "Specialty Rollers", "Custom Components", "Measuring Tools"],
+    applications: ["Balls", "Specialty Rollers", "Custom Components", "Measuring Tools"],
     image: "/images/Industries/Aerospace_industry.jpg",
   },
   {
@@ -21,7 +21,7 @@ const industries = [
   {
     name: "Consumer & Health Care",
     desc: "Precision components for consumer products and medical devices requiring high accuracy and reliability.",
-    applications: ["Precision Balls", "Small Components", "Custom Parts", "Quality-Assured Products"],
+    applications: ["Balls", "Small Components", "Custom Parts", "Quality-Assured Products"],
     image: "/images/medical.png",
   },
   {
@@ -38,8 +38,8 @@ const industries = [
   },
   {
     name: "Ball Bearing",
-    desc: "Precision balls and rollers that meet exacting tolerances for bearing manufacturers worldwide.",
-    applications: ["Precision Balls", "Cylindrical Rollers", "Needle Rollers", "Taper Rollers"],
+    desc: "Balls and rollers that meet exacting tolerances for bearing manufacturers worldwide.",
+    applications: ["Balls", "Cylindrical Rollers", "Needle Rollers", "Taper Rollers"],
     image: "/images/Industries/ball_bearing.jpg",
   },
   {
@@ -51,7 +51,7 @@ const industries = [
   {
     name: "Renewable Energy",
     desc: "Durable components for wind turbines, solar systems, and other clean energy infrastructure.",
-    applications: ["Wind Turbine Bearings", "Precision Balls", "Rollers", "Fasteners"],
+    applications: ["Wind Turbine Bearings", "Balls", "Rollers", "Fasteners"],
     image: "/images/Industries/Renewable_Energy.png",
   },
   {

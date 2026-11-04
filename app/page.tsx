@@ -63,7 +63,7 @@ const stats = [
 ];
 
 const products = [
-  { name: "Metallic Balls", icon: <TbAtom size={22} />, desc: "Precision steel and alloy balls for bearings, valves, and mechanical systems." },
+  { name: "Metallic Balls", icon: <TbAtom size={22} />, desc: "Steel and alloy balls for bearings, valves, and mechanical systems." },
   { name: "Non-Metallic Balls", icon: <HiOutlineBeaker size={22} />, desc: "Ceramic, plastic, and polymer balls for specialized industrial applications." },
   { name: "Rollers", icon: <HiOutlineCog size={22} />, desc: "Cylindrical, needle, and taper rollers for high load-bearing applications." },
   { name: "Grinding Media", icon: <HiOutlineSparkles size={22} />, desc: "Polishing and finishing solutions including nano particle grinding." },

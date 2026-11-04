@@ -260,7 +260,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                       className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all bg-white"
                     >
                       <option value="">Select a product category</option>
-                      <option value="Precision Balls">Precision Balls (Metallic / Non-Metallic)</option>
+                      <option value="Balls">Balls (Metallic / Non-Metallic)</option>
                       <option value="Rollers">Rollers</option>
                       <option value="Fasteners">Fasteners</option>
                       <option value="Springs">Springs</option>

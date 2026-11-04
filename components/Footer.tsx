@@ -219,7 +219,7 @@ export default function Footer() {
               </Link>
 
               <p style={{ fontSize: "0.875rem", color: "var(--grey-light)", lineHeight: 1.75, marginBottom: "24px" }}>
-                Precision Metallic & Non-Metallic Balls & Rollers trusted by global
+                Metallic & Non-Metallic Balls & Rollers trusted by global
                 manufacturers since 1991.
               </p>
 

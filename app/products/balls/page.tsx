@@ -107,10 +107,10 @@ export default function BallsLandingPage() {
       {/* ── Heading ── */}
       <div className="mb-10 max-w-2xl">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-          Precision Balls
+          Balls
         </h1>
         <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
-          Choose a material family below to explore our complete range of precision balls—from ferrous and non-ferrous metals to ceramic, glass and plastics available in internationally recognized precision grades and trusted across demanding industrial applications.
+          Choose a material family below to explore our complete range of balls—from ferrous and non-ferrous metals to ceramic, glass and plastics available in internationally recognized precision grades and trusted across demanding industrial applications.
         </p>
       </div>
 

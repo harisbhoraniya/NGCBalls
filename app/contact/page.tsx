@@ -171,7 +171,7 @@ export default function ContactPage() {
                     <h4 className="font-semibold text-[#1A1A1A] mb-2 text-sm">Email</h4>
                     <div className="space-y-1.5">
                       <div>
-                        <span className="block text-[0.7rem] text-gray-400 font-medium">NGC (Precision Balls &amp; Rollers):</span>
+                        <span className="block text-[0.7rem] text-gray-400 font-medium">NGC (Balls &amp; Rollers):</span>
                         <a href="mailto:enquirybr@ngandhi.com" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">
                           enquirybr@ngandhi.com
                         </a>

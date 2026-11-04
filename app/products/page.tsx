@@ -5,7 +5,7 @@ import { FiArrowRight } from "react-icons/fi";
 const products = [
   {
     id: "balls",
-    name: "Precision Balls",
+    name: "Balls",
     subtitle: "Metallic & Non-Metallic",
     desc: "High-quality metallic and non-metallic balls manufactured to exacting tolerances for use in bearings, valves, and mechanical assemblies. Available in stainless steel, chrome steel, ceramic, plastic, and glass variants.",
     items: ["Stainless Steel Balls", "Chrome Steel Balls", "Ceramic Balls", "Plastic Balls", "Glass Balls"],

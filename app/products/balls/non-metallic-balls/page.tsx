@@ -472,7 +472,7 @@ const nonMetallicBallsData = {
       image: "/images/Ball/Non_Metallic_Ball/Glass_Ball.jpg",
       imageAlt: "Glass balls — soda lime, borosilicate, black glass",
       description:
-        "Glass Balls are dimensionally stable, resist corrosion and chemical absorption and can withstand high temperatures (up to 600 °F). Density varies depending on the type of glass used to manufacture the ball. We provide high precision balls from the following types of glass: Soda-Lime Glass, Borosilicate Glass, and Black Glass.",
+        "Glass Balls are dimensionally stable, resist corrosion and chemical absorption and can withstand high temperatures (up to 600 °F). Density varies depending on the type of glass used to manufacture the ball. We provide balls from the following types of glass: Soda-Lime Glass, Borosilicate Glass, and Black Glass.",
       products: [
         {
           id: "ball-g-ref-002",
