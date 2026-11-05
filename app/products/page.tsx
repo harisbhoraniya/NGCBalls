@@ -41,10 +41,10 @@ items: ["Cylindrical Rollers", "Needle Rollers", "Taper Rollers", "Spherical rol
   },
   {
     id: "ball-valve-component",
-    name: "Ball Valve Balls & Components",
+    name: "Ball Valve Balls",
     subtitle: "Fluid Control Systems",
     desc: "Precision-engineered components for fluid control systems, manufactured to the tightest tolerances. Trusted across oil & gas, chemical, and water treatment sectors worldwide.",
-    items: ["Valve Balls", "Stem Pins", "Seat Rings"],
+    items: ["Metalic - Ball Valve Balls", "Ceramic Valve Balls"],
     applications: "Oil & gas, chemical, water treatment",
     image: "/images/Ball_Valve.png",
     href: "/products/ball-valve-component",
@@ -120,12 +120,6 @@ export default function ProductsPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent" />
-                      {/* Index badge */}
-                      <div className="absolute top-5 left-5 w-9 h-9 rounded-full bg-orange-500 flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
                     </div>
 
                     {/* Content */}

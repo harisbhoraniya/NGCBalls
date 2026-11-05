@@ -43,12 +43,12 @@ const heroSlides = [
     id: 4,
     image: "/images/Banner_11.png",
     tag: "Fluid Control Solutions",
-    headline: ["Ball Valve Balls &", "Components"],
+    headline: ["Ball Valve", "Balls"],
     sub: "Precision-engineered valve balls, stem pins, and seat rings built for leak-proof performance and long service life.",
   },
   {
     id: 5,
-    image: "/images/Banner_12.png",
+    image: "/images/Rollers/rollers_showcase.jpg",
     tag: "Built for High Loads",
     headline: ["Precision Rollers for", "Every Application"],
     sub: "Taper, cylindrical, and spherical rollers engineered to handle demanding load-bearing and high-speed applications.",
@@ -63,11 +63,11 @@ const stats = [
 ];
 
 const products = [
-  { name: "Metallic Balls", icon: <TbAtom size={22} />, desc: "Steel and alloy balls for bearings, valves, and mechanical systems." },
+  { name: "Metallic Balls", icon: <TbAtom size={22} />, desc: "Metallic and non-metallic balls, defined by quality, precision and consistency." },
   { name: "Non-Metallic Balls", icon: <HiOutlineBeaker size={22} />, desc: "Ceramic, plastic, and polymer balls for specialized industrial applications." },
-  { name: "Rollers", icon: <HiOutlineCog size={22} />, desc: "Cylindrical, needle, and taper rollers for high load-bearing applications." },
-  { name: "Grinding Media", icon: <HiOutlineSparkles size={22} />, desc: "Polishing and finishing solutions including nano particle grinding." },
-  { name: "Ball Valve Components", icon: <HiOutlineRefresh size={22} />, desc: "Precision valve balls, stem pins, and seat rings for fluid control." },
+  { name: "Rollers", icon: <HiOutlineCog size={22} />, desc: "Precision rollers featuring cylindrical, taper, needle and spherical configurations, manufactured with exceptional dimensional accuracy and consistency." },
+  { name: "Grinding Media", icon: <HiOutlineSparkles size={22} />, desc: "A comprehensive range of burnishing media, ceramic balls, glass balls and cast iron balls, offering consistent quality, durability and reliable performance." },
+  { name: "Ball Valve Balls", icon: <HiOutlineRefresh size={22} />, desc: "Metallic and ceramic valve balls featuring excellent dimensional accuracy, superior surface finish and material integrity." },
   { name: "Machine Components", icon: <HiOutlineTemplate size={22} />, desc: "Custom-manufactured components built to your specifications." },
 ];
 const products1 = [
@@ -75,7 +75,7 @@ const products1 = [
     name: "Balls",
     href: "/products/balls",
     image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
-    desc: "Steel and alloy balls for bearings, valves, and mechanical systems. Ceramic, plastic, and polymer balls for specialized industrial applications.",
+    desc: "Metallic and non-metallic balls, defined by quality, precision and consistency.",
   },
   // {
   //   name: "Non-Metallic Balls",
@@ -87,19 +87,19 @@ const products1 = [
     name: "Rollers",
     href: "/products/rollers",
     image: "/images/Rollers/rollers.png",
-    desc: "Taper, cylindrical, and spherical rollers for high load-bearing applications.",
+    desc: "Precision rollers featuring cylindrical, taper, needle and spherical configurations, manufactured with exceptional dimensional accuracy and consistency.",
   },
   {
     name: "Grinding Media",
     href: "/products/grinding-media",
     image: "/images/grinding-media/grinding-media.jpg",
-    desc: "Steel Ball burnishing and polishing solutions including nano particle grinding.",
+    desc: "A comprehensive range of burnishing media, ceramic balls, glass balls and cast iron balls, offering consistent quality, durability and reliable performance.",
   },
   {
-    name: "Ball Valve Components",
+    name: "Ball Valve Balls",
     href: "/products/ball-valve-component/",
     image: "/images/ball-valve/banner_image.png",
-    desc: "Precision valve balls, stem pins, and seat rings for fluid control.",
+    desc: "Metallic and ceramic valve balls featuring excellent dimensional accuracy, superior surface finish and material integrity.",
   },
   // {
   //   name: "Machine Components",
@@ -117,7 +117,7 @@ const industries = [
   { image: "/images/Industries/Automotive.jpg", name: "Automobile" },
   { image: "/images/Industries/Aerospace_industry.jpg", name: "Aerospace" },
   { image: "/images/Industries/Paint.png", name: "Paint & Pigment" },
-  { image: "/images/medical.png", name: "Consumer & Health Care" },
+  { image: "/images/Industries/consumer_healthcare.jpg", name: "Consumer & Health Care" },
   { image: "/images/Industries/engineering_manufacturing.jpg", name: "Engineering & Manufacturing" },
   { image: "/images/textile.png", name: "Textile" },
   { image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80", name: "Renewable Energy" },

@@ -88,7 +88,7 @@ function GradeTable({
               </tr>
             ))}
           </tbody>
-        </table>
+        </table>  
       </div>
     </div>
   );
@@ -126,7 +126,7 @@ export default async function BallProductDetailPage({
         </Link>
         <FiChevronRight size={13} />
         <Link
-          href="/products/balls/metallic-balls"
+          href={`/products/balls/metallic-balls?tab=${product.category}`}
           className="hover:text-orange-500 transition-colors no-underline"
         >
           Metallic Balls

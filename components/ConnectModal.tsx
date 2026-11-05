@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FiX, FiSend, FiCheckCircle } from "react-icons/fi";
+import { isValidEmail, isValidPhone } from "@/lib/validation";
 
 interface ConnectModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface ConnectModalProps {
 
 export default function ConnectModal({ isOpen, onClose }: ConnectModalProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({});
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -22,11 +24,39 @@ export default function ConnectModal({ isOpen, onClose }: ConnectModalProps) {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "email" && fieldErrors.email) {
+      if (isValidEmail(value)) {
+        setFieldErrors((prev) => ({ ...prev, email: undefined }));
+      }
+    }
+    if (name === "phone" && fieldErrors.phone) {
+      if (isValidPhone(value)) {
+        setFieldErrors((prev) => ({ ...prev, phone: undefined }));
+      }
+    }
+
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const newFieldErrors: { email?: string; phone?: string } = {};
+
+    if (!isValidEmail(form.email)) {
+      newFieldErrors.email = "Please enter a valid email address (e.g. name@company.com)";
+    }
+    if (!isValidPhone(form.phone)) {
+      newFieldErrors.phone = "Please enter a valid 10-digit mobile number (e.g. +91 98765 43210)";
+    }
+
+    if (Object.keys(newFieldErrors).length > 0) {
+      setFieldErrors(newFieldErrors);
+      return;
+    }
+
+    setFieldErrors({});
     setSubmitted(true);
   };
 
@@ -35,6 +65,7 @@ export default function ConnectModal({ isOpen, onClose }: ConnectModalProps) {
     // reset after the close animation/unmount so it's fresh next time it opens
     setTimeout(() => {
       setSubmitted(false);
+      setFieldErrors({});
       setForm({ name: "", company: "", email: "", phone: "", message: "" });
     }, 300);
   };
@@ -118,21 +149,40 @@ export default function ConnectModal({ isOpen, onClose }: ConnectModalProps) {
                     onChange={handleChange}
                     required
                     placeholder="you@company.com"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all"
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none transition-all ${
+                      fieldErrors.email
+                        ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                        : "border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-50"
+                    }`}
                   />
+                  {fieldErrors.email && (
+                    <p className="text-red-500 text-xs mt-1.5 font-medium">
+                      {fieldErrors.email}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                    Phone Number
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
+                    required
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all"
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none transition-all ${
+                      fieldErrors.phone
+                        ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                        : "border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-50"
+                    }`}
                   />
+                  {fieldErrors.phone && (
+                    <p className="text-red-500 text-xs mt-1.5 font-medium">
+                      {fieldErrors.phone}
+                    </p>
+                  )}
                 </div>
               </div>
               <div>

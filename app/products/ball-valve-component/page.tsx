@@ -11,7 +11,7 @@ import ConnectModal from "@/components/ConnectModal"; // adjust the import path 
 // ─────────────────────────────────────────────
 const grindingMedia = {
   page: {
-    title: "Ball Valve Ball Components",
+    title: "Ball Valve Balls",
     slug: "ball-valve-component",
     metaDescription:
       "Precision-engineered ball valve components including valve balls, ceramic valve balls, stem pins, and seat rings manufactured to strict industrial valve standards.",
@@ -20,35 +20,19 @@ const grindingMedia = {
   categories: [
     {
       id: "ceramic",
-      label: "Ball Valve Components",
+      label: "Ball Valve Balls",
       image: "/images/ball-valve/banner_image.jpg",
       imageAlt: "Ball Valve Components — Precision valve balls, stem pins, and seat rings",
       description:
         "In the industrial valve and fluid control industry, a ball valve is a quarter-turn rotational motion valve that utilizes a bored, spherical ball to start, stop, or regulate fluid flow. When the port through the ball is aligned with the pipeline, the valve is open, allowing full, unobstructed flow with minimal pressure drop; when rotated 90 degrees, the solid side faces the flow, creating a positive, leak-tight shutoff.",
       products: [
         {
-          id: "ball-c-ref-001",
-          name: "Ball Valve Stem Pin",
-          slug: "ball-valve-stem-pin",
-          image: "/images/ball-valve/ball-valve-stem-pin.jpg",
-          imageAlt: "Ball Valve Stem Pin",
-          material: "AISI 304/304L, AISI 316/316L, Hastelloy, K Monel 400/500, Inconel 725/825, Duplex",
-        },
-        {
           id: "ball-c-ref-002",
-          name: "Valve Balls",
+          name: "Metalic - Ball Valve Balls",
           slug: "valve-balls",
           image: "/images/ball-valve/ball-valve-ball.jpg",
           imageAlt: "Ball Valve Balls",
           material: "AISI 304/304L, AISI 316/316L, AISI 420/420C, AISI 440C, Hastelloy, K Monel 400/500, Inconel 725/825, Duplex, Stellite",
-        },
-        {
-          id: "ball-c-ref-003",
-          name: "Ball Valve Seat Rings",
-          slug: "ball-valve-seat-rings",
-          image: "/images/ball-valve/ball-valve-seat-ring.jpg",
-          imageAlt: "Ball Valve Seat Rings",
-          material: "As per customer requirements",
         },
         {
           id: "ball-c-ref-004",
@@ -81,7 +65,7 @@ export default function BallValve() {
         <FiChevronRight size={11} />
         <Link href="/products" className="hover:text-orange-500 transition-colors no-underline">Products</Link>
         <FiChevronRight size={11} />
-        <span className="text-gray-800 font-medium">Ball Valve Components</span>
+        <span className="text-gray-800 font-medium">Ball Valve Balls</span>
       </nav>
 
       {/* ══════════════════════════════════
@@ -170,8 +154,8 @@ export default function BallValve() {
           </span>
         </div>
 
-        {/* 2 cols on mobile, 3 on sm, 4 on lg */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        {/* Centered 2 product cards */}
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
           {activeCategory.products.map((product) => (
             <div
               key={product.id}

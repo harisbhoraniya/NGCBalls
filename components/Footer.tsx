@@ -18,7 +18,7 @@ const products = [
   // { label: "Non-Metallic Balls", href: "/products/balls/non-metallic-balls/" },
   { label: "Rollers", href: "/products/rollers/" },
   { label: "Grinding Media", href: "/products/grinding-media/" },
-  { label: "Ball Valve Components", href: "/products/ball-valve-component/" },
+  { label: "Ball Valve Balls", href: "/products/ball-valve-component/" },
   // { label: "Machine Components", href: "/products/machine-component/" },
 ];
 
@@ -44,13 +44,6 @@ const contactItems: ContactItem[] = [
           className="contact-email-link"
         >
           enquirybr@ngandhi.com
-          <FiArrowUpRight size={11} style={{ opacity: 0.5 }} />
-        </a>
-        <a
-          href="mailto:enquirymatl@ngandhi.com"
-          className="contact-email-link"
-        >
-          enquirymatl@ngandhi.com
           <FiArrowUpRight size={11} style={{ opacity: 0.5 }} />
         </a>
       </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FiX, FiSend, FiCheckCircle, FiPhone, FiMail } from "react-icons/fi";
 import { ballProductDetails } from "@/lib/data/ball-product-details";
 import { nonMetallicBallProductDetails } from "@/lib/data/non-metallic-ball-product-details";
+import { isValidEmail, isValidPhone } from "@/lib/validation";
 
 interface ProductEnquiryModalProps {
   isOpen: boolean;
@@ -21,7 +22,7 @@ const categoryOptions: Record<string, string[]> = {
     "Glass Balls - Grinding Media",
     "Cast Iron Ball - Grinding Media",
   ],
-  "Ball Valve Components": ["Ball Valve Stem Pin", "Valve Balls", "Ceramic Valve Balls", "Ball Valve Seat Rings"],
+  "Ball Valve Balls": ["Metalic - Ball Valve Balls", "Ceramic Valve Balls"],
 };
 
 const categories = Object.keys(categoryOptions);
@@ -41,6 +42,7 @@ const nonMetallicMaterialOptions = Object.values(nonMetallicBallProductDetails).
 
 export default function ProductEnquiryModal({ isOpen, onClose }: ProductEnquiryModalProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({});
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -71,11 +73,37 @@ export default function ProductEnquiryModal({ isOpen, onClose }: ProductEnquiryM
       return;
     }
 
+    if (name === "email" && fieldErrors.email) {
+      if (isValidEmail(value)) {
+        setFieldErrors((prev) => ({ ...prev, email: undefined }));
+      }
+    }
+    if (name === "phone" && fieldErrors.phone) {
+      if (isValidPhone(value)) {
+        setFieldErrors((prev) => ({ ...prev, phone: undefined }));
+      }
+    }
+
     setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const newFieldErrors: { email?: string; phone?: string } = {};
+
+    if (!isValidEmail(form.email)) {
+      newFieldErrors.email = "Please enter a valid email address (e.g. name@company.com)";
+    }
+    if (!isValidPhone(form.phone)) {
+      newFieldErrors.phone = "Please enter a valid 10-digit mobile number (e.g. +91 98765 43210)";
+    }
+
+    if (Object.keys(newFieldErrors).length > 0) {
+      setFieldErrors(newFieldErrors);
+      return;
+    }
+
+    setFieldErrors({});
     setSubmitted(true);
   };
 
@@ -84,6 +112,7 @@ export default function ProductEnquiryModal({ isOpen, onClose }: ProductEnquiryM
     // reset after the close animation/unmount so it's fresh next time it opens
     setTimeout(() => {
       setSubmitted(false);
+      setFieldErrors({});
       setForm({
         name: "",
         company: "",
@@ -219,21 +248,40 @@ export default function ProductEnquiryModal({ isOpen, onClose }: ProductEnquiryM
                     onChange={handleChange}
                     required
                     placeholder="you@company.com"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all"
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none transition-all ${
+                      fieldErrors.email
+                        ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                        : "border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-50"
+                    }`}
                   />
+                  {fieldErrors.email && (
+                    <p className="text-red-500 text-xs mt-1.5 font-medium">
+                      {fieldErrors.email}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                    Phone Number
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
+                    required
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all"
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none transition-all ${
+                      fieldErrors.phone
+                        ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                        : "border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-50"
+                    }`}
                   />
+                  {fieldErrors.phone && (
+                    <p className="text-red-500 text-xs mt-1.5 font-medium">
+                      {fieldErrors.phone}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -296,7 +344,7 @@ export default function ProductEnquiryModal({ isOpen, onClose }: ProductEnquiryM
                   >
                     <option value="">Select a material</option>
                     {materialOptions.map((m) => (
-                      <option key={m.slug} value={m.slug}>
+                      <option key={m.slug} value={m.name}>
                         {m.name}
                       </option>
                     ))}

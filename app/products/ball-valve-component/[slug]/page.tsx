@@ -40,7 +40,7 @@ export default async function BallValveProductDetailPage({
           href="/products/ball-valve-component"
           className="hover:text-orange-500 transition-colors no-underline"
         >
-          Ball Valve Components
+          Ball Valve Balls
         </Link>
         <FiChevronRight size={13} />
         <span className="text-gray-800 font-medium">{product.name}</span>
@@ -78,7 +78,7 @@ export default async function BallValveProductDetailPage({
             />
 
             <span className="relative text-[0.7rem] sm:text-xs font-semibold uppercase tracking-widest text-orange-500 mb-3 block">
-              Ball Valve Component
+              Ball Valve Balls
             </span>
 
             <h1 className="relative text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-4">

@@ -10,7 +10,7 @@ import { FiArrowRight, FiArrowLeft, FiPlay } from "react-icons/fi";
 const products = [
   {
     title: "Metallic Ball",
-    image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
+    image: "/images/Ball/Metallic_Ball/steel_brass_balls.jpg",
     href: "/products/balls/metallic-balls",
   },
   {
@@ -29,7 +29,7 @@ const products = [
     href: "/products/grinding-media",
   },
   {
-    title: "Ball Valve Component",
+    title: "Ball Valve Balls",
     image: "/images/ball-valve/ball-valve-ball.jpg",
     href: "/products/ball-valve-component",
   },

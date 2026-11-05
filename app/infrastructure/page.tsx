@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight, FiCheckCircle, FiFileText } from "react-icons/fi";
 import CertificateModal from "@/components/CertificateModal";
-import { ToleranceTableModal } from "@/components/ToleranceTableModal";
-import { toleranceChart, ToleranceRow } from "@/lib/data/technicalDataChart"; // adjust the import path to wherever you place CertificateModal.tsx
 
 const infraStats = [
   { n: "9+", l: "Countries" },
@@ -18,50 +16,18 @@ const capabilities = [
   {
     title: "Advanced Machinery",
     desc: "State-of-the-art manufacturing equipment enabling production to the tightest tolerances.",
-    image: "/images/Industries/engineering_manufacturing.jpg",
+    image: "/images/infrastructure/advanced_machinery.jpg",
   },
   {
     title: "Precision Engineering Tools",
     desc: "Specialized tools and tooling systems that ensure dimensional accuracy in every component.",
-    image: "/images/Machined_Parts/Machined_Parts_new.png",
+    image: "/images/infrastructure/precision_tools.jpg",
   },
   {
     title: "Quality Testing Systems",
     desc: "Globally recognized testing instruments and in-house labs for rigorous quality validation.",
-    image: "/images/Measuring.png",
+    image: "/images/infrastructure/quality_testing.jpg",
   },
-];
-
-// Precision parameters for Roundness, Surface Roughness, Hardness
-const precisionParameters = [
-  {
-    title: "Roundness",
-    sub: "Deviation from Spherical Form",
-    value: "Down to 0.08 µm",
-    desc: "Spherical form precision verified using advanced roundness measurement instruments conforming to DIN 5401 & ISO 3290 down to Grade 3.",
-  },
-  {
-    title: "Surface Roughness",
-    sub: "Arithmetic Average (Ra)",
-    value: "Down to 0.012 µm (0.5 µin)",
-    desc: "Achieved through proprietary multi-stage lapping and superfinishing processes, delivering ultra-smooth, mirror finishes and low friction.",
-  },
-  {
-    title: "Hardness",
-    sub: "Through & Surface Hardening",
-    value: "60–65 HRC",
-    desc: "Heat treated in controlled atmosphere furnaces and rigorously tested with calibrated Rockwell & Vickers hardness testing equipment.",
-  },
-];
-
-// 1st four (Grades 3, 5, 10, 16) & last 2 (Grades 500, 1000)
-const manufacturingToleranceRows: ToleranceRow[] = [
-  toleranceChart[0], // Grade 3
-  toleranceChart[1], // Grade 5
-  toleranceChart[2], // Grade 10
-  toleranceChart[3], // Grade 16
-  toleranceChart[8], // Grade 500
-  toleranceChart[9], // Grade 1000
 ];
 
 const qualityPoints = [
@@ -91,7 +57,6 @@ const commitmentPoints = [
 
 export default function InfrastructurePage() {
   const [isCertOpen, setIsCertOpen] = useState(false);
-  const [isTolOpen, setIsTolOpen] = useState(false);
 
   return (
     <>
@@ -121,87 +86,6 @@ export default function InfrastructurePage() {
                 <div className="text-sm text-gray-400 mt-1 font-medium">{s.l}</div>
               </div>
             ))}
-          </div>
-
-          {/* ── Manufacturing Precision & Technical Parameters (Roundness, Roughness, Hardness) ── */}
-          <div className="mt-16">
-            <div className="text-center mb-10">
-              <span className="text-caption mb-2 block">Technical Standards</span>
-              <h3 className="heading-lg text-[#1A1A1A]">
-                Manufacturing Precision &amp; Tolerances
-              </h3>
-              <p className="text-sm text-gray-500 max-w-xl mx-auto mt-2">
-                Our precision components conform strictly to DIN 5401 and ISO 3290 specifications, verified across critical manufacturing parameters.
-              </p>
-            </div>
-
-            {/* 3 Parameter Cards: Roundness, Surface Roughness, Hardness */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              {precisionParameters.map((p) => (
-                <div key={p.title} className="card-base p-6 border-t-4 border-t-orange-500">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-orange-500 block mb-1">
-                    {p.sub}
-                  </span>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{p.title}</h4>
-                  <div className="text-2xl font-extrabold text-[#1A1A1A] mb-3">
-                    {p.value}
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{p.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Tolerance Table: 1st four & last 2 */}
-            <div className="card-base overflow-hidden border border-gray-100 shadow-sm bg-white p-6 sm:p-8">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                <div>
-                  <h4 className="text-base sm:text-lg font-bold text-gray-900">
-                    Precision Grade Tolerance Standards (ISO 3290 / DIN 5401)
-                  </h4>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Deviation from spherical form (roundness), surface roughness, and allowable variation across key production grades.
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setIsTolOpen(true)}
-                  className="btn-primary text-xs whitespace-nowrap self-start sm:self-center"
-                >
-                  View Full Chart (All 10 Grades)
-                </button>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs sm:text-sm border-collapse">
-                  <thead>
-                    <tr className="border-b border-gray-200 bg-gray-50 text-gray-700">
-                      <th className="py-3 px-4 font-semibold">Grade</th>
-                      <th className="py-3 px-4 font-semibold">Roundness / Spherical Dev. (µm)</th>
-                      <th className="py-3 px-4 font-semibold">Roundness / Spherical Dev. (inch)</th>
-                      <th className="py-3 px-4 font-semibold">Surface Roughness Ra (µm)</th>
-                      <th className="py-3 px-4 font-semibold">Surface Roughness Ra (µin)</th>
-                      <th className="py-3 px-4 font-semibold">Diameter Variation (µm)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100 text-gray-600">
-                    {manufacturingToleranceRows.map((row) => (
-                      <tr key={row.grade} className="hover:bg-gray-50/60 transition-colors">
-                        <td className="py-3 px-4 font-bold text-orange-600">Grade {row.grade}</td>
-                        <td className="py-3 px-4 font-mono">{row.deviationSphericalMetric} µm</td>
-                        <td className="py-3 px-4 font-mono">{row.deviationSphericalInch}″</td>
-                        <td className="py-3 px-4 font-mono">{row.surfaceRoughnessMetric !== "*" ? `${row.surfaceRoughnessMetric} µm` : "Specifiable"}</td>
-                        <td className="py-3 px-4 font-mono">{row.surfaceRoughnessInch !== "*" ? `${row.surfaceRoughnessInch} µin` : "Specifiable"}</td>
-                        <td className="py-3 px-4 font-mono">{row.diameterVariationMetric} µm</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="mt-4 pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-gray-400">
-                <span>Showing 1st 4 and last 2 representative production grades.</span>
-                <span>Metric &amp; Imperial specifications conforming to ISO 3290.</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -346,7 +230,6 @@ export default function InfrastructurePage() {
 
       {/* ISO certificate PDF popup */}
       <CertificateModal isOpen={isCertOpen} onClose={() => setIsCertOpen(false)} />
-      <ToleranceTableModal isOpen={isTolOpen} onClose={() => setIsTolOpen(false)} rows={toleranceChart} downloadHref="/pdfs/balls/metallic/technical-data.pdf" />
     </>
   );
 }

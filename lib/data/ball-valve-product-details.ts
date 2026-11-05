@@ -29,7 +29,7 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
   },
   "valve-balls": {
     slug: "valve-balls",
-    name: "Valve Balls",
+    name: "Metalic - Ball Valve Balls",
     image: "/images/ball-valve/ball-valve-ball.jpg",
     imageAlt: "Ball Valve Balls",
     material: "AISI 304/304L, AISI 316/316L, AISI 420/420C, AISI 440C, Hastelloy, K Monel 400/500, Inconel 725/825, Duplex, Stellite",

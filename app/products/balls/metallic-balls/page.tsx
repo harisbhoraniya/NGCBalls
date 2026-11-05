@@ -1,5 +1,5 @@
 "use client";
-import { useState, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight, FiArrowLeft, FiChevronRight, FiEye } from "react-icons/fi";
@@ -212,13 +212,42 @@ function BallsPageContent() {
   const [activeIndex, setActiveIndex] = useState(initialIndex >= 0 ? initialIndex : 0);
   const [openDoc, setOpenDoc] = useState<"dimensional-chart" | "technical-data" | null>(null);
 
+  useEffect(() => {
+    const urlTab = searchParams.get("tab");
+    const savedTab = typeof window !== "undefined" ? sessionStorage.getItem("metallicBallsTab") : null;
+    const tabToUse = urlTab || savedTab;
+    if (tabToUse) {
+      const idx = categories.findIndex((c) => c.id === tabToUse);
+      if (idx >= 0 && idx !== activeIndex) {
+        setActiveIndex(idx);
+      }
+    }
+  }, [searchParams, categories]);
+
+  const handleTabChange = (index: number) => {
+    setActiveIndex(index);
+    const catId = categories[index]?.id;
+    if (catId && typeof window !== "undefined") {
+      sessionStorage.setItem("metallicBallsTab", catId);
+      const url = new URL(window.location.href);
+      url.searchParams.set("tab", catId);
+      window.history.replaceState({}, "", url.toString());
+    }
+  };
+
   const activeCategory = categories[activeIndex];
 
   const regularProducts = activeCategory.products.filter((p) => !RESOURCE_SLUGS.has(p.slug));
   const resourceDocs = activeCategory.products.filter((p) => RESOURCE_SLUGS.has(p.slug));
 
-  const prev = () => setActiveIndex((i) => (i - 1 + categories.length) % categories.length);
-  const next = () => setActiveIndex((i) => (i + 1) % categories.length);
+  const prev = () => {
+    const nextIdx = (activeIndex - 1 + categories.length) % categories.length;
+    handleTabChange(nextIdx);
+  };
+  const next = () => {
+    const nextIdx = (activeIndex + 1) % categories.length;
+    handleTabChange(nextIdx);
+  };
 
   const chartRows = formatChartRows(dimensionalConversionChart);
 
@@ -238,7 +267,7 @@ function BallsPageContent() {
         <FiChevronRight size={13} />
         <Link href="/products" className="hover:text-orange-500 transition-colors no-underline">Products</Link>
         <FiChevronRight size={13} />
-        <span className="font-medium">Balls</span>
+        <Link href="/products/balls" className="hover:text-orange-500 transition-colors no-underline">Balls</Link>
         <FiChevronRight size={13} />
         <span className="text-gray-800 font-medium">Metallic Balls</span>
       </nav>
@@ -251,7 +280,7 @@ function BallsPageContent() {
           {categories.map((cat, i) => (
             <button
               key={cat.id}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => handleTabChange(i)}
               className={`px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold border-none cursor-pointer transition-all duration-200
                 ${i === activeIndex
                   ? "bg-orange-500 text-white shadow-sm"
@@ -314,7 +343,7 @@ function BallsPageContent() {
           {categories.map((_, i) => (
             <button
               key={i}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => handleTabChange(i)}
               className={`h-1.5 rounded-full border-none cursor-pointer transition-all duration-200 p-0
                 ${i === activeIndex ? "w-6 bg-orange-500" : "w-1.5 bg-gray-300"}`}
             />
@@ -346,6 +375,11 @@ function BallsPageContent() {
               {product.hasPdf && (
                 <Link
                   href={`/products/balls/metallic-balls/${product.slug}`}
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      sessionStorage.setItem("metallicBallsTab", activeCategory.id);
+                    }
+                  }}
                   className="flex items-center gap-1 shrink-0 px-4 py-1.5 rounded-full border border-orange-400 text-orange-500 text-xs font-semibold hover:bg-orange-500 hover:text-white transition-all duration-200 no-underline whitespace-nowrap"
                 >
                   View Details

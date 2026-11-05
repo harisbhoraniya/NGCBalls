@@ -22,7 +22,7 @@ const productSubLinks = [
   },
   { label: "Rollers", href: "/products/rollers" },
   { label: "Grinding Media", href: "/products/grinding-media" },
-  { label: "Ball Valve Component", href: "/products/ball-valve-component" },
+  { label: "Ball Valve Balls", href: "/products/ball-valve-component" },
   // { label: "Machine Component", href: "/products/machine-component" },
 ];
 

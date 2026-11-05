@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
 import { FiPhone, FiMail, FiMapPin, FiSend, FiCheckCircle } from "react-icons/fi";
+import { ballProductDetails } from "@/lib/data/ball-product-details";
+import { nonMetallicBallProductDetails } from "@/lib/data/non-metallic-ball-product-details";
+import { isValidEmail, isValidPhone } from "@/lib/validation";
 
 // ─────────────────────────────────────────────
 // Category → Sub-category map (same as ProductEnquiryModal)
@@ -14,15 +17,29 @@ const categoryOptions: Record<string, string[]> = {
     "Glass Balls - Grinding Media",
     "Cast Iron Ball - Grinding Media",
   ],
-  "Ball Valve Components": ["Ball Valve Stem Pin", "Valve Balls", "Ceramic Valve Balls", "Ball Valve Seat Rings"],
+  "Ball Valve Balls": ["Metalic - Ball Valve Balls", "Ceramic Valve Balls"],
 };
 
 const categories = Object.keys(categoryOptions);
+
+// ─────────────────────────────────────────────
+// Material lists (sourced from same data as product pages)
+// ─────────────────────────────────────────────
+const metallicMaterialOptions = Object.values(ballProductDetails).map((p) => ({
+  slug: p.slug,
+  name: p.name,
+}));
+
+const nonMetallicMaterialOptions = Object.values(nonMetallicBallProductDetails).map((p) => ({
+  slug: p.slug,
+  name: p.name,
+}));
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({});
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -30,6 +47,7 @@ export default function ContactPage() {
     phone: "",
     category: "",
     subCategory: "",
+    material: "",
     message: "",
   });
 
@@ -39,9 +57,27 @@ export default function ContactPage() {
     const { name, value } = e.target;
 
     if (name === "category") {
-      // reset sub-category whenever category changes
-      setForm({ ...form, category: value, subCategory: "" });
+      // reset sub-category and material whenever category changes
+      setForm({ ...form, category: value, subCategory: "", material: "" });
       return;
+    }
+
+    if (name === "subCategory") {
+      // reset material whenever sub-category changes
+      setForm({ ...form, subCategory: value, material: "" });
+      return;
+    }
+
+    // Clear field-specific error as user types
+    if (name === "email" && fieldErrors.email) {
+      if (isValidEmail(value)) {
+        setFieldErrors((prev) => ({ ...prev, email: undefined }));
+      }
+    }
+    if (name === "phone" && fieldErrors.phone) {
+      if (isValidPhone(value)) {
+        setFieldErrors((prev) => ({ ...prev, phone: undefined }));
+      }
     }
 
     setForm({ ...form, [name]: value });
@@ -49,8 +85,26 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrorMessage(null);
+
+    // ── Field-level validations ──
+    const newFieldErrors: { email?: string; phone?: string } = {};
+
+    if (!isValidEmail(form.email)) {
+      newFieldErrors.email = "Please enter a valid email address (e.g. name@company.com)";
+    }
+    if (!isValidPhone(form.phone)) {
+      newFieldErrors.phone = "Please enter a valid 10-digit mobile number (e.g. +91 98765 43210)";
+    }
+
+    if (Object.keys(newFieldErrors).length > 0) {
+      setFieldErrors(newFieldErrors);
+      setErrorMessage("Please correct the invalid fields highlighted below before submitting.");
+      return;
+    }
+
+    setFieldErrors({});
+    setIsSubmitting(true);
 
     const accessKey =
       process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
@@ -73,6 +127,9 @@ export default function ContactPage() {
       formData.append("phone", form.phone || "N/A");
       formData.append("category", form.category);
       formData.append("subCategory", form.subCategory);
+      if (form.material) {
+        formData.append("material", form.material);
+      }
       formData.append("message", form.message);
       formData.append(
         "subject",
@@ -103,6 +160,14 @@ export default function ContactPage() {
   };
 
   const subCategoryOptions = form.category ? categoryOptions[form.category] : [];
+
+  // Show a Material field only for Metallic / Non Metallic Ball sub-categories
+  const materialOptions =
+    form.subCategory === "Metallic Ball"
+      ? metallicMaterialOptions
+      : form.subCategory === "Non Metallic Ball"
+        ? nonMetallicMaterialOptions
+        : [];
 
   return (
     <>
@@ -176,12 +241,7 @@ export default function ContactPage() {
                           enquirybr@ngandhi.com
                         </a>
                       </div>
-                      <div>
-                        <span className="block text-[0.7rem] text-gray-400 font-medium">NAMTPL (Advance Materials):</span>
-                        <a href="mailto:enquirymatl@ngandhi.com" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">
-                          enquirymatl@ngandhi.com
-                        </a>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -223,6 +283,7 @@ export default function ContactPage() {
                       onClick={() => {
                         setSubmitted(false);
                         setErrorMessage(null);
+                        setFieldErrors({});
                         setForm({
                           name: "",
                           company: "",
@@ -230,6 +291,7 @@ export default function ContactPage() {
                           phone: "",
                           category: "",
                           subCategory: "",
+                          material: "",
                           message: "",
                         });
                       }}
@@ -286,21 +348,40 @@ export default function ContactPage() {
                             required
                             placeholder="you@company.com"
                             suppressHydrationWarning
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all"
+                            className={`w-full px-4 py-3 rounded-xl border text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none transition-all ${
+                              fieldErrors.email
+                                ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                                : "border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-50"
+                            }`}
                           />
+                          {fieldErrors.email && (
+                            <p className="text-red-500 text-xs mt-1.5 font-medium">
+                              {fieldErrors.email}
+                            </p>
+                          )}
                         </div>
                         <div>
                           <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                            Phone Number
+                            Phone Number *
                           </label>
                           <input
                             type="tel"
                             name="phone"
                             value={form.phone}
                             onChange={handleChange}
+                            required
                             placeholder="+91 XXXXX XXXXX"
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all"
+                            className={`w-full px-4 py-3 rounded-xl border text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none transition-all ${
+                              fieldErrors.phone
+                                ? "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-100"
+                                : "border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-50"
+                            }`}
                           />
+                          {fieldErrors.phone && (
+                            <p className="text-red-500 text-xs mt-1.5 font-medium">
+                              {fieldErrors.phone}
+                            </p>
+                          )}
                         </div>
                       </div>
 
@@ -348,6 +429,29 @@ export default function ContactPage() {
                           </select>
                         </div>
                       </div>
+
+                      {/* ── Material — only for Metallic Ball / Non Metallic Ball sub-categories ── */}
+                      {materialOptions.length > 0 && (
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                            Material *
+                          </label>
+                          <select
+                            name="material"
+                            value={form.material}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-50 transition-all bg-white"
+                          >
+                            <option value="">Select a material</option>
+                            {materialOptions.map((m) => (
+                              <option key={m.slug} value={m.name}>
+                                {m.name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
 
                       <div>
                         <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
