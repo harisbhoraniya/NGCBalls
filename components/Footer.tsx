@@ -198,7 +198,7 @@ export default function Footer() {
               {/* 👉 Replace with <Image /> */}
               <Link href="/" style={{ display: "inline-block", marginBottom: "20px" }}>
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   alt="N Gandhi & Co"
                   width={148}
                   height={40}

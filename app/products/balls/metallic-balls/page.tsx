@@ -23,7 +23,7 @@ const ballsData = {
     {
       id: "ferrous",
       label: "Ferrous Metals",
-      image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
+      image: "/images/Ball/Metallic_Ball/Ferous_Ball.webp",
       imageAlt: "Ferrous metal balls — chrome steel, stainless steel, carbon steel",
       description:
         "Precision-engineered ferrous metal balls manufactured from chrome steel, stainless steel, and carbon steel. Built to DIN 5401, ISO 3290, and ABMA Std 10 standards, these balls deliver outstanding hardness, wear resistance, and dimensional accuracy for demanding bearing, valve, and industrial applications.",
@@ -46,7 +46,7 @@ const ballsData = {
     {
       id: "non-ferrous",
       label: "Non Ferrous Metals",
-      image: "/images/Ball/Metallic_Ball/Non_Ferous_Ball.jpg",
+      image: "/images/Ball/Metallic_Ball/Non_Ferous_Ball.webp",
       imageAlt: "Non-ferrous metal balls — brass, copper, titanium, ceramic",
       description:
         "Our non-ferrous ball range covers brass, copper, titanium, tungsten carbide, and a full suite of high-performance nickel superalloys including Hastelloy, Inconel, and Monel. Each grade is selected for its unique combination of corrosion resistance, temperature performance, and mechanical properties — from lightweight titanium implants to extreme-duty tungsten carbide valve seats.",

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 const products = [
   {
@@ -10,7 +11,7 @@ const products = [
     desc: "High-quality metallic and non-metallic balls manufactured to exacting tolerances for use in bearings, valves, and mechanical assemblies. Available in stainless steel, chrome steel, ceramic, plastic, and glass variants.",
     items: ["Stainless Steel Balls", "Chrome Steel Balls", "Ceramic Balls", "Plastic Balls", "Glass Balls"],
     applications: "Bearings, valves, mechanical assemblies",
-    image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
+    image: "/images/Ball/Metallic_Ball/Ferous_Ball.webp",
     href: "/products/balls",
     subLinks: [
       { label: "Metallic Balls", href: "/products/balls/metallic-balls" },
@@ -24,7 +25,7 @@ const products = [
     desc: "Precision-engineered rollers designed for high load-bearing capacity and durability in demanding industrial environments. Manufactured to the tightest tolerances for consistent performance.",
 items: ["Cylindrical Rollers", "Needle Rollers", "Taper Rollers", "Spherical rollers"],
     applications: "Bearings, gearboxes, heavy machinery",
-    image: "/images/Rollers.png",
+    image: "/images/Rollers.webp",
     href: "/products/rollers",
     subLinks: [],
   },
@@ -35,7 +36,7 @@ items: ["Cylindrical Rollers", "Needle Rollers", "Taper Rollers", "Spherical rol
     desc: "Used for polishing and finishing Metallic & Non-Metallic Balls & Rollers, including grinding of nano particles for advanced applications. Ideal for chemical, pharmaceutical, and electronics industries.",
     items: ["Grinding Balls", "Nano Particle Grinding", "Polishing Media"],
     applications: "Chemical, pharmaceutical, electronics",
-    image: "/images/Grinding_Media.png",
+    image: "/images/Grinding_Media.webp",
     href: "/products/grinding-media",
     subLinks: [],
   },
@@ -44,9 +45,9 @@ items: ["Cylindrical Rollers", "Needle Rollers", "Taper Rollers", "Spherical rol
     name: "Ball Valve Balls",
     subtitle: "Fluid Control Systems",
     desc: "Precision-engineered components for fluid control systems, manufactured to the tightest tolerances. Trusted across oil & gas, chemical, and water treatment sectors worldwide.",
-    items: ["Metalic - Ball Valve Balls", "Ceramic Valve Balls"],
+    items: ["Metallic - Ball Valve Balls", "Ceramic - Ball Valve Balls"],
     applications: "Oil & gas, chemical, water treatment",
-    image: "/images/Ball_Valve.png",
+    image: "/images/Banner_11.webp",
     href: "/products/ball-valve-component",
     subLinks: [],
   },
@@ -57,7 +58,7 @@ items: ["Cylindrical Rollers", "Needle Rollers", "Taper Rollers", "Spherical rol
   //   desc: "Custom-manufactured components built precisely to client specifications for unique industrial requirements. From concept to delivery, engineered for every industrial sector.",
   //   items: ["Custom Machined Parts", "Precision Components", "Specialty Parts"],
   //   applications: "All industrial sectors",
-  //   image: "/images/Machine_Components.png",
+  //   image: "/images/Machine_Components.webp",
   //   href: "/products/machine-component",
   //   subLinks: [],
   // },
@@ -108,18 +109,44 @@ export default function ProductsPage() {
                         : {}
                     }
                   >
-                    {/* Image */}
+                    {/* Image / Comparison Slider */}
                     <div
-                      className="relative aspect-[4/3] lg:aspect-auto min-h-[240px] overflow-hidden"
+                      className={`relative aspect-[4/3] lg:aspect-auto min-h-[260px] overflow-hidden ${
+                        product.id === "ball-valve-component"
+                          ? "lg:border-l border-b lg:border-b-0 border-orange-500"
+                          : ""
+                      }`}
                       style={{ direction: "ltr" }}
                     >
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent" />
+                      {product.id === "balls" ? (
+                        <BeforeAfterSlider
+                          beforeImage="/images/Ball/Metallic_Ball/Ferous_Ball.webp"
+                          afterImage="/images/Ball/Metallic_Ball/Non_Ferous_Ball.webp"
+                          beforeLabel="Metallic Balls"
+                          afterLabel="Non-Metallic Balls"
+                          beforeAlt="Metallic Balls"
+                          afterAlt="Non-Metallic Balls"
+                        />
+                      ) : product.id === "ball-valve-component" ? (
+                        <BeforeAfterSlider
+                          beforeImage="/images/ball-valve/ball-valve-ball.webp"
+                          afterImage="/images/ball-valve/ceramic_ball.webp"
+                          beforeLabel="Metallic Valve Balls"
+                          afterLabel="Ceramic Valve Balls"
+                          beforeAlt="Metallic - Ball Valve Balls"
+                          afterAlt="Ceramic - Ball Valve Balls"
+                        />
+                      ) : (
+                        <>
+                          <Image
+                            src={product.image}
+                            alt={product.name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent" />
+                        </>
+                      )}
                     </div>
 
                     {/* Content */}

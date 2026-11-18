@@ -17,7 +17,7 @@ const categoryOptions: Record<string, string[]> = {
     "Glass Balls - Grinding Media",
     "Cast Iron Ball - Grinding Media",
   ],
-  "Ball Valve Balls": ["Metalic - Ball Valve Balls", "Ceramic Valve Balls"],
+  "Ball Valve Balls": ["Metallic - Ball Valve Balls", "Ceramic - Ball Valve Balls"],
 };
 
 const categories = Object.keys(categoryOptions);

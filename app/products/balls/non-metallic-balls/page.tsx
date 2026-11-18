@@ -34,7 +34,7 @@ const nonMetallicBallsData = {
     {
       id: "ceramic",
       label: "Ceramic Balls",
-      image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
+      image: "/images/Ball/Non_Metallic_Ball/ceramic.webp",
       imageAlt: "Ceramic balls — alumina oxide, zirconia oxide, silicon nitride",
       description:
         "Ceramic balls are particularly suited to harsh environments. Their main advantages over steel is that they have a density of 40% lower than steel. Have 29% lower thermal expansion and are 150% harder. In certain high-speed applications their life is extended by as much as a hundred times. The three main materials used are Alumina Oxide, Zirconia Oxide and Silicon Nitride.",
@@ -288,7 +288,7 @@ const nonMetallicBallsData = {
     {
       id: "plastic",
       label: "Plastic Balls",
-      image: "/images/Ball/Non_Metallic_Ball/plastic.jpg",
+      image: "/images/Ball/Non_Metallic_Ball/plastic.webp",
       imageAlt: "Plastic balls — acetal, polyamide, polyethylene, PTFE",
 
       description:
@@ -469,7 +469,7 @@ const nonMetallicBallsData = {
     {
       id: "glass",
       label: "Glass Balls",
-      image: "/images/Ball/Non_Metallic_Ball/Glass_Ball.jpg",
+      image: "/images/Ball/Non_Metallic_Ball/Glass_Ball.webp",
       imageAlt: "Glass balls — soda lime, borosilicate, black glass",
       description:
         "Glass Balls are dimensionally stable, resist corrosion and chemical absorption and can withstand high temperatures (up to 600 °F). Density varies depending on the type of glass used to manufacture the ball. We provide balls from the following types of glass: Soda-Lime Glass, Borosilicate Glass, and Black Glass.",

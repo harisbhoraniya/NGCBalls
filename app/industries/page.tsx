@@ -9,44 +9,44 @@ const industries = [
     name: "Aerospace",
     desc: "High-precision components built to aerospace-grade tolerances and standards for critical applications.",
     applications: ["Balls", "Specialty Rollers", "Custom Components", "Measuring Tools"],
-    image: "/images/Industries/Aerospace_industry.jpg",
+    image: "/images/Industries/Aerospace_industry.webp",
   },
   {
     name: "Paint & Pigment",
     desc: "Corrosion-resistant balls and grinding media engineered for paint, pigment, and coatings manufacturing.",
     applications: ["Grinding Media", "Ceramic Balls", "Dispersion Balls", "Corrosion-Resistant Parts"],
-    image: "/images/Industries/Paint.png",
+    image: "/images/Industries/Paint.webp",
   },
   
   {
     name: "Consumer & Health Care",
     desc: "Precision components for consumer products and medical devices requiring high accuracy and reliability.",
     applications: ["Balls", "Small Components", "Custom Parts", "Quality-Assured Products"],
-    image: "/images/Industries/consumer_healthcare.jpg",
+    image: "/images/Industries/consumer_healthcare.webp",
   },
   {
     name: "Automobile",
     desc: "Components for steering systems, transmissions, and safety assemblies in automotive manufacturing.",
     applications: ["Steering Balls", "Transmission Components", "Safety Valves", "Seat Belt Parts"],
-    image: "/images/Industries/Automotive.jpg",
+    image: "/images/Industries/Automotive.webp",
   },
   {
     name: "Engineering & Manufacturing",
     desc: "Precision guide ways, ball screws, and linear motion components engineered for accuracy across manufacturing disciplines.",
     applications: ["Guide Ways", "Ball Screws", "Linear Motion Systems", "Machine Components"],
-    image: "/images/Industries/engineering_manufacturing.jpg",
+    image: "/images/Industries/engineering_manufacturing.webp",
   },
   {
     name: "Ball Bearing",
     desc: "Balls and rollers that meet exacting tolerances for bearing manufacturers worldwide.",
     applications: ["Balls", "Cylindrical Rollers", "Needle Rollers", "Taper Rollers"],
-    image: "/images/Industries/ball_bearing.jpg",
+    image: "/images/Industries/ball_bearing.webp",
   },
   {
     name: "Textile",
     desc: "Specialized components for textile machinery requiring smooth, reliable, long-lasting performance.",
     applications: ["Precision Rollers", "Specialty Balls", "Bearings", "Mechanical Parts"],
-    image: "/images/textile.png",
+    image: "/images/textile.webp",
   },
   {
     name: "Renewable Energy",
@@ -58,7 +58,7 @@ const industries = [
     name: "Oil & Gas",
     desc: "High-performance valve components and sealing solutions engineered for extreme pressure environments.",
     applications: ["Valve Balls", "Seat Rings", "Stem Pins", "High-Pressure Components"],
-    image: "/images/oil_gas.png",
+    image: "/images/oil_gas.webp",
   },
 ];
 
@@ -122,7 +122,7 @@ export default function IndustriesPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="relative aspect-[2/4] lg:aspect-auto">
                 <Image
-                  src="/images/Under_Pressure.png"
+                  src="/images/Under_Pressure.webp"
                   alt="Industrial applications"
                   fill
                   className="object-cover"

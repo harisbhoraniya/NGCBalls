@@ -2,7 +2,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiArrowRight, FiArrowLeft, FiChevronRight, FiInfo } from "react-icons/fi";
+import { FiArrowRight, FiArrowLeft, FiChevronRight } from "react-icons/fi";
 
 // ─────────────────────────────────────────────
 // DATA
@@ -19,7 +19,7 @@ const grindingMedia = {
     {
       id: "ceramic",
       label: "Rollers",
-      image: "/images/Rollers/rollers.png",
+      image: "/images/Rollers/rollers.webp",
       imageAlt: "Industrial Rollers — Cylindrical, Taper, Needle, Spherical",
       description:
         "In the precision bearing industry, industrial rollers are high-performance rolling elements designed to minimize friction, optimize load distribution, and facilitate smooth rotational movement between moving parts. Unlike spherical balls, rollers utilize line contact rather than point contact, allowing them to support significantly higher radial or axial loads across an array of demanding industrial applications.",
@@ -28,7 +28,7 @@ const grindingMedia = {
           id: "roller-001",
           name: "Cylindrical Rollers",
           slug: "cylindrical-rollers",
-          image: "/images/Rollers/cylindrical_roller.png",
+          image: "/images/Rollers/cylindrical_roller.webp",
           imageAlt: "Cylindrical Rollers",
           material: "As per requirement / drawing",
           grades: [],
@@ -37,7 +37,7 @@ const grindingMedia = {
           id: "roller-002",
           name: "Taper Rollers",
           slug: "taper-rollers",
-          image: "/images/Rollers/taper_rollers.png",
+          image: "/images/Rollers/taper_rollers.webp",
           imageAlt: "Taper Rollers",
           material: "As per requirement / drawing",
           grades: [],
@@ -46,7 +46,7 @@ const grindingMedia = {
           id: "roller-003",
           name: "Needle Rollers",
           slug: "needle-rollers",
-          image: "/images/Rollers/needle_rollers.png",
+          image: "/images/Rollers/needle_rollers.webp",
           imageAlt: "Needle Rollers",
           material: "As per requirement / drawing",
           grades: [],
@@ -55,7 +55,7 @@ const grindingMedia = {
           id: "roller-004",
           name: "Spherical Rollers",
           slug: "spherical-rollers",
-          image: "/images/Rollers/spherical_rollers.png",
+          image: "/images/Rollers/spherical_rollers.webp",
           imageAlt: "Spherical Rollers",
           material: "As per requirement / drawing",
           grades: [],
@@ -199,22 +199,29 @@ export default function RollersPage() {
         </div>
 
         {/* Custom Specifications Note Card */}
-        <div className="mt-8 sm:mt-10 mx-auto max-w-2xl rounded-2xl border border-orange-200/80 bg-gradient-to-r from-orange-50/70 via-white to-orange-50/70 p-4 sm:p-5 shadow-xs">
+        <div className="mt-8 sm:mt-10 mx-auto max-w-2xl rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 shadow-sm">
           <div className="flex items-start gap-3.5">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-              <FiInfo size={17} />
+            <div className="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+              <svg
+                className="w-5 h-5 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M19 8l-6 4V8L7 12V3H3v18h18V8h-2zM6 18H4v-3h2v3zm4 0H8v-3h2v3zm4 0h-2v-3h2v3zm4 0h-2v-3h2v3zm2 0h-1v-3h1v3z" />
+              </svg>
             </div>
             <div className="flex-1 min-w-0">
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <span className="text-[0.65rem] sm:text-[0.7rem] font-bold uppercase tracking-wider text-orange-600 bg-orange-100/80 px-2.5 py-0.5 rounded-full">
-                  Custom Engineering
+              <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                <span className="text-[0.68rem] sm:text-xs font-bold uppercase tracking-wider text-orange-700 bg-orange-100/70 px-2.5 py-0.5 rounded-full">
+                  CUSTOMISED SOLUTIONS
                 </span>
-                <span className="text-xs sm:text-sm font-semibold text-gray-800">
-                  Made to Order
+                <span className="text-xs sm:text-sm font-bold text-gray-900">
+                  Made to Your Requirements
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed m-0">
-                <span className="font-semibold text-gray-900">Note:</span> Size, material, and tolerances manufactured as per your requirement / drawing.
+                Available in a wide range of materials, sizes and specifications to meet diverse industrial requirements.
               </p>
             </div>
           </div>

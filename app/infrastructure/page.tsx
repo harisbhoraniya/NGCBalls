@@ -14,19 +14,34 @@ const infraStats = [
 
 const capabilities = [
   {
-    title: "Advanced Machinery",
-    desc: "State-of-the-art manufacturing equipment enabling production to the tightest tolerances.",
-    image: "/images/infrastructure/advanced_machinery.jpg",
+    title: "Ball-to-Ball Variation",
+    desc: "Precision electro-mechanical gauging system that measures size consistency across every ball in a batch, ensuring sub-micron diameter uniformity.",
+    image: "/images/infrastructure/ball_to_ball_variation.webp",
   },
   {
-    title: "Precision Engineering Tools",
-    desc: "Specialized tools and tooling systems that ensure dimensional accuracy in every component.",
-    image: "/images/infrastructure/precision_tools.jpg",
+    title: "Surface Roughness Testing",
+    desc: "High-accuracy profilometer operated by trained technicians to quantify Ra and Rz surface finish values against international grade standards.",
+    image: "/images/infrastructure/surface_roughness_testing.webp",
   },
   {
-    title: "Quality Testing Systems",
-    desc: "Globally recognized testing instruments and in-house labs for rigorous quality validation.",
-    image: "/images/infrastructure/quality_testing.jpg",
+    title: "Roundness Measurement",
+    desc: "Taylor Hobson roundness tester with an air-bearing spindle delivers nanometre-level sphericity analysis on finished balls.",
+    image: "/images/infrastructure/roundness_measurement.webp",
+  },
+  {
+    title: "100% Visual Inspection",
+    desc: "Dedicated inspection bay where every ball is examined under magnified illumination by skilled inspectors to detect surface defects before dispatch.",
+    image: "/images/infrastructure/visual_inspection.webp",
+  },
+  {
+    title: "Digital Height Gauge",
+    desc: "High-precision digital height gauge used for accurate dimensional inspection and measurement of components, ensuring strict adherence to specified tolerances during quality control.",
+    image: "/images/infrastructure/digital_height_gauge.webp",
+  },
+  {
+    title: "Tensile & Crushing Load Machine",
+    desc: "Advanced tensile and crushing load testing machine used to evaluate the mechanical strength, load-bearing capacity, and durability of balls in accordance with international testing standards.",
+    image: "/images/infrastructure/tensile_crushing_machine.webp",
   },
 ];
 
@@ -98,15 +113,15 @@ export default function InfrastructurePage() {
             <span className="text-caption mb-3 block">Our Capabilities</span>
             <h2 className="heading-xl text-[#1A1A1A]">Built for Precision<br />at Every Scale</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {capabilities.map((cap) => (
               <div key={cap.title} className="card-base group overflow-hidden">
-                <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="relative aspect-[16/9] overflow-hidden bg-gray-50">
                   <Image
                     src={cap.image}
                     alt={cap.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`${cap.image.includes("height_gauge") ? "object-contain p-3" : "object-cover"} group-hover:scale-105 transition-transform duration-500`}
                   />
                 </div>
                 <div className="p-6">
@@ -130,7 +145,7 @@ export default function InfrastructurePage() {
               {/* Remove aspect ratio, use a fixed height instead */}
               <div className="relative rounded-xl overflow-hidden h-66 mb-8">
                 <Image
-                  src="/images/iso_logo.png"
+                  src="/images/iso_logo.webp"
                   alt="Quality assurance"
                   fill
                   className="object-contain"
@@ -157,7 +172,7 @@ export default function InfrastructurePage() {
             <div className="card-base p-8 lg:p-10">
               <div className="relative rounded-xl overflow-hidden aspect-[16/9] mb-8">
                 <Image
-                  src="/images/supply.png"
+                  src="/images/supply.webp"
                   alt="Warehousing and logistics"
                   fill
                   className="object-cover"

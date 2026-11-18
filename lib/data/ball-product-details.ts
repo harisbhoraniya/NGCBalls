@@ -55,7 +55,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "alloy-20-balls",
     name: "Alloy 20 Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/alloy.jfif",
+    image: "/images/Ball/Metallic_Ball/alloy.webp",
     imageAlt: "Alloy 20 ball",
     material: "Alloy 20 (Carpenter 20)",
     generalInfo:
@@ -89,7 +89,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "brass-balls",
     name: "Brass Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/Brass_Ball.jpg",
+    image: "/images/Ball/Metallic_Ball/Brass_Ball.webp",
     imageAlt: "Brass Balls",
     material: "Brass (C26000, C27000, C28000)",
     generalInfo:
@@ -120,7 +120,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "copper-balls",
     name: "Copper Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/Copper_Ball.jpg",
+    image: "/images/Ball/Metallic_Ball/Copper_Ball.webp",
     imageAlt: "Copper Balls",
     material: "Pure Copper",
     generalInfo:
@@ -184,7 +184,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "low-carbon-steel-ball-aisi-1010",
     name: "Low Carbon Steel Balls – AISI 1010",
     category: "ferrous",
-    image: "/images/Ball/Metallic_Ball/low_Carbon.jpg",
+    image: "/images/Ball/Metallic_Ball/low_Carbon.webp",
     imageAlt: "Low carbon steel ball, case hardened",
     material: "Carbon Steel (AISI 1010)",
     generalInfo:
@@ -271,7 +271,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "high-carbon-chrome-alloy-ball-aisi-52100",
     name: "High Carbon High Chrome Steel Balls – AISI 52100",
     category: "ferrous",
-    image: "/images/Ball/Metallic_Ball/High_Carbon.jpg",
+    image: "/images/Ball/Metallic_Ball/High_Carbon.webp",
     imageAlt: "High carbon chrome alloy ball AISI 52100",
     material: "Chrome Steel (AISI 52100 / 100Cr6)",
     generalInfo:
@@ -370,7 +370,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "stainless-steel-ball-440c",
     name: "Stainless Steel Balls – AISI 440C",
     category: "ferrous",
-    image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.jpg",
+    image: "/images/Ball/Metallic_Ball/High_Carbon_Steel.webp",
     imageAlt: "Stainless steel 440C ball",
     material: "Stainless Steel (AISI 440C, Martensitic)",
     generalInfo:
@@ -549,7 +549,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "tungsten-carbide-cobalt-binder-balls",
     name: "Tungsten Carbide Cobalt Binder Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/Tungsten.jpg",
+    image: "/images/Ball/Metallic_Ball/Tungsten.webp",
     imageAlt: "Tungsten carbide cobalt binder ball",
     material: "Tungsten Carbide + Cobalt Binder (WC-Co)",
     generalInfo:
@@ -580,7 +580,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "monel-k400-balls",
     name: "Monel K 400 Alloy Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/Monel_K_400.avif",
+    image: "/images/Ball/Metallic_Ball/Monel_K_400.webp",
     imageAlt: "Monel K400 ball",
     material: "Monel 400 (UNS N04400)",
     generalInfo:
@@ -611,7 +611,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "inconel-625-balls",
     name: "Inconel 625 Alloy Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/Inconel_625.png",
+    image: "/images/Ball/Metallic_Ball/Inconel_625.webp",
     imageAlt: "Inconel 625 ball",
     material: "Inconel 625 (UNS N06625)",
     generalInfo:
@@ -648,7 +648,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "inconel-825-balls",
     name: "Inconel 825 Alloy Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/innocel_ball.png",
+    image: "/images/Ball/Metallic_Ball/innocel_ball.webp",
     imageAlt: "Inconel 825 ball",
     material: "Inconel 825 (UNS N08825)",
     generalInfo:
@@ -684,7 +684,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "hastelloy-c276-balls",
     name: "Hastelloy C276 Alloy Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/Hastelloy_Balls.jpg",
+    image: "/images/Ball/Metallic_Ball/Hastelloy_Balls.webp",
     imageAlt: "Hastelloy C276 ball",
     material: "Hastelloy C276 (UNS N10276)",
     generalInfo:
@@ -745,7 +745,7 @@ export const ballProductDetails: Record<string, BallProductDetail> = {
     slug: "tungsten-carbide-nickel-binder-balls",
     name: "Tungsten Carbide Nickel Binder Balls",
     category: "non-ferrous",
-    image: "/images/Ball/Metallic_Ball/Tungsten_Nickel.avif",
+    image: "/images/Ball/Metallic_Ball/Tungsten_Nickel.webp",
     imageAlt: "Tungsten carbide nickel binder ball",
     material: "Tungsten Carbide + Nickel Binder (WC-Ni, IS-K16C)",
     generalInfo:

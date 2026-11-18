@@ -11,7 +11,7 @@ const ballCategories = [
     id: "metallic",
     label: "Metallic Balls",
     href: "/products/balls/metallic-balls",
-    image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
+    image: "/images/Ball/Metallic_Ball/Ferous_Ball.webp",
     imageAlt: "Metallic balls — chrome steel, stainless steel, brass, titanium",
     description:
       "Our range of precision metallic balls includes ferrous and non-ferrous variants, available in a wide selection of materials to suit diverse industrial applications. Conforming to DIN 5401, ISO 3290, and ABMA standards, they offer exceptional dimensional accuracy, durability, and reliable performance.",
@@ -22,7 +22,7 @@ const ballCategories = [
     id: "non-metallic",
     label: "Non-Metallic Balls",
     href: "/products/balls/non-metallic-balls",
-    image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
+    image: "/images/Ball/Non_Metallic_Ball/ceramic.webp",
     imageAlt: "Non-metallic balls — ceramic, glass, plastic",
     description:
       "Precision Ceramic, Glass, and Plastic balls available for applications requiring excellent chemical resistance, electrical insulation, low friction, and dimensional stability.",

@@ -17,7 +17,7 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
   "ball-valve-stem-pin": {
     slug: "ball-valve-stem-pin",
     name: "Ball Valve Stem Pin",
-    image: "/images/ball-valve/ball-valve-stem-pin.jpg",
+    image: "/images/ball-valve/ball-valve-stem-pin.webp",
     imageAlt: "Ball Valve Stem Pin",
     material: "AISI 304/304L, AISI 316/316L, Hastelloy, K Monel 400/500, Inconel 725/825, Duplex",
     details: {
@@ -29,8 +29,8 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
   },
   "valve-balls": {
     slug: "valve-balls",
-    name: "Metalic - Ball Valve Balls",
-    image: "/images/ball-valve/ball-valve-ball.jpg",
+    name: "Metallic - Ball Valve Balls",
+    image: "/images/ball-valve/ball-valve-ball.webp",
     imageAlt: "Ball Valve Balls",
     material: "AISI 304/304L, AISI 316/316L, AISI 420/420C, AISI 440C, Hastelloy, K Monel 400/500, Inconel 725/825, Duplex, Stellite",
     details: {
@@ -41,9 +41,9 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
   },
   "ceramic-valve-balls": {
     slug: "ceramic-valve-balls",
-    name: "Ceramic Valve Balls",
-    image: "/images/ball-valve/ceramic_ball.png",
-    imageAlt: "Ceramic Valve Balls",
+    name: "Ceramic - Ball Valve Balls",
+    image: "/images/ball-valve/ceramic_ball.webp",
+    imageAlt: "Ceramic - Ball Valve Balls",
     material: "Alumina Oxide (Al2O3), Zirconia (ZrO2), Silicon Nitride (Si3N4)",
     details: {
       types: "Full Port, Reduced Port, V-Port, 2-Way, 3-Way",
@@ -54,7 +54,7 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
   "ball-valve-seat-rings": {
     slug: "ball-valve-seat-rings",
     name: "Ball Valve Seat Rings",
-    image: "/images/ball-valve/ball-valve-seat-ring.jpg",
+    image: "/images/ball-valve/ball-valve-seat-ring.webp",
     imageAlt: "Ball Valve Seat Rings",
     material: "As per customer requirements",
     details: {

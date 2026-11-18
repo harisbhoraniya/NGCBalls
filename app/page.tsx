@@ -20,14 +20,14 @@ import PdfModal from "@/components/PdfModal";
 const heroSlides = [
   {
     id: 1,
-    image: "/images/Banner_09.jpg",
+    image: "/images/Banner_09.webp",
     tag: "Precision Engineering",
     headline: ["High Performance", "Precision"],
     sub: "World-class Metallic & Non-Metallic Balls, Rollers are engineered for accuracy and durability.",
   },
   {
     id: 2,
-    image: "/images/Banner_10.jpg",
+    image: "/images/Banner_10.webp",
     tag: "30+ Years of Excellence",
     headline: ["Three Decades of", "Industrial Trust"],
     sub: "From a focused trading unit to a globally recognized manufacturer — trusted across 9+ countries.",
@@ -41,14 +41,14 @@ const heroSlides = [
   // },
   {
     id: 4,
-    image: "/images/Banner_11.png",
+    image: "/images/Banner_11.webp",
     tag: "Fluid Control Solutions",
     headline: ["Ball Valve", "Balls"],
     sub: "Precision-engineered valve balls, stem pins, and seat rings built for leak-proof performance and long service life.",
   },
   {
     id: 5,
-    image: "/images/Rollers/rollers_showcase.jpg",
+    image: "/images/Rollers/rollers_showcase.webp",
     tag: "Built for High Loads",
     headline: ["Precision Rollers for", "Every Application"],
     sub: "Taper, cylindrical, and spherical rollers engineered to handle demanding load-bearing and high-speed applications.",
@@ -74,37 +74,37 @@ const products1 = [
   {
     name: "Balls",
     href: "/products/balls",
-    image: "/images/Ball/Metallic_Ball/Ferous_Ball.jpg",
+    image: "/images/Ball/Metallic_Ball/Ferous_Ball.webp",
     desc: "Metallic and non-metallic balls, defined by quality, precision and consistency.",
   },
   // {
   //   name: "Non-Metallic Balls",
   //   href: "/products/balls/non-metallic-balls",
-  //   image: "/images/Ball/Non_Metallic_Ball/ceramic.jpg",
+  //   image: "/images/Ball/Non_Metallic_Ball/ceramic.webp",
   //   desc: "Ceramic, plastic, and polymer balls for specialized industrial applications.",
   // },
   {
     name: "Rollers",
     href: "/products/rollers",
-    image: "/images/Rollers/rollers.png",
+    image: "/images/Rollers/rollers.webp",
     desc: "Precision rollers featuring cylindrical, taper, needle and spherical configurations, manufactured with exceptional dimensional accuracy and consistency.",
   },
   {
     name: "Grinding Media",
     href: "/products/grinding-media",
-    image: "/images/grinding-media/grinding-media.jpg",
+    image: "/images/grinding-media/grinding-media.webp",
     desc: "A comprehensive range of burnishing media, ceramic balls, glass balls and cast iron balls, offering consistent quality, durability and reliable performance.",
   },
   {
     name: "Ball Valve Balls",
     href: "/products/ball-valve-component/",
-    image: "/images/ball-valve/banner_image.png",
+    image: "/images/ball-valve/ceramic_ball.webp",
     desc: "Metallic and ceramic valve balls featuring excellent dimensional accuracy, superior surface finish and material integrity.",
   },
   // {
   //   name: "Machine Components",
   //   href: "products/machine-component/",
-  //   image: "/images/Machined_Parts/Machined_Parts_new.png",
+  //   image: "/images/Machined_Parts/Machined_Parts_new.webp",
   //   desc: "Custom-manufactured components built to your specifications.",
   // },
 ];
@@ -113,15 +113,15 @@ const products1 = [
 // Same names + same image paths as the actual Industries page,
 // so the home page marquee never drifts out of sync with it.
 const industries = [
-  { image: "/images/Industries/NGC.jpg", name: "Ball Bearing" },
-  { image: "/images/Industries/Automotive.jpg", name: "Automobile" },
-  { image: "/images/Industries/Aerospace_industry.jpg", name: "Aerospace" },
-  { image: "/images/Industries/Paint.png", name: "Paint & Pigment" },
-  { image: "/images/Industries/consumer_healthcare.jpg", name: "Consumer & Health Care" },
-  { image: "/images/Industries/engineering_manufacturing.jpg", name: "Engineering & Manufacturing" },
-  { image: "/images/textile.png", name: "Textile" },
+  { image: "/images/Industries/NGC.webp", name: "Ball Bearing" },
+  { image: "/images/Industries/Automotive.webp", name: "Automobile" },
+  { image: "/images/Industries/Aerospace_industry.webp", name: "Aerospace" },
+  { image: "/images/Industries/Paint.webp", name: "Paint & Pigment" },
+  { image: "/images/Industries/consumer_healthcare.webp", name: "Consumer & Health Care" },
+  { image: "/images/Industries/engineering_manufacturing.webp", name: "Engineering & Manufacturing" },
+  { image: "/images/textile.webp", name: "Textile" },
   { image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=80", name: "Renewable Energy" },
-  { image: "/images/oil_gas.png", name: "Oil & Gas" },
+  { image: "/images/oil_gas.webp", name: "Oil & Gas" },
 ];
 
 const whyUs = [
@@ -575,7 +575,7 @@ export default function Home() {
         <div className="container-main">
           <div className="grid gap-16 items-center" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
             <div className="relative rounded-[20px] overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
-              <Image src="/images/office_image.jpeg" alt="N Gandhi manufacturing" fill className="object-cover" />
+              <Image src="/images/office_image.webp" alt="N Gandhi manufacturing" fill className="object-cover" />
               <div className="absolute bottom-6 left-6 flex items-center gap-3 rounded-xl px-5 py-3.5 shadow-xl"
                 style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(12px)" }}>
                 <div className="w-9 h-9 rounded-[10px] flex items-center justify-center"

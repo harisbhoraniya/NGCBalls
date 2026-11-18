@@ -138,7 +138,7 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
   "burnishing-media": {
     slug: "burnishing-media",
     name: "Burnishing Media",
-    image: "/images/grinding-media/grinding-media.jpg",
+    image: "/images/grinding-media/grinding-media.webp",
     imageAlt: "Burnishing Media",
     material: "Grinding Media",
 
@@ -182,42 +182,42 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
       rows: [
         {
           label: "Balls",
-          image: "/images/grinding-media/Burnishing_Media/balls.png",
+          image: "/images/grinding-media/Burnishing_Media/balls.webp",
           material: "ALL"
         },
         {
           label: "Ball Cones",
-          image: "/images/grinding-media/Burnishing_Media/ball-cones.png",
+          image: "/images/grinding-media/Burnishing_Media/ball-cones.webp",
           material:
             "AISI 1010 / 1018, AISI 1070, AISI 420, AISI 304 / 316"
         },
         {
           label: "Barrels",
-          image: "/images/grinding-media/Burnishing_Media/barrels.png",
+          image: "/images/grinding-media/Burnishing_Media/barrels.webp",
           material:
             "AISI 1070, AISI 420, AISI 304 / 316"
         },
         {
           label: "Ovals",
-          image: "/images/grinding-media/Burnishing_Media/ovals.png",
+          image: "/images/grinding-media/Burnishing_Media/ovals.webp",
           material:
             "AISI 1010 / 1018, AISI 420, AISI 304 / 316"
         },
         {
           label: "Diagonals",
-          image: "/images/grinding-media/Burnishing_Media/diagonals.png",
+          image: "/images/grinding-media/Burnishing_Media/diagonals.webp",
           material:
             "AISI 1010 / 1018, AISI 420, AISI 304 / 316"
         },
         {
           label: "Pins",
-          image: "/images/grinding-media/Burnishing_Media/pins.png",
+          image: "/images/grinding-media/Burnishing_Media/pins.webp",
           material:
             "EN 31, AISI 420, AISI 304 / 316"
         },
         {
           label: "Flat Pins",
-          image: "/images/grinding-media/Burnishing_Media/flat_pins.png",
+          image: "/images/grinding-media/Burnishing_Media/flat_pins.webp",
           material:
             "EN 31, AISI 420, AISI 304 / 316"
         }
@@ -231,7 +231,7 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
   "glass-ball-grinding-ball": {
     slug: "glass-ball-grinding-ball",
     name: "Glass Balls – Grinding Media",
-    image: "/images/grinding-media/glass_ball_burnishing_media.jpg",
+    image: "/images/grinding-media/glass_ball_burnishing_media.webp",
     imageAlt: "Glass Balls - Grinding Media",
     material: "Grinding Media",
 
@@ -363,7 +363,7 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
   "ceramic-ball-grinding-media": {
     slug: "ceramic-ball-grinding-media",
     name: "Ceramic Balls – Grinding Media",
-    image: "/images/grinding-media/ceramic_ball_burnishing_media.jpg",
+    image: "/images/grinding-media/ceramic_ball_burnishing_media.webp",
     imageAlt: "Ceramic Balls - Grinding Media",
     material: "Grinding Media",
 
@@ -1171,7 +1171,7 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
   "cast-iron-ball-grinding-media": {
     slug: "cast-iron-ball-grinding-media",
     name: "Cast Iron Ball – Grinding Media",
-    image: "/images/grinding-media/cast_iron_ball_grinding_media.jpg",
+    image: "/images/grinding-media/cast_iron_ball_grinding_media.webp",
     imageAlt: "Cast Iron Ball - Grinding Media",
     material: "Grinding Media",
 

@@ -10,32 +10,32 @@ import { FiArrowRight, FiArrowLeft, FiPlay } from "react-icons/fi";
 const products = [
   {
     title: "Metallic Ball",
-    image: "/images/Ball/Metallic_Ball/steel_brass_balls.jpg",
+    image: "/images/Ball/Metallic_Ball/steel_brass_balls.webp",
     href: "/products/balls/metallic-balls",
   },
   {
     title: "Non-Metallic Ball",
-    image: "/images/Ball/Non_Metallic_Ball/ceramic.png",
+    image: "/images/Ball/Non_Metallic_Ball/ceramic.webp",
     href: "/products/balls/non-metallic-balls",
   },
   {
     title: "Rollers",
-    image: "/images/Rollers/rollers.png",
+    image: "/images/Rollers/rollers.webp",
     href: "/products/rollers",
   },
   {
     title: "Grinding Media",
-    image: "/images/grinding-media/grinding-media.jpg",
+    image: "/images/grinding-media/grinding-media.webp",
     href: "/products/grinding-media",
   },
   {
     title: "Ball Valve Balls",
-    image: "/images/ball-valve/ball-valve-ball.jpg",
+    image: "/images/ball-valve/ball-valve-ball.webp",
     href: "/products/ball-valve-component",
   },
   // {
   //   title: "Machine Component",
-  //   image: "/images/Machined_Parts/Machined_Parts_new.png",
+  //   image: "/images/Machined_Parts/Machined_Parts_new.webp",
   //   href: "/products/machine-component",
   // },
 ];
@@ -300,7 +300,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-md">
               <Image
-                src="/images/office_room.jpeg"
+                src="/images/office_room.webp"
                 alt="Manufacturing facility"
                 fill
                 className="object-cover"
