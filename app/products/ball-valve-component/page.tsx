@@ -21,8 +21,8 @@ const grindingMedia = {
     {
       id: "ceramic",
       label: "Ball Valve Balls",
-      image: "/images/ball-valve/ceramic_ball.webp",
-      imageAlt: "Ceramic Ball Valve Balls",
+      image: "/images/ball-valve/ball-valve-balls-main.webp",
+      imageAlt: "Ball Valve Balls",
       description:
         "In the industrial valve and fluid control industry, a ball valve is a quarter-turn rotational motion valve that utilizes a bored, spherical ball to start, stop, or regulate fluid flow. When the port through the ball is aligned with the pipeline, the valve is open, allowing full, unobstructed flow with minimal pressure drop; when rotated 90 degrees, the solid side faces the flow, creating a positive, leak-tight shutoff.",
       products: [

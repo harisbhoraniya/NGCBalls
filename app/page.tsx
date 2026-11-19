@@ -98,7 +98,7 @@ const products1 = [
   {
     name: "Ball Valve Balls",
     href: "/products/ball-valve-component/",
-    image: "/images/ball-valve/ceramic_ball.webp",
+    image: "/images/ball-valve/ball-valve-balls-main.webp",
     desc: "Metallic and ceramic valve balls featuring excellent dimensional accuracy, superior surface finish and material integrity.",
   },
   // {
