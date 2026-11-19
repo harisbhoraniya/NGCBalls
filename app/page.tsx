@@ -74,7 +74,7 @@ const products1 = [
   {
     name: "Balls",
     href: "/products/balls",
-    image: "/images/Ball/Metallic_Ball/Ferous_Ball.webp",
+    image: "/images/Ball/all-balls-range.jpg",
     desc: "Metallic and non-metallic balls, defined by quality, precision and consistency.",
   },
   // {

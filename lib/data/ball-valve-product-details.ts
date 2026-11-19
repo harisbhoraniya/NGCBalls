@@ -44,11 +44,11 @@ export const ballValveProductDetails: Record<string, BallValveProductDetail> = {
     name: "Ceramic - Ball Valve Balls",
     image: "/images/ball-valve/ceramic_ball.webp",
     imageAlt: "Ceramic - Ball Valve Balls",
-    material: "Alumina Oxide (Al2O3), Zirconia (ZrO2), Silicon Nitride (Si3N4)",
+    material: "Zirconia (ZrO2), Alumina Oxide (Al2O3)",
     details: {
       types: "Full Port, Reduced Port, V-Port, 2-Way, 3-Way",
       sizes: '1/2" to 8" & As per Customer Requirement',
-      material: "Alumina Oxide (Al2O3), Zirconia (ZrO2), Silicon Nitride (Si3N4)",
+      material: "Zirconia (ZrO2), Alumina Oxide (Al2O3)",
     },
   },
   "ball-valve-seat-rings": {

@@ -40,7 +40,7 @@ const grindingMedia = {
           slug: "ceramic-valve-balls",
           image: "/images/ball-valve/ceramic_ball.webp",
           imageAlt: "Ceramic - Ball Valve Balls",
-          material: "Alumina Oxide (Al2O3), Zirconia (ZrO2), Silicon Nitride (Si3N4)",
+          material: "Zirconia (ZrO2), Alumina Oxide (Al2O3)",
         },
       ],
     },

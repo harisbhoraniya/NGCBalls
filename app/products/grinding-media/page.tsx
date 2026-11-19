@@ -53,10 +53,10 @@ const grindingMedia = {
         },
         {
           id: "ball-c-ref-004",
-          name: "Cast Iron Ball - Grinding Media",
+          name: "Cast Grinding Balls",
           slug: "cast-iron-ball-grinding-media",
           image: "/images/grinding-media/cast_iron_ball_grinding_media.webp",
-          imageAlt: "Cast Iron Ball - Grinding Media",
+          imageAlt: "Cast Grinding Balls",
           material: "Reference",
           grades: [],
         },

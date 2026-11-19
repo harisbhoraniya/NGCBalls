@@ -221,6 +221,56 @@ function SpecTable({
   );
 }
 // ─────────────────────────────────────────────
+// TWO-COLUMN TABLE (col1 + col2)
+// Used for Cast Grinding Balls properties & chemical composition
+// ─────────────────────────────────────────────
+function TwoColumnTable({
+  title,
+  col1Header,
+  col2Header,
+  rows,
+}: {
+  title: string;
+  col1Header: string;
+  col2Header: string;
+  rows: { label: string; value: string }[];
+}) {
+  return (
+    <div>
+      <h2 className="text-sm font-semibold uppercase tracking-widest text-orange-500 mb-3 text-center">
+        {title}
+      </h2>
+      <div className="rounded-xl border border-gray-100 overflow-hidden overflow-x-auto shadow-xs">
+        <table className="w-full text-sm">
+          <thead className="bg-orange-50">
+            <tr>
+              <th className="px-5 py-3 text-left font-semibold text-gray-700 whitespace-nowrap">
+                {col1Header}
+              </th>
+              <th className="px-5 py-3 text-left font-semibold text-gray-700 whitespace-nowrap">
+                {col2Header}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, i) => (
+              <tr key={row.label} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                <td className="px-5 py-3 font-medium text-gray-700 whitespace-nowrap">
+                  {row.label}
+                </td>
+                <td className="px-5 py-3 text-gray-800 leading-relaxed">
+                  {row.value}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
 // PAGE COMPONENT
 // ─────────────────────────────────────────────
 export default async function GrindingMediaDetailPage({
@@ -277,13 +327,54 @@ export default async function GrindingMediaDetailPage({
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-4">
             {product.name}
           </h1>
-          <p className="text-gray-500 text-sm leading-relaxed">{product.generalInfo}</p>
+          <p className="text-gray-500 text-sm leading-relaxed mb-4">{product.generalInfo}</p>
+          {product.diameterRange && (
+            <div className="pt-4 border-t border-gray-100 flex items-center gap-6 sm:gap-8">
+              <div>
+                <p className="text-xs text-gray-400">Diameter Range</p>
+                <p className="text-sm sm:text-base font-bold text-orange-500 mt-0.5">
+                  {product.diameterRange}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400">Certification</p>
+                <p className="text-sm sm:text-base font-bold text-orange-500 mt-0.5">
+                  ISO 9001:2015
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
       {/* ══════════════════════════════════
-          BURNISHING MEDIA — Grade table + Shapes table
+          CAST GRINDING BALLS — Specifications & Chemical Composition
       ══════════════════════════════════ */}
+      {(product.specificationsTable || product.chemicalTable) && (
+        <div className="space-y-10 mb-10">
+          {product.specificationsTable && (
+            <section>
+              <TwoColumnTable
+                title={product.specificationsTable.title}
+                col1Header={product.specificationsTable.col1Header}
+                col2Header={product.specificationsTable.col2Header}
+                rows={product.specificationsTable.rows}
+              />
+            </section>
+          )}
+
+          {product.chemicalTable && (
+            <section>
+              <TwoColumnTable
+                title={product.chemicalTable.title}
+                col1Header={product.chemicalTable.col1Header}
+                col2Header={product.chemicalTable.col2Header}
+                rows={product.chemicalTable.rows}
+              />
+            </section>
+          )}
+        </div>
+      )}
       {product.gradeTable && (
         <section className="mb-10">
           <SimpleTable

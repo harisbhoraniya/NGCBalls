@@ -77,6 +77,21 @@ export interface GrindingMediaDetail {
   generalInfo: string;
   remarks?: string;
 
+  diameterRange?: string;
+  specificationsTable?: {
+    title: string;
+    col1Header: string;
+    col2Header: string;
+    rows: { label: string; value: string }[];
+  };
+  chemicalTable?: {
+    title: string;
+    col1Header: string;
+    col2Header: string;
+    rows: { label: string; value: string }[];
+  };
+  applicationsList?: string[];
+
 
   // ── Burnishing Media shape ──
   gradeTable?: {
@@ -1170,45 +1185,55 @@ export const grindingMediaDetails: Record<string, GrindingMediaDetail> = {
   // ─────────────────────────────────────────────
   "cast-iron-ball-grinding-media": {
     slug: "cast-iron-ball-grinding-media",
-    name: "Cast Iron Ball – Grinding Media",
+    name: "Cast Grinding Balls",
     image: "/images/grinding-media/cast_iron_ball_grinding_media.webp",
-    imageAlt: "Cast Iron Ball - Grinding Media",
+    imageAlt: "Cast Grinding Balls",
     material: "Grinding Media",
 
     generalInfo:
-      "Cast Iron Grinding Balls are widely used as grinding media in ball mills for the processing of ores, cement, and minerals, offering high impact resistance, good wear resistance, and a low breakage rate. They are available in low chrome, medium chrome, and high chrome grades to suit different grinding applications and mill conditions.",
+      "High-chrome cast grinding balls designed for cement plants, mining operations, and mineral processing industries. Available in multiple sizes and chromium compositions, they provide excellent wear resistance, impact toughness, and grinding efficiency for ball mill applications.",
 
-    gradeTable: {
-      columns: ["Type / Grade", "Hardness"],
+    diameterRange: "15 – 150 mm",
 
+    specificationsTable: {
+      title: "Physical & Mechanical Properties",
+      col1Header: "Property",
+      col2Header: "Specification",
       rows: [
-        {
-          label: "Low Chrome Cast Iron",
-          values: ["Cr < 3%", "HRC 45-52"]
-        },
-        {
-          label: "Medium Chrome Cast Iron",
-          values: ["Cr 3-10%", "HRC 52-58"]
-        },
-        {
-          label: "High Chrome Cast Iron",
-          values: ["Cr 10-28%", "HRC 58-65"]
-        }
-      ]
-    },
-
-    compositionTable: {
-      gradeColumns: ["Low Chrome (<3%)", "Medium Chrome (3–10%)", "High Chrome (10–28%)"],
-      rows: [
-        { label: "Chromium (Cr)", values: ["< 3.0%", "3.0% – 10.0%", "10.0% – 28.0%"] },
-        { label: "Carbon (C)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
-        { label: "Silicon (Si)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
-        { label: "Manganese (Mn)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
-        { label: "Phosphorus (P)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
-        { label: "Sulfur (S)", values: ["[Pending Client Confirmation]", "[Pending Client Confirmation]", "[Pending Client Confirmation]"] },
+        { label: "Material", value: "High Chrome Cast Iron" },
+        { label: "Chromium Content", value: "10% – 30%" },
+        { label: "Hardness", value: "58 – 66 HRC" },
+        { label: "Diameter", value: "15 mm – 150 mm" },
+        { label: "Density", value: "7.6 – 7.8 g/cm³" },
+        { label: "Impact Resistance", value: "High" },
+        { label: "Wear Resistance", value: "Excellent" },
+        { label: "Applications", value: "Cement Plants, Mining, Thermal Power, Mineral Processing" },
       ],
     },
-    remarks: "Note: Chemical composition percentages for C, Si, Mn, P, S are awaiting final verification from the client/assay certificate. Chromium ranges are as per technical standards.",
+
+    chemicalTable: {
+      title: "Chemical Composition",
+      col1Header: "Element",
+      col2Header: "Typical Range (%)",
+      rows: [
+        { label: "Carbon (C)", value: "2.00 – 3.20" },
+        { label: "Silicon (Si)", value: "0.30 – 1.20" },
+        { label: "Manganese (Mn)", value: "0.30 – 1.20" },
+        { label: "Chromium (Cr)", value: "10.00 – 30.00" },
+        { label: "Molybdenum (Mo)", value: "0.20 – 1.50 (Optional)" },
+        { label: "Nickel (Ni)", value: "0.00 – 1.00 (Optional)" },
+        { label: "Sulphur (S)", value: "≤ 0.08" },
+        { label: "Phosphorus (P)", value: "≤ 0.08" },
+        { label: "Iron (Fe)", value: "Balance" },
+      ],
+    },
+
+    applicationsList: [
+      "Cement Plants",
+      "Mining",
+      "Thermal Power",
+      "Mineral Processing",
+    ],
   },
 
 };
