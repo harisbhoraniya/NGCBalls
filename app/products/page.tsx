@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import BallsAutoSlider from "@/components/BallsAutoSlider";
+import BallValveAutoSlider from "@/components/BallValveAutoSlider";
 
 const products = [
   {
@@ -119,23 +120,9 @@ export default function ProductsPage() {
                       style={{ direction: "ltr" }}
                     >
                       {product.id === "balls" ? (
-                        <BeforeAfterSlider
-                          beforeImage="/images/Ball/Metallic_Ball/Ferous_Ball.webp"
-                          afterImage="/images/Ball/Metallic_Ball/Non_Ferous_Ball.webp"
-                          beforeLabel="Metallic Balls"
-                          afterLabel="Non-Metallic Balls"
-                          beforeAlt="Metallic Balls"
-                          afterAlt="Non-Metallic Balls"
-                        />
+                        <BallsAutoSlider />
                       ) : product.id === "ball-valve-component" ? (
-                        <BeforeAfterSlider
-                          beforeImage="/images/ball-valve/ball-valve-ball.webp"
-                          afterImage="/images/ball-valve/ceramic_ball.webp"
-                          beforeLabel="Metallic Valve Balls"
-                          afterLabel="Ceramic Valve Balls"
-                          beforeAlt="Metallic - Ball Valve Balls"
-                          afterAlt="Ceramic - Ball Valve Balls"
-                        />
+                        <BallValveAutoSlider />
                       ) : (
                         <>
                           <Image
